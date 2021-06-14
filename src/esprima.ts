@@ -26,6 +26,7 @@ import { CommentHandler } from './comment-handler';
 import { JSXParser } from './jsx-parser';
 import { Parser } from './parser';
 import { Tokenizer } from './tokenizer';
+import { Syntax } from './syntax';
 import * as Nodes from './nodes';
 
 export function parse(code: string, options, delegate) {
@@ -125,3 +126,7 @@ export { Syntax } from './syntax';
 
 // Sync with *.json manifests.
 export const version = '4.0.0-dev';
+
+export default {
+    parse, parseModule, parseScript, tokenize, Syntax, version
+}
