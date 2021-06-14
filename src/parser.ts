@@ -520,7 +520,10 @@ export class Parser {
             op === '>>>=' ||
             op === '&=' ||
             op === '^=' ||
-            op === '|=';
+            op === '|=' ||
+            op === '&&=' ||
+            op === '||=' ||
+            op === '??=';
     }
 
     // Cover grammar support.
