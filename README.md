@@ -10,6 +10,28 @@ parser written in ECMAScript (also popularly known as
 Esprima is created and maintained by [Ariya Hidayat](https://twitter.com/ariyahidayat),
 with the help of [many contributors](https://github.com/jquery/esprima/contributors).
 
+### esprima-next
+
+A fork of esprima, cause esprima has no releases and many notmerged pull req
+
+### Changes to original Esprima:
+
+- Rename to esprima-next
+
+Pull reqs @esprima github:
+
+- Export Esrpima Nodes type #2045
+- Fix super() in non derived class #2047
+- Support for ES2020 import.meta #2052
+- Support for ES2020 export ns from #2055
+- Fix parsing error in exponent expressions with unary left-hand sides. #2070
+- bugfix import() #2076
+- Support ES2021 Logical Assignment #2082
+- ESM release support #2081
+
+we should look for fixes at: 
+https://github.com/jquery/esprima/compare/main...Contrast-Security-Inc:master
+
 ### Features
 
 - Full support for ECMAScript 2019 ([ECMA-262 10th Edition](http://www.ecma-international.org/publications/standards/Ecma-262.htm))

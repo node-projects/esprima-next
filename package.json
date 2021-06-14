@@ -1,5 +1,5 @@
 {
-  "name": "esprima",
+  "name": "esprima-next",
   "description": "ECMAScript parsing infrastructure for multipurpose analysis",
   "homepage": "http://esprima.org",
   "main": "./dist/esprima.js",
@@ -16,7 +16,7 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "4.0.0-dev",
+  "version": "4.1.0",
   "files": [
     "bin",
     "dist/esprima.js",
@@ -39,10 +39,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jquery/esprima.git"
+    "url": "https://github.com/node-projects/esprima-next.git"
   },
   "bugs": {
-    "url": "https://github.com/jquery/esprima/issues"
+    "url": "https://github.com/node-projects/esprima-next/issues"
   },
   "license": "BSD-2-Clause",
   "devDependencies": {
