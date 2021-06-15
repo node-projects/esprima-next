@@ -10,6 +10,7 @@
       * bugfix import() #2076
       * Support ES2021 Logical Assignment #2082
       * ESM release support #2081
+      * disable npm run static-analysis && npm run dynamic-analysis, seem not to work after package update
 
 2017-06-10: Version 4.0.0
 

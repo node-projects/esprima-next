@@ -18,6 +18,8 @@ A fork of esprima, cause esprima has no releases and many notmerged pull req
 
 - Rename to esprima-next
 - Only generate ESM build
+- update npm packages
+- disable npm run static-analysis && npm run dynamic-analysis, seem not to work after package update
 
 Pull reqs @esprima github:
 
