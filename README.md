@@ -1,18 +1,21 @@
-[![NPM version](https://img.shields.io/npm/v/esprima.svg)](https://www.npmjs.com/package/esprima)
-[![npm download](https://img.shields.io/npm/dm/esprima.svg)](https://www.npmjs.com/package/esprima)
-[![Tests](https://github.com/jquery/esprima/workflows/Tests/badge.svg)](https://github.com/jquery/esprima/actions)
-[![Coverage Status](https://img.shields.io/codecov/c/github/jquery/esprima/master.svg)](https://codecov.io/github/jquery/esprima)
+[![NPM version](https://img.shields.io/npm/v/esprima-next.svg)](https://www.npmjs.com/package/esprima-next)
+[![npm download](https://img.shields.io/npm/dm/esprima-next.svg)](https://www.npmjs.com/package/esprima-next)
+[![Tests](https://github.com/jquery/esprima-next/workflows/Tests/badge.svg)](https://github.com/node-projects/esprima-next/actions)
+
+Todo: Converage does not work atm.
+[![Coverage Status](https://img.shields.io/codecov/c/github/node-projects/esprima-next/master.svg)](https://codecov.io/github/node-projects/esprima-next)
 
 **Esprima** ([esprima.org](http://esprima.org), BSD license) is a high performance,
 standard-compliant [ECMAScript](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 parser written in ECMAScript (also popularly known as
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript)).
 Esprima is created and maintained by [Ariya Hidayat](https://twitter.com/ariyahidayat),
-with the help of [many contributors](https://github.com/jquery/esprima/contributors).
+with the help of [many contributors](https://github.com/node-projects/esprima-next/contributors).
 
 ### esprima-next
 
-A fork of esprima, cause esprima has no releases and many notmerged pull req
+A fork of esprima, cause esprima has no releases and many not merged pull req.
+if development/maintenance at jquery will start again, we will maybe remove this fork
 
 ### Changes to original Esprima:
 
