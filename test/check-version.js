@@ -34,8 +34,8 @@ function readFile(filename) {
 function findCanonicalVersion() {
     var matcher, lines, version;
 
-    matcher = /exports\.version\s+=\s+\'([0-9\.\-a-zA-Z]+)\'/;
-    lines = readFile(require.resolve('../'));
+    matcher = /\.version=\"([0-9\.\-a-zA-Z]+)\"/;
+    lines = readFile(require.resolve('../dist/esprima.js'));
     lines.forEach(function (line) {
         if (matcher.test(line)) {
             version = matcher.exec(line)[1];
