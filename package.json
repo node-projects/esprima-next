@@ -24,7 +24,7 @@
     "dist/tsc/es/esprima.d.ts"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "author": {
     "name": "Ariya Hidayat",

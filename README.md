@@ -23,6 +23,7 @@ if development/maintenance at jquery will start again, we will maybe remove this
 - Only generate ESM build
 - update npm packages
 - disable npm run static-analysis && npm run dynamic-analysis, seem not to work after package update
+- we don't need to support node <= 12
 
 Pull reqs @esprima github:
 
