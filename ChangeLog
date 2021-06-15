@@ -1,3 +1,16 @@
+2021-06-15: Version 5.0.0
+
+      * Rename to esprima-next
+      * Only generate ESM build
+      * Export Esrpima Nodes type #2045
+      * Fix super() in non derived class #2047
+      * Support for ES2020 import.meta #2052
+      * Support for ES2020 export ns from #2055
+      * Fix parsing error in exponent expressions with unary left-hand sides. #2070
+      * bugfix import() #2076
+      * Support ES2021 Logical Assignment #2082
+      * ESM release support #2081
+
 2017-06-10: Version 4.0.0
 
       * Support ES2017 async function and await expression (issue 1079)

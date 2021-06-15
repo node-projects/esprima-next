@@ -17,6 +17,7 @@ A fork of esprima, cause esprima has no releases and many notmerged pull req
 ### Changes to original Esprima:
 
 - Rename to esprima-next
+- Only generate ESM build
 
 Pull reqs @esprima github:
 
@@ -29,7 +30,7 @@ Pull reqs @esprima github:
 - Support ES2021 Logical Assignment #2082
 - ESM release support #2081
 
-we should look for fixes at: 
+we should look for fixes at:
 https://github.com/jquery/esprima/compare/main...Contrast-Security-Inc:master
 
 ### Features
@@ -55,7 +56,7 @@ A simple example on Node.js REPL:
   { type: 'Identifier', value: 'answer' },
   { type: 'Punctuator', value: '=' },
   { type: 'Numeric', value: '42' } ]
-  
+
 > esprima.parseScript(program);
 { type: 'Program',
   body:

@@ -4,6 +4,7 @@ module.exports = {
         path:  __dirname + "/dist",
         filename: "esprima.js",
         libraryTarget: "umd",
-        library: "esprima"
+        library: "esprima",
+        globalObject: 'this'
     }
 }
