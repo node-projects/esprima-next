@@ -6,13 +6,16 @@ import { Comment, RawToken, Scanner, SourceLocation } from './scanner';
 import { Syntax } from './syntax';
 import { Token, TokenName } from './token';
 
-interface Config {
-    range: boolean;
-    loc: boolean;
-    source: string | null;
-    tokens: boolean;
-    comment: boolean;
-    tolerant: boolean;
+export interface Config {
+    range?: boolean;
+    loc?: boolean;
+    source?: string | null;
+    tokens?: boolean;
+    comment?: boolean;
+    tolerant?: boolean;
+    jsx?: boolean;
+    sourceType?: 'script' | 'module';
+    attachComment?: boolean;
 }
 
 interface Context {
@@ -83,7 +86,7 @@ export class Parser {
     startMarker: Marker;
     lastMarker: Marker;
 
-    constructor(code: string, options: any = {}, delegate) {
+    constructor(code: string, options: Config = {}, delegate) {
         this.config = {
             range: (typeof options.range === 'boolean') && options.range,
             loc: (typeof options.loc === 'boolean') && options.loc,
@@ -99,9 +102,9 @@ export class Parser {
         this.delegate = delegate;
 
         this.errorHandler = new ErrorHandler();
-        this.errorHandler.tolerant = this.config.tolerant;
+        this.errorHandler.tolerant = this.config.tolerant == true;
         this.scanner = new Scanner(code, this.errorHandler);
-        this.scanner.trackComment = this.config.comment;
+        this.scanner.trackComment = this.config.comment == true;
 
         this.operatorPrecedence = {
             ')': 0,
@@ -699,6 +702,8 @@ export class Parser {
                         expr = this.finalize(node, new Node.ThisExpression());
                     } else if (this.matchKeyword('class')) {
                         expr = this.parseClassExpression();
+                    } else if (this.matchKeyword('new')) {
+                        expr = this.parseNewExpression();
                     } else if (this.matchImportCall()) {
                         expr = this.parseImportCall();
                     } else if (this.matchImportMeta()) {
@@ -789,10 +794,11 @@ export class Parser {
         const method = this.parsePropertyMethod(params);
         this.context.allowYield = previousAllowYield;
 
-        return this.finalize(node, new Node.FunctionExpression(null, params.params, method, isGenerator));
+        return this.finalize(node, new Node.FunctionExpression(null, params.params, method, isGenerator, false));
     }
 
     parsePropertyMethodAsyncFunction(): Node.FunctionExpression {
+        const isGenerator = false;
         const node = this.createNode();
 
         const previousAllowYield = this.context.allowYield;
@@ -804,10 +810,10 @@ export class Parser {
         this.context.allowYield = previousAllowYield;
         this.context.await = previousAwait;
 
-        return this.finalize(node, new Node.AsyncFunctionExpression(null, params.params, method));
+        return this.finalize(node, new Node.FunctionExpression(null, params.params, method, isGenerator, true));
     }
 
-    parseObjectPropertyKey(): Node.PropertyKey {
+    parseObjectPropertyKey(isPrivate: boolean = false): Node.PropertyKey {
         const node = this.createNode();
         const token = this.nextToken();
 
@@ -826,7 +832,7 @@ export class Parser {
             case Token.BooleanLiteral:
             case Token.NullLiteral:
             case Token.Keyword:
-                key = this.finalize(node, new Node.Identifier(token.value));
+                key = this.finalize(node, isPrivate ? new Node.PrivateIdentifier(token.value) : new Node.Identifier(token.value));
                 break;
 
             case Token.Punctuator:
@@ -850,7 +856,7 @@ export class Parser {
             (key.type === Syntax.Literal && key.value === value);
     }
 
-    parseObjectProperty(hasProto): Node.Property {
+    parseObjectProperty(hasProto): Node.PropertyDefinition {
         const node = this.createNode();
         const token = this.lookahead;
 
@@ -895,7 +901,7 @@ export class Parser {
             kind = 'init';
             computed = this.match('[');
             key = this.parseObjectPropertyKey();
-            value = this.parseGeneratorMethod();
+            value = this.parseGeneratorMethod(false);
             method = true;
 
         } else {
@@ -1213,9 +1219,15 @@ export class Parser {
             token.type === Token.NullLiteral;
     }
 
-    parseIdentifierName(): Node.Identifier {
-        const node = this.createNode();
-        const token = this.nextToken();
+    parseIdentifierName(isPrivateField: boolean = false): Node.Identifier {
+        let node = this.createNode();
+        let token = this.nextToken();
+        if (token.value === '#') {
+            token = this.nextToken();
+            if (isPrivateField) {
+                token.value = '#' + token.value;
+            }
+        }
         if (!this.isIdentifierName(token)) {
             this.throwUnexpectedToken(token);
         }
@@ -1417,7 +1429,7 @@ export class Parser {
                 if (!optional) {
                     this.expect('.');
                 }
-                const property = this.parseIdentifierName();
+                const property = this.parseIdentifierName(true);
                 expr = this.finalize(this.startNode(startToken), new Node.StaticMemberExpression(expr, property, optional));
 
             } else {
@@ -1880,8 +1892,7 @@ export class Parser {
                     if (this.context.strict && list.stricted) {
                         this.tolerateUnexpectedToken(list.stricted, list.message);
                     }
-                    expr = isAsync ? this.finalize(node, new Node.AsyncArrowFunctionExpression(list.params, body, expression)) :
-                        this.finalize(node, new Node.ArrowFunctionExpression(list.params, body, expression));
+                    expr = this.finalize(node, new Node.ArrowFunctionExpression(list.params, body, expression, isAsync));
 
                     this.context.strict = previousStrict;
                     this.context.allowStrictDirective = previousAllowStrictDirective;
@@ -2078,6 +2089,35 @@ export class Parser {
         return this.finalize(node, new Node.VariableDeclaration(declarations, kind));
     }
 
+    /**
+     * This function checks to see if a property is initialized in a Class
+     * e.g.
+     * publicProp = 123;
+     * @returns {Boolean}
+     */
+    isInitializedProperty(): any {
+        let state = this.scanner.saveState();
+        this.scanner.scanComments();
+        let next = this.scanner.lex();
+        this.scanner.restoreState(state);
+        return this.lookahead.type === 3 && next.value === '=';
+    }
+
+    /**
+     * This function checks to see if a property is declared in a Class
+     * e.g.
+     * publicProp;
+     * @returns {Boolean}
+     */
+    isDeclaredProperty(): any {
+        let state = this.scanner.saveState();
+        this.scanner.scanComments();
+        let next = this.scanner.lex();
+        this.scanner.restoreState(state);
+        return this.lookahead.type === 3 && next.value === ';'
+            || this.lookahead.type === 3 && next.lineNumber !== this.startMarker.line;
+    }
+
     // https://tc39.github.io/ecma262/#sec-destructuring-binding-patterns
 
     parseBindingRestElement(params, kind?: string): Node.RestElement {
@@ -2116,7 +2156,7 @@ export class Parser {
         return this.finalize(node, new Node.ArrayPattern(elements));
     }
 
-    parsePropertyPattern(params, kind?: string): Node.Property {
+    parsePropertyPattern(params, kind?: string): Node.PropertyDefinition {
         const node = this.createNode();
 
         let computed = false;
@@ -3140,7 +3180,7 @@ export class Parser {
             this.finalize(node, new Node.FunctionDeclaration(id, params, body, isGenerator));
     }
 
-    parseFunctionExpression(): Node.AsyncFunctionExpression | Node.FunctionExpression {
+    parseFunctionExpression(): Node.FunctionExpression {
         const node = this.createNode();
 
         const isAsync = this.matchContextualKeyword('async');
@@ -3205,8 +3245,7 @@ export class Parser {
         this.context.await = previousAllowAwait;
         this.context.allowYield = previousAllowYield;
 
-        return isAsync ? this.finalize(node, new Node.AsyncFunctionExpression(id, params, body)) :
-            this.finalize(node, new Node.FunctionExpression(id, params, body, isGenerator));
+        return this.finalize(node, new Node.FunctionExpression(id, params, body, isGenerator, isAsync));
     }
 
     // https://tc39.github.io/ecma262/#sec-directive-prologues-and-the-use-strict-directive
@@ -3269,7 +3308,7 @@ export class Parser {
             case Token.Keyword:
                 return true;
             case Token.Punctuator:
-                return token.value === '[';
+                return token.value === '[' || token.value === '#';
             default:
                 break;
         }
@@ -3289,7 +3328,7 @@ export class Parser {
         const method = this.parsePropertyMethod(formalParameters);
         this.context.allowYield = previousAllowYield;
 
-        return this.finalize(node, new Node.FunctionExpression(null, formalParameters.params, method, isGenerator));
+        return this.finalize(node, new Node.FunctionExpression(null, formalParameters.params, method, isGenerator, false));
     }
 
     parseSetterMethod(): Node.FunctionExpression {
@@ -3307,10 +3346,10 @@ export class Parser {
         const method = this.parsePropertyMethod(formalParameters);
         this.context.allowYield = previousAllowYield;
 
-        return this.finalize(node, new Node.FunctionExpression(null, formalParameters.params, method, isGenerator));
+        return this.finalize(node, new Node.FunctionExpression(null, formalParameters.params, method, isGenerator, false));
     }
 
-    parseGeneratorMethod(): Node.FunctionExpression {
+    parseGeneratorMethod(isAsync: boolean): Node.FunctionExpression {
         const node = this.createNode();
 
         const isGenerator = true;
@@ -3322,7 +3361,7 @@ export class Parser {
         const method = this.parsePropertyMethod(params);
         this.context.allowYield = previousAllowYield;
 
-        return this.finalize(node, new Node.FunctionExpression(null, params.params, method, isGenerator));
+        return this.finalize(node, new Node.FunctionExpression(null, params.params, method, isGenerator, isAsync));
     }
 
     // https://tc39.github.io/ecma262/#sec-generator-function-definitions
@@ -3378,7 +3417,7 @@ export class Parser {
 
     // https://tc39.github.io/ecma262/#sec-class-definitions
 
-    parseClassElement(hasConstructor): Node.Property {
+    parseClassElement(hasConstructor): Node.PropertyDefinition {
         let token = this.lookahead;
         const node = this.createNode();
         const previousInConstructor = this.context.inConstructor;
@@ -3390,12 +3429,18 @@ export class Parser {
         let method = false;
         let isStatic = false;
         let isAsync = false;
+        let isPrivate = false;
 
         if (this.match('*')) {
             this.nextToken();
         } else {
             computed = this.match('[');
-            key = this.parseObjectPropertyKey();
+            if (this.match('#')) {
+                isPrivate = true;
+                this.nextToken();
+                token = this.lookahead;
+            }
+            key = this.parseObjectPropertyKey(isPrivate);
             const id = key as Node.Identifier;
             this.context.inConstructor = token.type === Token.Identifier && token.value === 'constructor';
             if (id.name === 'static' && (this.qualifiedPropertyName(this.lookahead) || this.match('*'))) {
@@ -3404,17 +3449,42 @@ export class Parser {
                 computed = this.match('[');
                 if (this.match('*')) {
                     this.nextToken();
+                    if (this.match('#')) {
+                        isPrivate = true;
+                        this.nextToken();
+                        token = this.lookahead;
+                    }
                 } else {
-                    key = this.parseObjectPropertyKey();
+                    if (this.match('#')) {
+                        isPrivate = true;
+                        this.nextToken();
+                        token = this.lookahead;
+                    }
+                    key = this.parseObjectPropertyKey(isPrivate);
                 }
             }
             if ((token.type === Token.Identifier) && !this.hasLineTerminator && (token.value === 'async')) {
                 const punctuator = this.lookahead.value;
-                if (punctuator !== ':' && punctuator !== '(' && punctuator !== '*') {
+                if (punctuator !== ':' && punctuator !== '(') {
                     isAsync = true;
                     token = this.lookahead;
                     computed = this.match('[');
-                    key = this.parseObjectPropertyKey();
+
+                    if (this.match('*')) {
+                        this.nextToken();
+                        if (this.match('#')) {
+                            isPrivate = true;
+                            this.nextToken();
+                        }
+                    } else {
+                        if (this.match('#')) {
+                            isPrivate = true;
+                            this.nextToken();
+                            token = this.lookahead;
+                        }
+
+                        key = this.parseObjectPropertyKey(isPrivate);
+                    }
                     if (token.type === Token.Identifier && token.value === 'constructor') {
                         this.tolerateUnexpectedToken(token, Messages.ConstructorIsAsync);
                     }
@@ -3426,21 +3496,39 @@ export class Parser {
         if (token.type === Token.Identifier) {
             if (token.value === 'get' && lookaheadPropertyKey) {
                 kind = 'get';
+                if (this.match('#')) {
+                    isPrivate = true;
+                    this.nextToken();
+                    token = this.lookahead;
+                }
                 computed = this.match('[');
-                key = this.parseObjectPropertyKey();
+                key = this.parseObjectPropertyKey(isPrivate);
                 this.context.allowYield = false;
                 value = this.parseGetterMethod();
             } else if (token.value === 'set' && lookaheadPropertyKey) {
                 kind = 'set';
+                if (this.match('#')) {
+                    isPrivate = true;
+                    this.nextToken();
+                    token = this.lookahead;
+                }
                 computed = this.match('[');
-                key = this.parseObjectPropertyKey();
+                key = this.parseObjectPropertyKey(isPrivate);
                 value = this.parseSetterMethod();
+            } else if (!this.match('(')) {
+                kind = 'property';
+                computed = false;
+
+                if (this.match('=')) {
+                    this.nextToken();
+                    value = this.isolateCoverGrammar(this.parseAssignmentExpression);
+                }
             }
         } else if (token.type === Token.Punctuator && token.value === '*' && lookaheadPropertyKey) {
             kind = 'init';
             computed = this.match('[');
-            key = this.parseObjectPropertyKey();
-            value = this.parseGeneratorMethod();
+            key = this.parseObjectPropertyKey(isPrivate);
+            value = this.parseGeneratorMethod(isAsync);
             method = true;
         }
 
@@ -3476,11 +3564,15 @@ export class Parser {
         }
         this.context.inConstructor = previousInConstructor;
 
-        return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic));
+        if (kind === 'property') {
+            this.consumeSemicolon();
+            return this.finalize(node, new Node.PropertyDefinition(<Node.PropertyKey>key, computed, value, isStatic));
+        } else
+            return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic));
     }
 
-    parseClassElementList(): Node.Property[] {
-        const body: Node.Property[] = [];
+    parseClassElementList(): Node.PropertyDefinition[] {
+        const body: Node.PropertyDefinition[] = [];
         const hasConstructor = { value: false };
 
         this.expect('{');
