@@ -1,8 +1,8 @@
 [![NPM version](https://img.shields.io/npm/v/esprima-next.svg)](https://www.npmjs.com/package/esprima-next)
 [![npm download](https://img.shields.io/npm/dm/esprima-next.svg)](https://www.npmjs.com/package/esprima-next)
-[![Tests](https://github.com/jquery/esprima-next/workflows/Tests/badge.svg)](https://github.com/node-projects/esprima-next/actions)
+[![Tests](https://github.com/node-projects/esprima-next/workflows/Tests/badge.svg)](https://github.com/node-projects/esprima-next/actions)
 
-Todo: Converage does not work atm.
+Todo: Coverage does not work atm.
 [![Coverage Status](https://img.shields.io/codecov/c/github/node-projects/esprima-next/master.svg)](https://codecov.io/github/node-projects/esprima-next)
 
 **Esprima** ([esprima.org](http://esprima.org), BSD license) is a high performance,
@@ -15,18 +15,18 @@ with the help of [many contributors](https://github.com/node-projects/esprima-ne
 ### esprima-next
 
 A fork of esprima (https://github.com/jquery/esprima), cause esprima has no releases and many not merged pull req.
-if development/maintenance at jquery will start again, we will maybe remove this fork
+if development/maintenance at jquery will start again, we maybe remove this fork.
 
 ### Changes to original Esprima:
 
 - Rename to esprima-next
-- Only generate ESM build
+- generate a ESM build
 - update npm packages
 - disable npm run static-analysis && npm run dynamic-analysis, seem not to work after package update
 - we don't need to support node <= 12
 - ES2022 Class Properties & Privates
 
-Pull reqs @esprima github:
+following Pull reqs are merged from @esprima github:
 
 - Export Esrpima Nodes type #2045
 - Fix super() in non derived class #2047
