@@ -16,7 +16,7 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "5.0.1",
+  "version": "5.1.0",
   "files": [
     "bin",
     "dist/esprima.js",
@@ -46,6 +46,7 @@
   },
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "codecov.io": "~0.1.6",
@@ -55,6 +56,7 @@
     "everything.js": "~1.0.3",
     "glob": "~7.1.7",
     "istanbul": "~0.4.0",
+    "jest": "^27.0.4",
     "json-diff": "~0.5.4",
     "mocha": "~9.0.0",
     "node-tick-processor": "~0.0.2",
@@ -64,6 +66,8 @@
     "rollup": "^2.51.2",
     "temp": "~0.9.4",
     "test262-stream": "~1.4.0",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
     "typescript": "~4.3.2",
     "typescript-formatter": "~7.2.2",
     "unicode-12.1.0": "^0.8.0",
@@ -100,7 +104,8 @@
     "dynamic-analysis": "npm run analyze-coverage && npm run check-coverage",
     "watch": "tsc --project src/es.tsconfig.json --watch",
     "compile": "tsc --build src/es.tsconfig.json && rollup -c && tsc --build src/cjs.tsconfig.json && webpack && node tools/fixupbundle.js",
-    "test": "npm run compile && npm run all-tests",
+    "test": "npm run compile && npm run all-tests && npm run jest",
+    "jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "testOld": "npm run compile && npm run all-tests && npm run static-analysis && npm run dynamic-analysis",
     "prepublish": "npm run compile",
     "profile": "node --prof test/profile.js && mv isolate*.log v8.log && node-tick-processor",

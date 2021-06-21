@@ -627,6 +627,7 @@ export class Scanner {
                 }
                 break;
 
+            case '#':
             case ')':
             case ';':
             case ',':

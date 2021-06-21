@@ -24,12 +24,14 @@
 
 import { CommentHandler } from './comment-handler';
 import { JSXParser } from './jsx-parser';
-import { Parser } from './parser';
+import { Config, Parser } from './parser';
 import { Tokenizer } from './tokenizer';
 import { Syntax } from './syntax';
 import * as Nodes from './nodes';
 
-export function parse(code: string, options, delegate) {
+export { Config } from './parser';
+
+export function parse(code: string, options?: Config, delegate?) {
     let commentHandler: CommentHandler | null = null;
     const proxyDelegate = (node, metadata) => {
         if (delegate) {
@@ -81,19 +83,19 @@ export function parse(code: string, options, delegate) {
     return ast;
 }
 
-export function parseModule(code: string, options, delegate) {
+export function parseModule(code: string, options?: Config, delegate?) {
     const parsingOptions = options || {};
     parsingOptions.sourceType = 'module';
     return parse(code, parsingOptions, delegate);
 }
 
-export function parseScript(code: string, options, delegate) {
+export function parseScript(code: string, options?: Config, delegate?) {
     const parsingOptions = options || {};
     parsingOptions.sourceType = 'script';
     return parse(code, parsingOptions, delegate);
 }
 
-export function tokenize(code: string, options, delegate) {
+export function tokenize(code: string, options?: Config, delegate?) {
     const tokenizer = new Tokenizer(code, options);
 
     const tokens: any = [];

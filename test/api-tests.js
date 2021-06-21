@@ -75,6 +75,7 @@ describe('esprima.Syntax', function () {
             NewExpression: 'NewExpression',
             ObjectExpression: 'ObjectExpression',
             ObjectPattern: 'ObjectPattern',
+            PrivateIdentifier: 'PrivateIdentifier',
             Program: 'Program',
             Property: 'Property',
             RestElement: 'RestElement',

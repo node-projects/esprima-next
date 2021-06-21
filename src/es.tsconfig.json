@@ -3,6 +3,7 @@
 		"outDir": "../dist/tsc/es",
 		"target": "esnext",
 		"module": "esnext",
+        "moduleResolution": "node",
 		"noImplicitAny": false,
 		"strict": true,
 		"preserveConstEnums": false,
