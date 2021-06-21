@@ -25,6 +25,7 @@ if development/maintenance at jquery will start again, we maybe remove this fork
 - disable npm run static-analysis && npm run dynamic-analysis, seem not to work after package update
 - we don't need to support node <= 12
 - ES2022 Class Properties & Privates
+- Support numeric seperator and BigInt
 
 following Pull reqs are merged from @esprima github:
 

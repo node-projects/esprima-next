@@ -638,7 +638,10 @@ export class Parser {
                 this.context.isBindingElement = false;
                 token = this.nextToken();
                 raw = this.getTokenRaw(token);
-                expr = this.finalize(node, new Node.Literal(token.value, raw));
+                if (typeof token.value === 'bigint')
+                    expr = this.finalize(node, new Node.BigIntLiteral(token.value as bigint, raw, token.value.toString()));
+                else
+                    expr = this.finalize(node, new Node.Literal(token.value, raw));
                 break;
 
             case Token.BooleanLiteral:
@@ -825,7 +828,10 @@ export class Parser {
                     this.tolerateUnexpectedToken(token, Messages.StrictOctalLiteral);
                 }
                 const raw = this.getTokenRaw(token);
+                if (typeof token.value === 'bigint')
+                    key = this.finalize(node, new Node.BigIntLiteral(token.value as bigint, raw, token.value.toString()));
                 key = this.finalize(node, new Node.Literal(token.value as string, raw));
+
                 break;
 
             case Token.Identifier:

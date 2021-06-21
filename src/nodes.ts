@@ -118,10 +118,10 @@ export class AwaitExpression {
 
 export class BigIntLiteral {
     readonly type: string;
-    readonly value: boolean | number | string | null;
+    readonly value: null | bigint;
     readonly raw: string;
     readonly bigint: string;
-    constructor(value: boolean | number | string | null, raw: string, bigint: string) {
+    constructor(value: null | bigint, raw: string, bigint: string) {
         this.type = Syntax.Literal;
         this.value = value;
         this.raw = raw;
