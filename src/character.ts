@@ -64,7 +64,7 @@ export const Character = {
             (cp >= 0x61 && cp <= 0x66);         // a..f
     },
 
-    isHexDigitChar(ch: string): ch is '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | 'a'| 'b'| 'c'| 'd'| 'e'| 'f'| 'A'| 'B'| 'C'| 'D'| 'E'| 'F' {
+    isHexDigitChar(ch: string): ch is '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' {
         return ch.length === 1 && Character.isHexDigit(ch.charCodeAt(0));
     },
 
