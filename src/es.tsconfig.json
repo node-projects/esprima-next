@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "../dist/tsc/es",
-		"target": "esnext",
+		"target": "es2019",
 		"module": "esnext",
         "moduleResolution": "node",
 		"noImplicitAny": false,
