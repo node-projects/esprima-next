@@ -28,6 +28,8 @@ import { Config, Parser } from './parser';
 import { Tokenizer } from './tokenizer';
 import { Syntax } from './syntax';
 export * from './nodes';
+import * as Nodes from './nodes';
+
 
 export { Config } from './parser';
 
@@ -122,6 +124,7 @@ export function tokenize(code: string, options?: Config, delegate?) {
     return tokens;
 }
 
+export { Nodes };
 export { Syntax } from './syntax';
 
 // Sync with *.json manifests.
