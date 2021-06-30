@@ -4,7 +4,7 @@
   "homepage": "http://esprima.org",
   "main": "./dist/esprima.js",
   "module": "./dist/esm/esprima.js",
-  "types": "./dist/tsc/es/esprima.d.ts",
+  "types": "./dist/esm/esprima.d.ts",
   "exports": {
     ".": {
       "require": "./dist/esprima.js",
@@ -16,7 +16,7 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "5.2.3",
+  "version": "5.3.0",
   "files": [
     "bin",
     "dist/esprima.js",
@@ -64,6 +64,7 @@
     "replace-in-files-cli": "^1.0.0",
     "results-interpreter": "~1.0.0",
     "rollup": "^2.51.2",
+    "rollup-plugin-dts": "^3.0.2",
     "temp": "~0.9.4",
     "test262-stream": "~1.4.0",
     "ts-jest": "^27.0.3",
