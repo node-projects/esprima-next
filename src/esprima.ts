@@ -27,7 +27,7 @@ import { JSXParser } from './jsx-parser';
 import { Config, Parser } from './parser';
 import { Tokenizer } from './tokenizer';
 import { Syntax } from './syntax';
-import * as Nodes from './nodes';
+export * from './nodes';
 
 export { Config } from './parser';
 
@@ -122,12 +122,10 @@ export function tokenize(code: string, options?: Config, delegate?) {
     return tokens;
 }
 
-export { Nodes };
-
 export { Syntax } from './syntax';
 
 // Sync with *.json manifests.
-export const version = '5.0.1';
+export const version = '5.2.3';
 
 export default {
     parse, parseModule, parseScript, tokenize, Syntax, version
