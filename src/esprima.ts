@@ -29,8 +29,7 @@ import { Tokenizer } from './tokenizer';
 import { Syntax } from './syntax';
 export * from './nodes';
 import * as Nodes from './nodes';
-import { EsprimaError } from '../dist/tsc/es/error-handler';
-
+import { EsprimaError } from './error-handler';
 
 export { Config } from './parser';
 
