@@ -35,6 +35,7 @@ export const Messages = {
     MultipleDefaultsInSwitch: 'More than one default clause in switch statement',
     NewlineAfterThrow: 'Illegal newline after throw',
     NoAsAfterImportNamespace: 'Unexpected token',
+    NoAsAndFromEscapeSequences: 'The `as` and `from` contextual keywords must not contain Unicode escape sequences.',
     NoCatchOrFinally: 'Missing catch or finally after try',
     NumericSeperatorOneUnderscore: 'Numeric separator must be exactly one underscore',
     NumericSeperatorNotAllowedHere: 'Numeric separator is not allowed here',

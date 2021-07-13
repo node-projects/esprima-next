@@ -24,16 +24,17 @@
 
 import { CommentHandler } from './comment-handler';
 import { JSXParser } from './jsx-parser';
-import { Config, Parser } from './parser';
+import { Config, Parser, TokenEntry } from './parser';
 import { Tokenizer } from './tokenizer';
 import { Syntax } from './syntax';
 export * from './nodes';
 import * as Nodes from './nodes';
+import { EsprimaError } from '../dist/tsc/es/error-handler';
 
 
 export { Config } from './parser';
 
-export function parse(code: string, options?: Config, delegate?) {
+export function parse(code: string, options?: Config, delegate?): Nodes.Program & { comments?: Comment[], tokens?: TokenEntry[], errors?: EsprimaError[] } {
     let commentHandler: CommentHandler | null = null;
     const proxyDelegate = (node, metadata) => {
         if (delegate) {

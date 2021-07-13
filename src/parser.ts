@@ -54,7 +54,7 @@ interface DeclarationOptions {
     inFor: boolean;
 }
 
-interface TokenEntry {
+export interface TokenEntry {
     type: string;
     value: string;
     regex?: {
@@ -82,7 +82,7 @@ export class Parser {
     hasLineTerminator: boolean;
 
     context: Context;
-    tokens: any[];
+    tokens: TokenEntry[];
     startMarker: Marker;
     lastMarker: Marker;
 
@@ -1415,7 +1415,7 @@ export class Parser {
                 this.expect('[');
                 const property = this.isolateCoverGrammar(this.parseExpression);
                 this.expect(']');
-                expr = this.finalize(this.startNode(startToken), new Node.ComputedMemberExpression(expr, property, optional));
+                expr = this.finalize(this.startNode(startToken), new Node.MemberExpression(true, expr, property, optional));
 
             } else if (this.lookahead.type === Token.Template && this.lookahead.head) {
                 // Optional template literal is not included in the spec.
@@ -1436,7 +1436,7 @@ export class Parser {
                     this.expect('.');
                 }
                 const property = this.parseIdentifierName(true);
-                expr = this.finalize(this.startNode(startToken), new Node.StaticMemberExpression(expr, property, optional));
+                expr = this.finalize(this.startNode(startToken), new Node.MemberExpression(false, expr, property, optional));
 
             } else {
                 break;
@@ -1482,7 +1482,7 @@ export class Parser {
                 this.expect('[');
                 const property = this.isolateCoverGrammar(this.parseExpression);
                 this.expect(']');
-                expr = this.finalize(node, new Node.ComputedMemberExpression(expr, property, optional));
+                expr = this.finalize(node, new Node.MemberExpression(true, expr, property, optional));
 
             } else if (this.lookahead.type === Token.Template && this.lookahead.head) {
                 // Optional template literal is not included in the spec.
@@ -1503,7 +1503,7 @@ export class Parser {
                     this.expect('.');
                 }
                 const property = this.parseIdentifierName();
-                expr = this.finalize(node, new Node.StaticMemberExpression(expr, property, optional));
+                expr = this.finalize(node, new Node.MemberExpression(false, expr, property, optional));
 
             } else {
                 break;
@@ -1687,7 +1687,8 @@ export class Parser {
                     markers.pop();
                     const marker = markers[markers.length - 1];
                     const node = this.startNode(marker, marker.lineStart);
-                    stack.push(this.finalize(node, new Node.BinaryExpression(operator, left, right)));
+                    const logical = (operator === '||' || operator === '&&' || operator === '??');
+                    stack.push(this.finalize(node, logical ? new Node.LogicalExpression(operator, left, right) : new Node.BinaryExpression(operator, left, right)));
                 }
 
                 // Shift.
@@ -1707,7 +1708,8 @@ export class Parser {
                 const lastLineStart = lastMarker && lastMarker.lineStart;
                 const node = this.startNode(marker, lastLineStart);
                 const operator = stack[i - 1];
-                expr = this.finalize(node, new Node.BinaryExpression(operator, stack[i - 2], expr));
+                const logical = (operator === '||' || operator === '&&' || operator === '??');
+                expr = this.finalize(node, logical ? new Node.LogicalExpression(operator, stack[i - 2], expr) : new Node.BinaryExpression(operator, stack[i - 2], expr));
                 i -= 2;
                 lastMarker = marker;
             }
@@ -1966,8 +1968,8 @@ export class Parser {
 
     // https://tc39.github.io/ecma262/#sec-block
 
-    parseStatementListItem(): Node.StatementListItem {
-        let statement: Node.StatementListItem;
+    parseStatementListItem(): Node.Statement {
+        let statement: Node.Statement;
         this.context.isAssignmentTarget = true;
         this.context.isBindingElement = true;
         if (this.lookahead.type === Token.Keyword) {
@@ -2017,7 +2019,7 @@ export class Parser {
         const node = this.createNode();
 
         this.expect('{');
-        const block: Node.StatementListItem[] = [];
+        const block: Node.Statement[] = [];
         while (true) {
             if (this.match('}')) {
                 break;
@@ -2718,7 +2720,7 @@ export class Parser {
         }
         this.expect(':');
 
-        const consequent: Node.StatementListItem[] = [];
+        const consequent: Node.Statement[] = [];
         while (true) {
             if (this.match('}') || this.matchKeyword('default') || this.matchKeyword('case')) {
                 break;
@@ -3736,6 +3738,9 @@ export class Parser {
         if (!this.matchContextualKeyword('as')) {
             this.throwError(Messages.NoAsAfterImportNamespace);
         }
+        if (this.lookahead.escaped) {
+            this.throwError(Messages.NoAsAndFromEscapeSequences);
+        }
         this.nextToken();
         const local = this.parseIdentifierName();
 
@@ -3801,6 +3806,9 @@ export class Parser {
         const local = this.parseIdentifierName();
         let exported = local;
         if (this.matchContextualKeyword('as')) {
+            if (this.lookahead.escaped) {
+                this.throwError(Messages.NoAsAndFromEscapeSequences);
+            }
             this.nextToken();
             exported = this.parseIdentifierName();
         }
@@ -3853,12 +3861,18 @@ export class Parser {
             this.nextToken();
             let exported: Node.Identifier | null = null;
             if (this.matchContextualKeyword('as')) {
+                if (this.lookahead.escaped) {
+                    this.throwError(Messages.NoAsAndFromEscapeSequences);
+                }
                 this.nextToken();
                 exported = this.parseIdentifierName();
             }
             if (!this.matchContextualKeyword('from')) {
                 const message = this.lookahead.value ? Messages.UnexpectedToken : Messages.MissingFromClause;
                 this.throwError(message, this.lookahead.value);
+            }
+            if (this.lookahead.escaped) {
+                this.throwError(Messages.NoAsAndFromEscapeSequences);
             }
             this.nextToken();
             const src = this.parseModuleSpecifier();
@@ -3905,6 +3919,9 @@ export class Parser {
             if (this.matchContextualKeyword('from')) {
                 // export {default} from 'foo';
                 // export {foo} from 'foo';
+                if (this.lookahead.escaped) {
+                    this.throwError(Messages.NoAsAndFromEscapeSequences);
+                }
                 this.nextToken();
                 source = this.parseModuleSpecifier();
                 this.consumeSemicolon();

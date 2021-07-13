@@ -48,6 +48,7 @@ export interface RawToken {
     lineStart: number;
     start: number;
     end: number;
+    escaped?: boolean;
 }
 
 interface ScannerState {
@@ -545,7 +546,8 @@ export class Scanner {
         const start = this.index;
 
         // Backslash (U+005C) starts an escaped character.
-        const id = (this.source.charCodeAt(start) === 0x5C) ? this.getComplexIdentifier() : this.getIdentifier();
+        const escaped = this.source.charCodeAt(start) === 0x5C;
+        const id = escaped ? this.getComplexIdentifier() : this.getIdentifier();
 
         // There is no keyword or literal with only one character.
         // Thus, it must be an identifier.
@@ -574,7 +576,8 @@ export class Scanner {
             lineNumber: this.lineNumber,
             lineStart: this.lineStart,
             start: start,
-            end: this.index
+            end: this.index,
+            escaped: escaped
         };
     }
 

@@ -4,28 +4,34 @@ export type ArgumentListElement = Expression | SpreadElement;
 export type ArrayExpressionElement = Expression | SpreadElement | null;
 export type ArrayPatternElement = AssignmentPattern | BindingIdentifier | BindingPattern | RestElement | null;
 export type BindingPattern = ArrayPattern | ObjectPattern;
-export type BindingIdentifier = Identifier;
-export type ChainElement = CallExpression | ComputedMemberExpression | StaticMemberExpression;
-export type Declaration = AsyncFunctionDeclaration | ClassDeclaration | ExportDeclaration | FunctionDeclaration | ImportDeclaration | VariableDeclaration;
+export type BindingIdentifier = Identifier
+export type ChainElement = CallExpression | MemberExpression | MemberExpression;
+export type Class = ClassDeclaration | ClassExpression;
+export type Declaration = FunctionDeclaration | VariableDeclaration | ClassDeclaration | ImportDeclaration | ExportDeclaration;
 export type ExportableDefaultDeclaration = BindingIdentifier | BindingPattern | ClassDeclaration | Expression | FunctionDeclaration;
 export type ExportableNamedDeclaration = AsyncFunctionDeclaration | ClassDeclaration | FunctionDeclaration | VariableDeclaration;
 export type ExportDeclaration = ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration;
 export type Expression = ArrayExpression | ArrowFunctionExpression | AssignmentExpression |
-    AwaitExpression | BinaryExpression | CallExpression | ChainExpression | ClassExpression | ComputedMemberExpression |
-    ConditionalExpression | Identifier | FunctionExpression | Literal | NewExpression | ObjectExpression |
-    RegexLiteral | SequenceExpression | StaticMemberExpression | TaggedTemplateExpression |
+    AwaitExpression | BinaryExpression | CallExpression | ChainExpression | ClassExpression | MemberExpression |
+    ConditionalExpression | Identifier | FunctionExpression | Literal | LogicalExpression | NewExpression | ObjectExpression |
+    RegexLiteral | SequenceExpression | MemberExpression | TaggedTemplateExpression |
     ThisExpression | UnaryExpression | UpdateExpression | YieldExpression;
 export type FunctionParameter = AssignmentPattern | BindingIdentifier | BindingPattern;
+export type Function = FunctionDeclaration | FunctionExpression | ArrowFunctionExpression;
 export type ImportDeclarationSpecifier = ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier;
 export type ObjectExpressionProperty = PropertyDefinition | SpreadElement;
 export type ObjectPatternProperty = PropertyDefinition | RestElement;
-export type Statement = AsyncFunctionDeclaration | BreakStatement | ContinueStatement | DebuggerStatement | DoWhileStatement |
+export type Statement = BreakStatement | ContinueStatement | DebuggerStatement | DoWhileStatement |
     EmptyStatement | ExpressionStatement | Directive | ForStatement | ForInStatement | ForOfStatement |
-    FunctionDeclaration | IfStatement | ReturnStatement | SwitchStatement | ThrowStatement |
-    TryStatement | VariableDeclaration | WhileStatement | WithStatement;
+    IfStatement | ReturnStatement | SwitchStatement | ThrowStatement |
+    TryStatement | VariableDeclaration | WhileStatement | WithStatement | Declaration;
+export type Pattern = Expression | ObjectPattern | ArrayPattern | Identifier | AssignmentPattern;
 export type PropertyKey = Identifier | Literal | PrivateIdentifier;
 export type PropertyValue = AssignmentPattern | BindingIdentifier | BindingPattern | FunctionExpression;
-export type StatementListItem = Declaration | Statement;
+
+export type Node = Program | Function | Statement | VariableDeclarator | Expression | Property | Pattern | SwitchCase | CatchClause | MethodDefinition |
+    Class | ClassBody | ImportDeclaration | ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier | ExportNamedDeclaration | ExportSpecifier |
+    ExportDefaultDeclaration | ExportAllDeclaration | TemplateElement | Super;
 
 export class ArrayExpression {
     readonly type: string;
@@ -135,8 +141,7 @@ export class BinaryExpression {
     readonly left: Expression;
     readonly right: Expression;
     constructor(operator: string, left: Expression, right: Expression) {
-        const logical = (operator === '||' || operator === '&&' || operator === '??');
-        this.type = logical ? Syntax.LogicalExpression : Syntax.BinaryExpression;
+        this.type = Syntax.BinaryExpression;
         this.operator = operator;
         this.left = left;
         this.right = right;
@@ -226,21 +231,6 @@ export class ClassExpression {
         this.id = id;
         this.superClass = superClass;
         this.body = body;
-    }
-}
-
-export class ComputedMemberExpression {
-    readonly type: string;
-    readonly computed: boolean;
-    readonly object: Expression;
-    readonly property: Expression | PrivateIdentifier;
-    readonly optional: boolean;
-    constructor(object: Expression, property: Expression, optional: boolean) {
-        this.type = Syntax.MemberExpression;
-        this.computed = true;
-        this.object = object;
-        this.property = property;
-        this.optional = optional;
     }
 }
 
@@ -531,6 +521,34 @@ export class Literal {
     }
 }
 
+export class LogicalExpression {
+    readonly type: string;
+    readonly operator: string;
+    readonly left: Expression;
+    readonly right: Expression;
+    constructor(operator: string, left: Expression, right: Expression) {
+        this.type = Syntax.LogicalExpression;
+        this.operator = operator;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+export class MemberExpression {
+    readonly type: string;
+    readonly computed: boolean;
+    readonly object: Expression;
+    readonly property: Expression | PrivateIdentifier;
+    readonly optional: boolean;
+    constructor(computed: boolean, object: Expression, property: Expression, optional: boolean) {
+        this.type = Syntax.MemberExpression;
+        this.computed = computed;
+        this.object = object;
+        this.property = property;
+        this.optional = optional;
+    }
+}
+
 export class MetaProperty {
     readonly type: string;
     readonly meta: Identifier;
@@ -561,9 +579,9 @@ export class MethodDefinition {
 
 export class Module {
     readonly type: string;
-    readonly body: StatementListItem[];
+    readonly body: Statement[];
     readonly sourceType: string;
-    constructor(body: StatementListItem[]) {
+    constructor(body: Statement[]) {
         this.type = Syntax.Program;
         this.body = body;
         this.sourceType = 'module';
@@ -605,6 +623,17 @@ export class PrivateIdentifier {
     constructor(name) {
         this.type = Syntax.PrivateIdentifier;
         this.name = name;
+    }
+}
+
+export class Program {
+    readonly type: string;
+    readonly body: Statement[]
+    readonly sourceType: 'script' | 'module';
+    constructor(sourceType: 'script' | 'module', body: Statement[]) {
+        this.type = Syntax.Program;
+        this.sourceType = sourceType;
+        this.body = body;
     }
 }
 
@@ -675,9 +704,9 @@ export class ReturnStatement {
 
 export class Script {
     readonly type: string;
-    readonly body: StatementListItem[];
+    readonly body: Statement[];
     readonly sourceType: string;
-    constructor(body: StatementListItem[]) {
+    constructor(body: Statement[]) {
         this.type = Syntax.Program;
         this.body = body;
         this.sourceType = 'script';
@@ -699,21 +728,6 @@ export class SpreadElement {
     constructor(argument: Expression) {
         this.type = Syntax.SpreadElement;
         this.argument = argument;
-    }
-}
-
-export class StaticMemberExpression {
-    readonly type: string;
-    readonly computed: boolean;
-    readonly object: Expression;
-    readonly property: Expression | PrivateIdentifier;
-    readonly optional: boolean;
-    constructor(object: Expression, property: Expression, optional: boolean) {
-        this.type = Syntax.MemberExpression;
-        this.computed = false;
-        this.object = object;
-        this.property = property;
-        this.optional = optional;
     }
 }
 
