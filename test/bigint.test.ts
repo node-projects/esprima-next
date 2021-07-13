@@ -20,7 +20,7 @@ test('bigint variants', () => {
     for (let p of valids) {
         console.info("bigint should parse", p);
         const ret = parse(p + ";");
-        expect(ret.body[0].expression.value).toEqual(eval(p));
+        expect((<any>ret.body[0]).expression.value).toEqual(eval(p));
     }
 
     for (let p of invalids) {
