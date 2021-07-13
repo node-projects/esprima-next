@@ -41,17 +41,8 @@
     }
     NotMatchingError.prototype = new Error();
 
-    function assertEquality(expected, actual, testCase) {
+    function assertEquality(expected, actual) {
         if (expected !== actual) {
-            debugger;
-            const writeBackExpectedTestCode = true && testCase;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, actual);
         }
     }
@@ -105,7 +96,7 @@
         return false;
     }
 
-    function testParse(code, syntax, testCase) {
+    function testParse(code, syntax) {
         'use strict';
         var expected, tree, actual, options, i, len, nodes;
 
@@ -140,15 +131,11 @@
         }
 
         if (options.loc) {
-            if (!syntax.loc)
-                debugger;
-            if (syntax.loc)
-                options.source = syntax.loc.source;
+            options.source = syntax.loc.source;
         }
 
         syntax = sortedObject(syntax);
         expected = JSON.stringify(syntax, null, 4);
-
         try {
             // Some variations of the options.
             tree = esprima.parse(code, { jsx: options.jsx, tolerant: options.tolerant, sourceType: options.sourceType });
@@ -170,22 +157,9 @@
             esprima.parse(new String(code), options);
 
         } catch (e) {
-
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                if (actual)
-                    fs.writeFileSync(file, actual);
-                else
-                    console.warn(file);
-            }
-
             throw new NotMatchingError(expected, e.toString());
         }
-        assertEquality(expected, actual, testCase);
+        assertEquality(expected, actual);
 
         function filter(key, value) {
             return (key === 'loc' || key === 'range') ? undefined : value;
@@ -211,18 +185,9 @@
             tree = sortedObject(tree);
             actual = JSON.stringify(tree, filter, 4);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, e.toString());
         }
-        assertEquality(expected, actual, testCase);
+        assertEquality(expected, actual);
 
         function collect(node) {
             nodes.push(node);
@@ -239,57 +204,39 @@
             nodes = [];
             esprima.parse(code, options, collect);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, e.toString());
         }
         // The last one, the most top-level node, is always a Program node.
-        assertEquality('Program', nodes.pop().type, testCase);
+        assertEquality('Program', nodes.pop().type);
 
         // Use the delegate to filter the nodes.
         try {
             nodes = [];
             esprima.parse(code, options, filter);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, e.toString());
         }
         // Every tree will have exactly one Program node.
-        assertEquality('Program', nodes[0].type, testCase);
+        assertEquality('Program', nodes[0].type);
 
         // Exercise more code paths with the delegate
         try {
             esprima.parse(code);
             (options.sourceType === 'module') ? esprima.parseModule(code) : esprima.parseScript(code);
             esprima.parse(code, { range: false, loc: false, comment: false }, filter);
-            esprima.parse(code, { range: true, loc: false, comment: false }, filter);
-            esprima.parse(code, { range: false, loc: true, comment: false }, filter);
-            esprima.parse(code, { range: true, loc: true, comment: false }, filter);
+            esprima.parse(code, { range: true,  loc: false, comment: false }, filter);
+            esprima.parse(code, { range: false, loc: true,  comment: false }, filter);
+            esprima.parse(code, { range: true,  loc: true,  comment: false }, filter);
             esprima.parse(code, { range: false, loc: false, comment: true }, filter);
-            esprima.parse(code, { range: true, loc: false, comment: true }, filter);
-            esprima.parse(code, { range: false, loc: true, comment: true }, filter);
-            esprima.parse(code, { range: true, loc: true, comment: true }, filter);
+            esprima.parse(code, { range: true,  loc: false, comment: true }, filter);
+            esprima.parse(code, { range: false, loc: true,  comment: true }, filter);
+            esprima.parse(code, { range: true,  loc: true,  comment: true }, filter);
         } catch (e) {
             // Ignore, do nothing
         }
     }
 
-    function testTokenize(code, tokens, testCase) {
+    function testTokenize(code, tokens) {
         'use strict';
         var options, expected, actual, list, entries, types;
 
@@ -306,37 +253,18 @@
             // Some variations of the options (tolerant mode, to avoid premature error)
             esprima.tokenize(code, { tolerant: true, comment: false, loc: false, range: false });
             esprima.tokenize(code, { tolerant: true, comment: false, loc: false, range: true });
-            esprima.tokenize(code, { tolerant: true, comment: false, loc: true, range: false });
-            esprima.tokenize(code, { tolerant: true, comment: false, loc: true, range: true });
-            esprima.tokenize(code, { tolerant: true, comment: true, loc: false, range: false });
-            esprima.tokenize(code, { tolerant: true, comment: true, loc: false, range: true });
-            esprima.tokenize(code, { tolerant: true, comment: true, loc: true, range: false });
+            esprima.tokenize(code, { tolerant: true, comment: false, loc: true,  range: false });
+            esprima.tokenize(code, { tolerant: true, comment: false, loc: true,  range: true });
+            esprima.tokenize(code, { tolerant: true, comment: true,  loc: false, range: false });
+            esprima.tokenize(code, { tolerant: true, comment: true,  loc: false, range: true });
+            esprima.tokenize(code, { tolerant: true, comment: true,  loc: true,  range: false });
 
             list = esprima.tokenize(code, options);
             actual = JSON.stringify(list, null, 4);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, e.toString());
         }
         if (expected !== actual) {
-
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
-
             throw new NotMatchingError(expected, actual);
         }
 
@@ -349,25 +277,9 @@
             });
             actual = JSON.stringify(entries, null, 4);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
             throw new NotMatchingError(expected, e.toString());
         }
         if (expected !== actual) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
             throw new NotMatchingError(expected, actual);
         }
 
@@ -378,14 +290,6 @@
             });
             actual = JSON.stringify(entries, null, 4);
         } catch (e) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
             throw new NotMatchingError(expected, e.toString());
         }
         types = tokens.map(function (t) {
@@ -393,14 +297,6 @@
         });
         expected = JSON.stringify(types, null, 4);
         if (expected !== actual) {
-            const writeBackExpectedTestCode = true && testCase;
-            debugger;
-            if (writeBackExpectedTestCode) {
-
-                const file = "test/fixtures/" + testCase.key + ".tree.json";
-                const fs = require('fs');
-                fs.writeFileSync(file, actual);
-            }
             throw new NotMatchingError(expected, actual);
         }
 
@@ -471,14 +367,6 @@
                     }
                 }
 
-                const writeBackExpectedTestCode = true && testCase;
-                debugger;
-                if (writeBackExpectedTestCode && actual) {
-
-                    const file = "test/fixtures/" + testCase.key + ".tree.json";
-                    const fs = require('fs');
-                    fs.writeFileSync(file, actual);
-                }
                 throw new NotMatchingError(expected, actual);
             }
 
@@ -488,9 +376,9 @@
     return function (testCase) {
         var code = testCase.case || testCase.source || "";
         if (testCase.hasOwnProperty('tree')) {
-            testParse(code, testCase.tree, testCase);
+            testParse(code, testCase.tree);
         } else if (testCase.hasOwnProperty('tokens')) {
-            testTokenize(testCase.case, testCase.tokens, testCase);
+            testTokenize(testCase.case, testCase.tokens);
         } else if (testCase.hasOwnProperty('failure')) {
             testError(testCase);
         }
