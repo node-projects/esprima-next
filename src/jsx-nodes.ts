@@ -8,7 +8,7 @@ export type JSXElementAttribute = JSXAttribute | JSXSpreadAttribute;
 export type JSXElementName = JSXIdentifier | JSXNamespacedName | JSXMemberExpression;
 
 export class JSXClosingElement {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXClosingElement;
     readonly name: JSXElementName;
     constructor(name: JSXElementName) {
         this.type = JSXSyntax.JSXClosingElement;
@@ -17,14 +17,14 @@ export class JSXClosingElement {
 }
 
 export class JSXClosingFragment {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXClosingFragment;
     constructor() {
         this.type = JSXSyntax.JSXClosingFragment;
     }
 }
 
 export class JSXElement {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXElement;
     readonly openingElement: JSXOpeningElement | JSXOpeningFragment;
     readonly children: JSXChild[];
     readonly closingElement: JSXClosingElement | JSXClosingFragment | null;
@@ -41,14 +41,14 @@ export class JSXElement {
 }
 
 export class JSXEmptyExpression {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXEmptyExpression;
     constructor() {
         this.type = JSXSyntax.JSXEmptyExpression;
     }
 }
 
 export class JSXExpressionContainer {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXExpressionContainer;
     readonly expression: Node.Expression | JSXEmptyExpression;
     constructor(expression: Node.Expression | JSXEmptyExpression) {
         this.type = JSXSyntax.JSXExpressionContainer;
@@ -57,7 +57,7 @@ export class JSXExpressionContainer {
 }
 
 export class JSXIdentifier {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXIdentifier;
     readonly name: string;
     constructor(name: string) {
         this.type = JSXSyntax.JSXIdentifier;
@@ -66,7 +66,7 @@ export class JSXIdentifier {
 }
 
 export class JSXMemberExpression {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXMemberExpression;
     readonly object: JSXMemberExpression | JSXIdentifier;
     readonly property: JSXIdentifier;
     constructor(object: JSXMemberExpression | JSXIdentifier, property: JSXIdentifier) {
@@ -77,7 +77,7 @@ export class JSXMemberExpression {
 }
 
 export class JSXAttribute {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXAttribute;
     readonly name: JSXAttributeName;
     readonly value: JSXAttributeValue | null;
     constructor(name: JSXAttributeName, value: JSXAttributeValue | null) {
@@ -88,7 +88,7 @@ export class JSXAttribute {
 }
 
 export class JSXNamespacedName {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXNamespacedName;
     readonly namespace: JSXIdentifier;
     readonly name: JSXIdentifier;
     constructor(namespace: JSXIdentifier, name: JSXIdentifier) {
@@ -99,7 +99,7 @@ export class JSXNamespacedName {
 }
 
 export class JSXOpeningElement {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXOpeningElement;
     readonly name: JSXElementName;
     readonly selfClosing: boolean;
     readonly attributes: JSXElementAttribute[];
@@ -112,7 +112,7 @@ export class JSXOpeningElement {
 }
 
 export class JSXOpeningFragment {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXOpeningFragment;
     readonly selfClosing: boolean;
     constructor(selfClosing: boolean) {
         this.type = JSXSyntax.JSXOpeningFragment;
@@ -121,7 +121,7 @@ export class JSXOpeningFragment {
 }
 
 export class JSXSpreadAttribute {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXSpreadAttribute;
     readonly argument: Node.Expression;
     constructor(argument: Node.Expression) {
         this.type = JSXSyntax.JSXSpreadAttribute;
@@ -130,7 +130,7 @@ export class JSXSpreadAttribute {
 }
 
 export class JSXText {
-    readonly type: string;
+    readonly type: JSXSyntax.JSXText;
     readonly value: string;
     readonly raw: string;
     constructor(value: string, raw: string) {

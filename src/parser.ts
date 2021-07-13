@@ -1103,7 +1103,7 @@ export class Parser {
                 expr = this.inheritCoverGrammar(this.parseAssignmentExpression);
 
                 if (this.match(',')) {
-                    const expressions: Node.Expression[] = [];
+                    const expressions: (Node.Expression | Node.RestElement)[] = [];
 
                     this.context.isAssignmentTarget = false;
                     expressions.push(expr);
@@ -1150,7 +1150,7 @@ export class Parser {
                         }
                     }
                     if (!arrow) {
-                        expr = this.finalize(this.startNode(startToken), new Node.SequenceExpression(expressions));
+                        expr = this.finalize(this.startNode(startToken), new Node.SequenceExpression(<Node.Expression[]>expressions));
                     }
                 }
 
@@ -1309,7 +1309,7 @@ export class Parser {
         return match;
     }
 
-    parseImportCall(): Node.Import {
+    parseImportCall(): Node.ImportExpression {
         const node = this.createNode();
         this.expectKeyword('import');
         this.expect("(");
@@ -1323,7 +1323,7 @@ export class Parser {
                 this.nextToken();
             }
         }
-        return this.finalize(node, new Node.Import(source));
+        return this.finalize(node, new Node.ImportExpression(source));
     }
 
     matchImportMeta(): boolean {
@@ -1395,7 +1395,7 @@ export class Parser {
                 this.context.isBindingElement = false;
                 this.context.isAssignmentTarget = false;
                 const args = asyncArrow ? this.parseAsyncArguments() : this.parseArguments();
-                if (expr.type === Syntax.Import && args.length !== 1) {
+                if (expr.type === Syntax.ImportExpression && args.length !== 1) {
                     this.tolerateError(Messages.BadImportCallArity);
                 }
                 expr = this.finalize(this.startNode(startToken), new Node.CallExpression(expr, args, optional));

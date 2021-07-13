@@ -79,7 +79,7 @@
                                 "column": 16
                             }
                         },
-                        "type": "Import",
+                        "type": "ImportExpression",
                         "source": {
                             "range": [
                                 7,

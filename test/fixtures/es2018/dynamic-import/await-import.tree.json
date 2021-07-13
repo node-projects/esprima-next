@@ -133,7 +133,7 @@
                                         "column": 37
                                     }
                                 },
-                                "type": "Import",
+                                "type": "ImportExpression",
                                 "source": {
                                     "range": [
                                         35,

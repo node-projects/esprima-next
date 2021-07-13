@@ -62,7 +62,7 @@ export function parse(code: string, options?: Config, delegate?): Nodes.Program 
         isModule = (options.sourceType === 'module');
     }
 
-    let parser: Parser;
+    let parser: Parser | JSXParser;
     if (options && typeof options.jsx === 'boolean' && options.jsx) {
         parser = new JSXParser(code, options, parserDelegate);
     } else {

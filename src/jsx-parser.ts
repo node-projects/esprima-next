@@ -63,6 +63,7 @@ export class JSXParser extends Parser {
         super(code, options, delegate);
     }
 
+    //@ts-ignore
     parsePrimaryExpression(): Node.Expression | JSXNode.JSXElement {
         return this.match('<') ? this.parseJSXRoot() : super.parsePrimaryExpression();
     }
