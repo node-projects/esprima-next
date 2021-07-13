@@ -16,12 +16,12 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "5.4.0",
+  "version": "5.5.0",
   "files": [
     "bin",
     "dist/esprima.js",
     "dist/esm/esprima.js",
-    "dist/tsc/es/esprima.d.ts"
+    "dist/esm/esprima.d.ts"
   ],
   "engines": {
     "node": ">=12"
