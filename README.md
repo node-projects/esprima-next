@@ -38,9 +38,6 @@ following Pull reqs are merged from @esprima github:
 - Support ES2021 Logical Assignment #2082
 - ESM release support #2081
 
-we should look for fixes at:
-https://github.com/jquery/esprima/compare/main...Contrast-Security-Inc:master
-
 ### Features
 
 - Full support for ECMAScript 2019 ([ECMA-262 10th Edition](http://www.ecma-international.org/publications/standards/Ecma-262.htm))

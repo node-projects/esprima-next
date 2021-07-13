@@ -1,7 +1,7 @@
 {
   "name": "esprima-next",
   "description": "ECMAScript parsing infrastructure for multipurpose analysis",
-  "homepage": "http://esprima.org",
+  "homepage": "https://github.com/node-projects/esprima-next/",
   "main": "./dist/esprima.js",
   "module": "./dist/esm/esprima.js",
   "types": "./dist/esm/esprima.d.ts",
@@ -16,7 +16,7 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "5.3.0",
+  "version": "5.4.0",
   "files": [
     "bin",
     "dist/esprima.js",
