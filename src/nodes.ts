@@ -29,9 +29,9 @@ export type Pattern = Expression | ObjectPattern | ArrayPattern | Identifier | A
 export type PropertyKey = Identifier | Literal | PrivateIdentifier;
 export type PropertyValue = AssignmentPattern | BindingIdentifier | BindingPattern | FunctionExpression;
 
-export type Node = Program | Function | Statement | VariableDeclarator | Expression | Property | Pattern | SwitchCase | CatchClause | MethodDefinition |
+export type Node = Program | Function | Statement | VariableDeclarator | Expression | Property | PropertyKey | Pattern | SwitchCase | CatchClause | MethodDefinition |
     Class | ClassBody | ImportDeclaration | ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier | ExportNamedDeclaration | ExportSpecifier |
-    ExportDefaultDeclaration | ExportAllDeclaration | TemplateElement | Super;
+    ExportDefaultDeclaration | ExportAllDeclaration | TemplateElement | Super | ArgumentListElement;
 
 export class ArrayExpression {
     readonly type: Syntax.ArrayExpression;

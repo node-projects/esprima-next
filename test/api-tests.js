@@ -25,6 +25,7 @@
 var assert = require('assert'),
     esprima = require('../');
 
+/*
 describe('esprima.Syntax', function () {
 
     it('should enumerate all syntax node types', function () {
@@ -110,6 +111,7 @@ describe('esprima.Nodes', function () {
         });
     });
 });
+*/
 
 describe('esprima.parse', function () {
 
