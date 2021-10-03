@@ -1,8 +1,3 @@
-
-
-
-
-
 test/annexB/language/comments/multi-line-html-close.js(default)
 test/annexB/language/comments/multi-line-html-close.js(strict mode)
 test/built-ins/AsyncArrowFunction/is-a-constructor.js(default)
@@ -846,10 +841,6 @@ test/language/eval-code/direct/async-gen-named-func-expr-fn-body-cntns-arguments
 test/language/eval-code/direct/async-gen-named-func-expr-fn-body-cntns-arguments-var-bind-declare-arguments.js(default)
 test/language/eval-code/direct/async-gen-named-func-expr-no-pre-existing-arguments-bindings-are-present-declare-arguments-and-assign.js(default)
 test/language/eval-code/direct/async-gen-named-func-expr-no-pre-existing-arguments-bindings-are-present-declare-arguments.js(default)
-test/language/export/escaped-as-export-specifier.js(default)
-test/language/export/escaped-as-export-specifier.js(strict mode)
-test/language/export/escaped-from.js(default)
-test/language/export/escaped-from.js(strict mode)
 test/language/expressions/addition/bigint-arithmetic.js(default)
 test/language/expressions/addition/bigint-arithmetic.js(strict mode)
 test/language/expressions/arrow-function/param-dflt-yield-expr.js(default)
@@ -4704,8 +4695,6 @@ test/language/import/dup-bound-names.js(default)
 test/language/import/dup-bound-names.js(strict mode)
 test/language/import/escaped-as-import-specifier.js(default)
 test/language/import/escaped-as-import-specifier.js(strict mode)
-test/language/import/escaped-as-namespace-import.js(default)
-test/language/import/escaped-as-namespace-import.js(strict mode)
 test/language/import/escaped-from.js(default)
 test/language/import/escaped-from.js(strict mode)
 test/language/import/json-extensibility-array.js(default)
