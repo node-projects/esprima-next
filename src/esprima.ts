@@ -114,7 +114,7 @@ export function tokenize(code: string, options?: Config, delegate?) {
             tokens.push(token);
         }
     } catch (e) {
-        tokenizer.errorHandler.tolerate(e);
+        tokenizer.errorHandler.tolerate(<EsprimaError>e);
     }
 
     if (tokenizer.errorHandler.tolerant) {
