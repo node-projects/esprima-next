@@ -3529,7 +3529,7 @@ export class Parser {
 
                         key = this.parseObjectPropertyKey(isPrivate);
                     }
-                    if (token.type === Token.Identifier && token.value === 'constructor') {
+                    if (token.type === Token.Identifier && token.value === 'constructor' && !isStatic) {
                         this.tolerateUnexpectedToken(token, Messages.ConstructorIsAsync);
                     }
                 }
