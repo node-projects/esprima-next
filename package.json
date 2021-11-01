@@ -54,6 +54,7 @@
     "eslint": "^8.1.0",
     "eslint-plugin-esprima-internal": "file:eslint",
     "everything.js": "~1.0.3",
+    "fsevents": "^2.3.2",
     "glob": "~7.2.0",
     "istanbul": "~0.4.0",
     "jest": "^27.3.1",
