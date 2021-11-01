@@ -3536,6 +3536,10 @@ export class Parser {
             }
         }
 
+        if (token.type === Token.Identifier && token.value === 'constructor' && isPrivate) {
+            this.tolerateUnexpectedToken(token, Messages.ConstructorIsPrivate);
+        }
+
         const lookaheadPropertyKey = this.qualifiedPropertyName(this.lookahead);
         if (token.type === Token.Identifier) {
             if (token.value === 'get' && lookaheadPropertyKey) {
