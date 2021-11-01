@@ -7,6 +7,7 @@ export const Messages = {
     BadSetterRestParameter: 'Setter function argument must not be a rest parameter',
     CannotUseImportMetaOutsideAModule: 'Cannot use \'import.meta\' outside a module',
     ConstructorIsAsync: 'Class constructor may not be an async method',
+    ConstructorIsPrivate: 'Class constructor may not be a private method',
     ConstructorSpecialMethod: 'Class constructor may not be an accessor',
     DeclarationMissingInitializer: 'Missing initializer in %0 declaration',
     DefaultRestParameter: 'Unexpected token =',

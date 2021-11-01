@@ -1,1 +1,1 @@
-{"index":25,"lineNumber":1,"column":26,"message":"Error: Line 1: super() call outside constructor of a subclass","description":"super() call outside constructor of a subclass"}
+{"index":31,"lineNumber":1,"column":32,"message":"Error: Line 1: 'super' keyword unexpected here","description":"'super' keyword unexpected here"}

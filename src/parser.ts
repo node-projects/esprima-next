@@ -1380,7 +1380,7 @@ export class Parser {
 
         let expr;
         const isSuper = this.matchKeyword('super');
-        if (isSuper && this.context.inFunctionBody) {            
+        if (isSuper && this.context.inFunctionBody) {
             expr = this.createNode();
             this.nextToken();
             expr = this.finalize(expr, new Node.Super());
@@ -1391,7 +1391,7 @@ export class Parser {
             expr = this.inheritCoverGrammar(this.matchKeyword('new') ? this.parseNewExpression : this.parsePrimaryExpression);
         }
 
-        if (isSuper && this.match('(') && !this.context.inClassConstructor) {
+        if (isSuper && this.match('(') && (!this.context.inClassConstructor || !this.context.allowSuper)) {
             this.tolerateError(Messages.UnexpectedSuper);
         }
 
@@ -3529,11 +3529,15 @@ export class Parser {
 
                         key = this.parseObjectPropertyKey(isPrivate);
                     }
-                    if (token.type === Token.Identifier && token.value === 'constructor') {
+                    if (token.type === Token.Identifier && token.value === 'constructor' && !isStatic) {
                         this.tolerateUnexpectedToken(token, Messages.ConstructorIsAsync);
                     }
                 }
             }
+        }
+
+        if (token.type === Token.Identifier && token.value === 'constructor' && isPrivate) {
+            this.tolerateUnexpectedToken(token, Messages.ConstructorIsPrivate);
         }
 
         const lookaheadPropertyKey = this.qualifiedPropertyName(this.lookahead);

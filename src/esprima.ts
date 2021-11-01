@@ -114,7 +114,7 @@ export function tokenize(code: string, options?: Config, delegate?) {
             tokens.push(token);
         }
     } catch (e) {
-        tokenizer.errorHandler.tolerate(e);
+        tokenizer.errorHandler.tolerate(<EsprimaError>e);
     }
 
     if (tokenizer.errorHandler.tolerant) {
@@ -128,7 +128,7 @@ export { Nodes };
 export { Syntax } from './syntax';
 
 // Sync with *.json manifests.
-export const version = '5.3.0';
+export const version = '5.7.1';
 
 export default {
     parse, parseModule, parseScript, tokenize, Syntax, version
