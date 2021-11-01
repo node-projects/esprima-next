@@ -36,7 +36,7 @@ export class ErrorHandler {
         } catch (base) {
             /* istanbul ignore else */
             if (Object.create && Object.defineProperty) {
-                error = <Error>Object.create(base);
+                error = <Error>Object.create(<Object>base);
                 Object.defineProperty(error, 'column', { value: column });
             }
         }
