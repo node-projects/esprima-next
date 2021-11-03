@@ -837,6 +837,7 @@ export class Parser {
                 const raw = this.getTokenRaw(token);
                 if (typeof token.value === 'bigint')
                     key = this.finalize(node, new Node.BigIntLiteral(token.value as bigint, raw, token.value.toString()));
+                else
                 key = this.finalize(node, new Node.Literal(token.value as string, raw));
 
                 break;
