@@ -870,7 +870,7 @@ export class Parser {
             (key.type === Syntax.Literal && key.value === value);
     }
 
-    parseObjectProperty(hasProto): Node.PropertyDefinition {
+    parseObjectProperty(hasProto): Node.Property {
         const node = this.createNode();
         const token = this.lookahead;
 
@@ -2121,7 +2121,7 @@ export class Parser {
      * publicProp = 123;
      * @returns {Boolean}
      */
-    isInitializedProperty(): any {
+    isInitializedProperty(): boolean {
         let state = this.scanner.saveState();
         this.scanner.scanComments();
         let next = this.scanner.lex();
@@ -2135,7 +2135,7 @@ export class Parser {
      * publicProp;
      * @returns {Boolean}
      */
-    isDeclaredProperty(): any {
+    isDeclaredProperty(): boolean {
         let state = this.scanner.saveState();
         this.scanner.scanComments();
         let next = this.scanner.lex();
@@ -2182,7 +2182,7 @@ export class Parser {
         return this.finalize(node, new Node.ArrayPattern(elements));
     }
 
-    parsePropertyPattern(params, kind?: string): Node.PropertyDefinition {
+    parsePropertyPattern(params, kind?: string): Node.Property {
         const node = this.createNode();
 
         let computed = false;
