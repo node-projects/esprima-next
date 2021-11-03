@@ -837,7 +837,8 @@ export class Parser {
                 const raw = this.getTokenRaw(token);
                 if (typeof token.value === 'bigint')
                     key = this.finalize(node, new Node.BigIntLiteral(token.value as bigint, raw, token.value.toString()));
-                key = this.finalize(node, new Node.Literal(token.value as string, raw));
+                else
+                    key = this.finalize(node, new Node.Literal(token.value as string, raw));
 
                 break;
 
@@ -869,7 +870,7 @@ export class Parser {
             (key.type === Syntax.Literal && key.value === value);
     }
 
-    parseObjectProperty(hasProto): Node.PropertyDefinition {
+    parseObjectProperty(hasProto): Node.Property {
         const node = this.createNode();
         const token = this.lookahead;
 
@@ -1237,19 +1238,19 @@ export class Parser {
             token.type === Token.NullLiteral;
     }
 
-    parseIdentifierName(isPrivateField: boolean = false): Node.Identifier {
+    parseIdentifierName(allowPrivateField: boolean = false): Node.Identifier {
+        let isPrivateField = false;
         let node = this.createNode();
         let token = this.nextToken();
-        if (token.value === '#') {
+        if (token.value === '#' && allowPrivateField) {
             token = this.nextToken();
-            if (isPrivateField) {
-                token.value = '#' + token.value;
-            }
+            token.value = '#' + token.value;
+            isPrivateField = true;
         }
         if (!this.isIdentifierName(token)) {
             this.throwUnexpectedToken(token);
         }
-        return this.finalize(node, new Node.Identifier(token.value));
+        return this.finalize(node, isPrivateField ? new Node.PrivateIdentifier(token.value) : new Node.Identifier(token.value));
     }
 
     parseNewExpression(): Node.MetaProperty | Node.NewExpression {
@@ -2120,7 +2121,7 @@ export class Parser {
      * publicProp = 123;
      * @returns {Boolean}
      */
-    isInitializedProperty(): any {
+    isInitializedProperty(): boolean {
         let state = this.scanner.saveState();
         this.scanner.scanComments();
         let next = this.scanner.lex();
@@ -2134,7 +2135,7 @@ export class Parser {
      * publicProp;
      * @returns {Boolean}
      */
-    isDeclaredProperty(): any {
+    isDeclaredProperty(): boolean {
         let state = this.scanner.saveState();
         this.scanner.scanComments();
         let next = this.scanner.lex();
@@ -2181,7 +2182,7 @@ export class Parser {
         return this.finalize(node, new Node.ArrayPattern(elements));
     }
 
-    parsePropertyPattern(params, kind?: string): Node.PropertyDefinition {
+    parsePropertyPattern(params, kind?: string): Node.Property {
         const node = this.createNode();
 
         let computed = false;

@@ -19,8 +19,8 @@ export type Expression = ArrayExpression | ArrowFunctionExpression | AssignmentE
 export type FunctionParameter = AssignmentPattern | BindingIdentifier | BindingPattern;
 export type Function = FunctionDeclaration | FunctionExpression | ArrowFunctionExpression;
 export type ImportDeclarationSpecifier = ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier;
-export type ObjectExpressionProperty = PropertyDefinition | SpreadElement;
-export type ObjectPatternProperty = PropertyDefinition | RestElement;
+export type ObjectExpressionProperty = Property | SpreadElement;
+export type ObjectPatternProperty = Property | RestElement;
 export type Statement = BlockStatement | BreakStatement | LabeledStatement | ContinueStatement | DebuggerStatement | DoWhileStatement |
     EmptyStatement | ExpressionStatement | Directive | ForStatement | ForInStatement | ForOfStatement |
     IfStatement | ReturnStatement | SwitchStatement | ThrowStatement |
