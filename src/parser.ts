@@ -1238,19 +1238,19 @@ export class Parser {
             token.type === Token.NullLiteral;
     }
 
-    parseIdentifierName(isPrivateField: boolean = false): Node.Identifier {
+    parseIdentifierName(allowPrivateField: boolean = false): Node.Identifier {
+        let isPrivateField = false;
         let node = this.createNode();
         let token = this.nextToken();
-        if (token.value === '#') {
+        if (token.value === '#' && allowPrivateField) {
             token = this.nextToken();
-            if (isPrivateField) {
                 token.value = '#' + token.value;
-            }
+            isPrivateField = true;
         }
         if (!this.isIdentifierName(token)) {
             this.throwUnexpectedToken(token);
         }
-        return this.finalize(node, new Node.Identifier(token.value));
+        return this.finalize(node, isPrivateField ? new Node.PrivateIdentifier(token.value) : new Node.Identifier(token.value));
     }
 
     parseNewExpression(): Node.MetaProperty | Node.NewExpression {
