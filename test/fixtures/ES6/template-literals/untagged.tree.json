@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        4
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 4
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -64,8 +78,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Template",
-            "value": "`42`",
             "range": [
                 0,
                 4
@@ -79,21 +91,9 @@
                     "line": 1,
                     "column": 4
                 }
-            }
+            },
+            "type": "Template",
+            "value": "`42`"
         }
-    ],
-    "range": [
-        0,
-        4
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 4
-        }
-    }
+    ]
 }

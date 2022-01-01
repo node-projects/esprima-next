@@ -1,209 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "foo",
-                    "range": [
-                        0,
-                        3
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 3
-                        }
-                    }
-                },
-                "arguments": [
-                    {
-                        "type": "Identifier",
-                        "name": "bar",
-                        "range": [
-                            4,
-                            7
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 4
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 7
-                            }
-                        }
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "baz",
-                        "range": [
-                            9,
-                            12
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 9
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 12
-                            }
-                        }
-                    }
-                ],
-                "optional": false,
-                "range": [
-                    0,
-                    13
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 13
-                    }
-                }
-            },
-            "range": [
-                0,
-                13
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 13
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
-    "tokens": [
-        {
-            "type": "Identifier",
-            "value": "foo",
-            "range": [
-                0,
-                3
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 3
-                }
-            }
-        },
-        {
-            "type": "Punctuator",
-            "value": "(",
-            "range": [
-                3,
-                4
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 3
-                },
-                "end": {
-                    "line": 1,
-                    "column": 4
-                }
-            }
-        },
-        {
-            "type": "Identifier",
-            "value": "bar",
-            "range": [
-                4,
-                7
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 4
-                },
-                "end": {
-                    "line": 1,
-                    "column": 7
-                }
-            }
-        },
-        {
-            "type": "Punctuator",
-            "value": ",",
-            "range": [
-                7,
-                8
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 7
-                },
-                "end": {
-                    "line": 1,
-                    "column": 8
-                }
-            }
-        },
-        {
-            "type": "Identifier",
-            "value": "baz",
-            "range": [
-                9,
-                12
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 9
-                },
-                "end": {
-                    "line": 1,
-                    "column": 12
-                }
-            }
-        },
-        {
-            "type": "Punctuator",
-            "value": ")",
-            "range": [
-                12,
-                13
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 12
-                },
-                "end": {
-                    "line": 1,
-                    "column": 13
-                }
-            }
-        }
-    ],
     "range": [
         0,
         13
@@ -217,5 +12,210 @@
             "line": 1,
             "column": 13
         }
-    }
+    },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                13
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 13
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    13
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 13
+                    }
+                },
+                "type": "CallExpression",
+                "callee": {
+                    "range": [
+                        0,
+                        3
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 3
+                        }
+                    },
+                    "type": "Identifier",
+                    "name": "foo"
+                },
+                "arguments": [
+                    {
+                        "range": [
+                            4,
+                            7
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 7
+                            }
+                        },
+                        "type": "Identifier",
+                        "name": "bar"
+                    },
+                    {
+                        "range": [
+                            9,
+                            12
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 9
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 12
+                            }
+                        },
+                        "type": "Identifier",
+                        "name": "baz"
+                    }
+                ],
+                "optional": false
+            }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                0,
+                3
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 3
+                }
+            },
+            "type": "Identifier",
+            "value": "foo"
+        },
+        {
+            "range": [
+                3,
+                4
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 3
+                },
+                "end": {
+                    "line": 1,
+                    "column": 4
+                }
+            },
+            "type": "Punctuator",
+            "value": "("
+        },
+        {
+            "range": [
+                4,
+                7
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 4
+                },
+                "end": {
+                    "line": 1,
+                    "column": 7
+                }
+            },
+            "type": "Identifier",
+            "value": "bar"
+        },
+        {
+            "range": [
+                7,
+                8
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 7
+                },
+                "end": {
+                    "line": 1,
+                    "column": 8
+                }
+            },
+            "type": "Punctuator",
+            "value": ","
+        },
+        {
+            "range": [
+                9,
+                12
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 9
+                },
+                "end": {
+                    "line": 1,
+                    "column": 12
+                }
+            },
+            "type": "Identifier",
+            "value": "baz"
+        },
+        {
+            "range": [
+                12,
+                13
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 12
+                },
+                "end": {
+                    "line": 1,
+                    "column": 13
+                }
+            },
+            "type": "Punctuator",
+            "value": ")"
+        }
+    ]
 }

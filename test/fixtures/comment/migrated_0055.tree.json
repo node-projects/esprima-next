@@ -69,8 +69,6 @@
                 "body": [],
                 "innerComments": [
                     {
-                        "type": "Block",
-                        "value": "*\n   * comments in empty block\n   ",
                         "range": [
                             17,
                             55
@@ -84,7 +82,9 @@
                                 "line": 4,
                                 "column": 5
                             }
-                        }
+                        },
+                        "type": "Block",
+                        "value": "*\n   * comments in empty block\n   "
                     }
                 ]
             }
@@ -93,8 +93,6 @@
     "sourceType": "script",
     "comments": [
         {
-            "type": "Block",
-            "value": "*\n   * comments in empty block\n   ",
             "range": [
                 17,
                 55
@@ -108,13 +106,13 @@
                     "line": 4,
                     "column": 5
                 }
-            }
+            },
+            "type": "Block",
+            "value": "*\n   * comments in empty block\n   "
         }
     ],
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "while",
             "range": [
                 0,
                 5
@@ -128,11 +126,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "while"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 6,
                 7
@@ -146,11 +144,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Boolean",
-            "value": "true",
             "range": [
                 7,
                 11
@@ -164,11 +162,11 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Boolean",
+            "value": "true"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 11,
                 12
@@ -182,11 +180,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 13,
                 14
@@ -200,11 +198,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 56,
                 57
@@ -218,7 +216,9 @@
                     "line": 5,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         }
     ]
 }

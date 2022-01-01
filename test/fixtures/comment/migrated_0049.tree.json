@@ -1,4 +1,8 @@
 {
+    "range": [
+        26,
+        36
+    ],
     "type": "Program",
     "body": [
         {
@@ -36,12 +40,12 @@
             "kind": "var",
             "leadingComments": [
                 {
-                    "type": "Block",
-                    "value": "*\n * @type {number}\n ",
                     "range": [
                         0,
                         25
-                    ]
+                    ],
+                    "type": "Block",
+                    "value": "*\n * @type {number}\n "
                 }
             ]
         }
@@ -49,58 +53,54 @@
     "sourceType": "script",
     "comments": [
         {
-            "type": "Block",
-            "value": "*\n * @type {number}\n ",
             "range": [
                 0,
                 25
-            ]
+            ],
+            "type": "Block",
+            "value": "*\n * @type {number}\n "
         }
     ],
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "var",
             "range": [
                 26,
                 29
-            ]
+            ],
+            "type": "Keyword",
+            "value": "var"
         },
         {
-            "type": "Identifier",
-            "value": "a",
             "range": [
                 30,
                 31
-            ]
+            ],
+            "type": "Identifier",
+            "value": "a"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 32,
                 33
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "Numeric",
-            "value": "5",
             "range": [
                 34,
                 35
-            ]
+            ],
+            "type": "Numeric",
+            "value": "5"
         },
         {
-            "type": "Punctuator",
-            "value": ";",
             "range": [
                 35,
                 36
-            ]
+            ],
+            "type": "Punctuator",
+            "value": ";"
         }
-    ],
-    "range": [
-        26,
-        36
     ]
 }

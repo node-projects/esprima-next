@@ -1,43 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Identifier",
-                "name": "ૹ",
-                "range": [
-                    0,
-                    1
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 1
-                    }
-                }
-            },
-            "range": [
-                0,
-                1
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 1
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         1
@@ -52,10 +13,9 @@
             "column": 1
         }
     },
-    "tokens": [
+    "type": "Program",
+    "body": [
         {
-            "type": "Identifier",
-            "value": "ૹ",
             "range": [
                 0,
                 1
@@ -69,7 +29,47 @@
                     "line": 1,
                     "column": 1
                 }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    1
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 1
+                    }
+                },
+                "type": "Identifier",
+                "name": "ૹ"
             }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                0,
+                1
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            "type": "Identifier",
+            "value": "ૹ"
         }
     ]
 }

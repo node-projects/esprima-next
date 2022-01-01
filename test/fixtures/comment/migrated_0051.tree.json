@@ -1,4 +1,8 @@
 {
+    "range": [
+        0,
+        51
+    ],
     "type": "Program",
     "body": [
         {
@@ -43,24 +47,24 @@
                         "shorthand": false,
                         "leadingComments": [
                             {
-                                "type": "Block",
-                                "value": " comment 2 ",
                                 "range": [
                                     20,
                                     35
-                                ]
+                                ],
+                                "type": "Block",
+                                "value": " comment 2 "
                             }
                         ]
                     }
                 ],
                 "leadingComments": [
                     {
-                        "type": "Block",
-                        "value": " comment ",
                         "range": [
                             1,
                             14
-                        ]
+                        ],
+                        "type": "Block",
+                        "value": " comment "
                     }
                 ]
             }
@@ -69,82 +73,78 @@
     "sourceType": "script",
     "comments": [
         {
-            "type": "Block",
-            "value": " comment ",
             "range": [
                 1,
                 14
-            ]
+            ],
+            "type": "Block",
+            "value": " comment "
         },
         {
-            "type": "Block",
-            "value": " comment 2 ",
             "range": [
                 20,
                 35
-            ]
+            ],
+            "type": "Block",
+            "value": " comment 2 "
         }
     ],
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 0,
                 1
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 14,
                 15
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Identifier",
-            "value": "p1",
             "range": [
                 40,
                 42
-            ]
+            ],
+            "type": "Identifier",
+            "value": "p1"
         },
         {
-            "type": "Punctuator",
-            "value": ":",
             "range": [
                 42,
                 43
-            ]
+            ],
+            "type": "Punctuator",
+            "value": ":"
         },
         {
-            "type": "Null",
-            "value": "null",
             "range": [
                 44,
                 48
-            ]
+            ],
+            "type": "Null",
+            "value": "null"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 49,
                 50
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 50,
                 51
-            ]
+            ],
+            "type": "Punctuator",
+            "value": ")"
         }
-    ],
-    "range": [
-        0,
-        51
     ]
 }

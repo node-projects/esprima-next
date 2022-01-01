@@ -1,102 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "TaggedTemplateExpression",
-                "tag": {
-                    "type": "Identifier",
-                    "name": "a",
-                    "range": [
-                        0,
-                        1
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 1
-                        }
-                    }
-                },
-                "quasi": {
-                    "type": "TemplateLiteral",
-                    "quasis": [
-                        {
-                            "type": "TemplateElement",
-                            "value": {
-                                "raw": "\\8",
-                                "cooked": null
-                            },
-                            "tail": true,
-                            "range": [
-                                1,
-                                5
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 1
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 5
-                                }
-                            }
-                        }
-                    ],
-                    "expressions": [],
-                    "range": [
-                        1,
-                        5
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 1
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 5
-                        }
-                    }
-                },
-                "range": [
-                    0,
-                    5
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 5
-                    }
-                }
-            },
-            "range": [
-                0,
-                5
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 5
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         5
@@ -111,10 +13,106 @@
             "column": 5
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                5
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 5
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    5
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 5
+                    }
+                },
+                "type": "TaggedTemplateExpression",
+                "tag": {
+                    "range": [
+                        0,
+                        1
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 1
+                        }
+                    },
+                    "type": "Identifier",
+                    "name": "a"
+                },
+                "quasi": {
+                    "range": [
+                        1,
+                        5
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 1
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 5
+                        }
+                    },
+                    "type": "TemplateLiteral",
+                    "quasis": [
+                        {
+                            "range": [
+                                1,
+                                5
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 1
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 5
+                                }
+                            },
+                            "type": "TemplateElement",
+                            "value": {
+                                "raw": "\\8",
+                                "cooked": null
+                            },
+                            "tail": true
+                        }
+                    ],
+                    "expressions": []
+                }
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Identifier",
-            "value": "a",
             "range": [
                 0,
                 1
@@ -128,11 +126,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "a"
         },
         {
-            "type": "Template",
-            "value": "`\\8`",
             "range": [
                 1,
                 5
@@ -146,7 +144,9 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Template",
+            "value": "`\\8`"
         }
     ]
 }

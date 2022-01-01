@@ -1,104 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Literal",
-                "value": 42,
-                "raw": "42",
-                "range": [
-                    3,
-                    5
-                ],
-                "loc": {
-                    "start": {
-                        "line": 2,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 2,
-                        "column": 2
-                    }
-                }
-            },
-            "leadingComments": [
-                {
-                    "type": "Line",
-                    "value": "",
-                    "range": [
-                        0,
-                        2
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 2
-                        }
-                    }
-                }
-            ],
-            "range": [
-                3,
-                5
-            ],
-            "loc": {
-                "start": {
-                    "line": 2,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 2
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
-    "comments": [
-        {
-            "type": "Line",
-            "value": "",
-            "range": [
-                0,
-                2
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 2
-                }
-            }
-        }
-    ],
-    "tokens": [
-        {
-            "type": "Numeric",
-            "value": "42",
-            "range": [
-                3,
-                5
-            ],
-            "loc": {
-                "start": {
-                    "line": 2,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 2
-                }
-            }
-        }
-    ],
     "range": [
         3,
         5
@@ -112,5 +12,105 @@
             "line": 2,
             "column": 2
         }
-    }
+    },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                3,
+                5
+            ],
+            "loc": {
+                "start": {
+                    "line": 2,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 2
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    3,
+                    5
+                ],
+                "loc": {
+                    "start": {
+                        "line": 2,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 2
+                    }
+                },
+                "type": "Literal",
+                "value": 42,
+                "raw": "42"
+            },
+            "leadingComments": [
+                {
+                    "range": [
+                        0,
+                        2
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 2
+                        }
+                    },
+                    "type": "Line",
+                    "value": ""
+                }
+            ]
+        }
+    ],
+    "sourceType": "script",
+    "comments": [
+        {
+            "range": [
+                0,
+                2
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 2
+                }
+            },
+            "type": "Line",
+            "value": ""
+        }
+    ],
+    "tokens": [
+        {
+            "range": [
+                3,
+                5
+            ],
+            "loc": {
+                "start": {
+                    "line": 2,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 2
+                }
+            },
+            "type": "Numeric",
+            "value": "42"
+        }
+    ]
 }

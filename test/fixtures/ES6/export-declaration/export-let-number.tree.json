@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        19
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 19
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -92,14 +106,13 @@
                 "kind": "let"
             },
             "specifiers": [],
-            "source": null
+            "source": null,
+            "assertions": null
         }
     ],
     "sourceType": "module",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "export",
             "range": [
                 0,
                 6
@@ -113,11 +126,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "export"
         },
         {
-            "type": "Keyword",
-            "value": "let",
             "range": [
                 7,
                 10
@@ -131,11 +144,11 @@
                     "line": 1,
                     "column": 10
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "let"
         },
         {
-            "type": "Identifier",
-            "value": "foo",
             "range": [
                 11,
                 14
@@ -149,11 +162,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "foo"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 15,
                 16
@@ -167,11 +180,11 @@
                     "line": 1,
                     "column": 16
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "Numeric",
-            "value": "1",
             "range": [
                 17,
                 18
@@ -185,11 +198,11 @@
                     "line": 1,
                     "column": 18
                 }
-            }
+            },
+            "type": "Numeric",
+            "value": "1"
         },
         {
-            "type": "Punctuator",
-            "value": ";",
             "range": [
                 18,
                 19
@@ -203,21 +216,9 @@
                     "line": 1,
                     "column": 19
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ";"
         }
-    ],
-    "range": [
-        0,
-        19
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 19
-        }
-    }
+    ]
 }

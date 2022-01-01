@@ -1,54 +1,54 @@
 {
+    "range": [
+        0,
+        21
+    ],
     "type": "Program",
     "body": [
         {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Literal",
-                "value": 42,
-                "raw": "42",
-                "range": [
-                    0,
-                    2
-                ]
-            },
             "range": [
                 0,
                 21
-            ]
+            ],
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    2
+                ],
+                "type": "Literal",
+                "value": 42,
+                "raw": "42"
+            }
         }
     ],
     "sourceType": "script",
     "comments": [
         {
-            "type": "Block",
-            "value": "the",
             "range": [
                 3,
                 10
-            ]
+            ],
+            "type": "Block",
+            "value": "the"
         },
         {
-            "type": "Block",
-            "value": "answer",
             "range": [
                 11,
                 21
-            ]
+            ],
+            "type": "Block",
+            "value": "answer"
         }
     ],
     "tokens": [
         {
-            "type": "Numeric",
-            "value": "42",
             "range": [
                 0,
                 2
-            ]
+            ],
+            "type": "Numeric",
+            "value": "42"
         }
-    ],
-    "range": [
-        0,
-        21
     ]
 }

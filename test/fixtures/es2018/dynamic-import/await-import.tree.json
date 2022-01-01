@@ -151,7 +151,8 @@
                                     },
                                     "type": "Identifier",
                                     "name": "x"
-                                }
+                                },
+                                "attributes": null
                             }
                         }
                     }

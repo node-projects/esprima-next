@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        18
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 18
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -140,8 +154,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Identifier",
-            "value": "raw",
             "range": [
                 0,
                 3
@@ -155,11 +167,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "raw"
         },
         {
-            "type": "Template",
-            "value": "`hello ${",
             "range": [
                 3,
                 12
@@ -173,11 +185,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "Template",
+            "value": "`hello ${"
         },
         {
-            "type": "Identifier",
-            "value": "name",
             "range": [
                 12,
                 16
@@ -191,11 +203,11 @@
                     "line": 1,
                     "column": 16
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "name"
         },
         {
-            "type": "Template",
-            "value": "}`",
             "range": [
                 16,
                 18
@@ -209,21 +221,9 @@
                     "line": 1,
                     "column": 18
                 }
-            }
+            },
+            "type": "Template",
+            "value": "}`"
         }
-    ],
-    "range": [
-        0,
-        18
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 18
-        }
-    }
+    ]
 }

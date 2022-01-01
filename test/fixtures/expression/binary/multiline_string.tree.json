@@ -1,136 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "BinaryExpression",
-                "operator": "+",
-                "left": {
-                    "type": "Literal",
-                    "value": "",
-                    "raw": "'\\\n'",
-                    "range": [
-                        0,
-                        4
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 2,
-                            "column": 1
-                        }
-                    }
-                },
-                "right": {
-                    "type": "Identifier",
-                    "name": "bar",
-                    "range": [
-                        7,
-                        10
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 2,
-                            "column": 4
-                        },
-                        "end": {
-                            "line": 2,
-                            "column": 7
-                        }
-                    }
-                },
-                "range": [
-                    0,
-                    10
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 2,
-                        "column": 7
-                    }
-                }
-            },
-            "range": [
-                0,
-                10
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 7
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
-    "tokens": [
-        {
-            "type": "String",
-            "value": "'\\\n'",
-            "range": [
-                0,
-                4
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 1
-                }
-            }
-        },
-        {
-            "type": "Punctuator",
-            "value": "+",
-            "range": [
-                5,
-                6
-            ],
-            "loc": {
-                "start": {
-                    "line": 2,
-                    "column": 2
-                },
-                "end": {
-                    "line": 2,
-                    "column": 3
-                }
-            }
-        },
-        {
-            "type": "Identifier",
-            "value": "bar",
-            "range": [
-                7,
-                10
-            ],
-            "loc": {
-                "start": {
-                    "line": 2,
-                    "column": 4
-                },
-                "end": {
-                    "line": 2,
-                    "column": 7
-                }
-            }
-        }
-    ],
     "range": [
         0,
         10
@@ -144,5 +12,137 @@
             "line": 2,
             "column": 7
         }
-    }
+    },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                10
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 7
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    10
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 7
+                    }
+                },
+                "type": "BinaryExpression",
+                "operator": "+",
+                "left": {
+                    "range": [
+                        0,
+                        4
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "column": 1
+                        }
+                    },
+                    "type": "Literal",
+                    "value": "",
+                    "raw": "'\\\n'"
+                },
+                "right": {
+                    "range": [
+                        7,
+                        10
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 2,
+                            "column": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "column": 7
+                        }
+                    },
+                    "type": "Identifier",
+                    "name": "bar"
+                }
+            }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                0,
+                4
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 1
+                }
+            },
+            "type": "String",
+            "value": "'\\\n'"
+        },
+        {
+            "range": [
+                5,
+                6
+            ],
+            "loc": {
+                "start": {
+                    "line": 2,
+                    "column": 2
+                },
+                "end": {
+                    "line": 2,
+                    "column": 3
+                }
+            },
+            "type": "Punctuator",
+            "value": "+"
+        },
+        {
+            "range": [
+                7,
+                10
+            ],
+            "loc": {
+                "start": {
+                    "line": 2,
+                    "column": 4
+                },
+                "end": {
+                    "line": 2,
+                    "column": 7
+                }
+            },
+            "type": "Identifier",
+            "value": "bar"
+        }
+    ]
 }

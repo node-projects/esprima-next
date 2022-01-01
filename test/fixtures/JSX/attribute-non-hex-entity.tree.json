@@ -1,136 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "JSXElement",
-                "openingElement": {
-                    "type": "JSXOpeningElement",
-                    "name": {
-                        "type": "JSXIdentifier",
-                        "name": "p",
-                        "range": [
-                            1,
-                            2
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 1
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 2
-                            }
-                        }
-                    },
-                    "selfClosing": true,
-                    "attributes": [
-                        {
-                            "type": "JSXAttribute",
-                            "name": {
-                                "type": "JSXIdentifier",
-                                "name": "q",
-                                "range": [
-                                    3,
-                                    4
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 3
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 4
-                                    }
-                                }
-                            },
-                            "value": {
-                                "type": "Literal",
-                                "value": "Just my &#xAZ;2 ¢",
-                                "raw": "\"Just my &#xAZ;2 &#xA2;\"",
-                                "range": [
-                                    5,
-                                    29
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 5
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 29
-                                    }
-                                }
-                            },
-                            "range": [
-                                3,
-                                29
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 3
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 29
-                                }
-                            }
-                        }
-                    ],
-                    "range": [
-                        0,
-                        32
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 32
-                        }
-                    }
-                },
-                "children": [],
-                "closingElement": null,
-                "range": [
-                    0,
-                    32
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 32
-                    }
-                }
-            },
-            "range": [
-                0,
-                32
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 32
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         32
@@ -145,10 +13,140 @@
             "column": 32
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                32
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 32
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    32
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 32
+                    }
+                },
+                "type": "JSXElement",
+                "openingElement": {
+                    "range": [
+                        0,
+                        32
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 32
+                        }
+                    },
+                    "type": "JSXOpeningElement",
+                    "name": {
+                        "range": [
+                            1,
+                            2
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 1
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 2
+                            }
+                        },
+                        "type": "JSXIdentifier",
+                        "name": "p"
+                    },
+                    "selfClosing": true,
+                    "attributes": [
+                        {
+                            "range": [
+                                3,
+                                29
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 3
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 29
+                                }
+                            },
+                            "type": "JSXAttribute",
+                            "name": {
+                                "range": [
+                                    3,
+                                    4
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 3
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 4
+                                    }
+                                },
+                                "type": "JSXIdentifier",
+                                "name": "q"
+                            },
+                            "value": {
+                                "range": [
+                                    5,
+                                    29
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 5
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 29
+                                    }
+                                },
+                                "type": "Literal",
+                                "value": "Just my &#xAZ;2 ¢",
+                                "raw": "\"Just my &#xAZ;2 &#xA2;\""
+                            }
+                        }
+                    ]
+                },
+                "children": [],
+                "closingElement": null
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 0,
                 1
@@ -162,11 +160,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "p",
             "range": [
                 1,
                 2
@@ -180,11 +178,11 @@
                     "line": 1,
                     "column": 2
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "p"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "q",
             "range": [
                 3,
                 4
@@ -198,11 +196,11 @@
                     "line": 1,
                     "column": 4
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "q"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 4,
                 5
@@ -216,11 +214,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "String",
-            "value": "\"Just my &#xAZ;2 &#xA2;\"",
             "range": [
                 5,
                 29
@@ -234,11 +232,11 @@
                     "line": 1,
                     "column": 29
                 }
-            }
+            },
+            "type": "String",
+            "value": "\"Just my &#xAZ;2 &#xA2;\""
         },
         {
-            "type": "Punctuator",
-            "value": "/",
             "range": [
                 30,
                 31
@@ -252,11 +250,11 @@
                     "line": 1,
                     "column": 31
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "/"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 31,
                 32
@@ -270,7 +268,9 @@
                     "line": 1,
                     "column": 32
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         }
     ]
 }

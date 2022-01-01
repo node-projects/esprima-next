@@ -172,7 +172,8 @@
                                     "type": "Identifier",
                                     "name": "f"
                                 }
-                            }
+                            },
+                            "attributes": null
                         }
                     }
                 ]

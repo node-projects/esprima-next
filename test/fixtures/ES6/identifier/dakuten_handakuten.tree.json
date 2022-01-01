@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        4
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 4
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -76,8 +90,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Identifier",
-            "value": "゛",
             "range": [
                 0,
                 1
@@ -91,11 +103,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "゛"
         },
         {
-            "type": "Punctuator",
-            "value": "+",
             "range": [
                 1,
                 2
@@ -109,11 +121,11 @@
                     "line": 1,
                     "column": 2
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "+"
         },
         {
-            "type": "Identifier",
-            "value": "゜",
             "range": [
                 3,
                 4
@@ -127,21 +139,9 @@
                     "line": 1,
                     "column": 4
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "゜"
         }
-    ],
-    "range": [
-        0,
-        4
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 4
-        }
-    }
+    ]
 }

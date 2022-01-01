@@ -1,12 +1,37 @@
 {
+    "range": [
+        0,
+        13
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 2,
+            "column": 0
+        }
+    },
     "type": "Program",
     "body": [
         {
+            "range": [
+                0,
+                13
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 0
+                }
+            },
             "type": "WhileStatement",
             "test": {
-                "type": "Literal",
-                "value": true,
-                "raw": "true",
                 "range": [
                     7,
                     11
@@ -20,7 +45,10 @@
                         "line": 1,
                         "column": 11
                     }
-                }
+                },
+                "type": "Literal",
+                "value": true,
+                "raw": "true"
             },
             "body": {
                 "range": [
@@ -38,42 +66,12 @@
                     }
                 },
                 "type": "EmptyStatement"
-            },
-            "range": [
-                0,
-                13
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 0
-                }
             }
         }
     ],
     "sourceType": "script",
-    "range": [
-        0,
-        13
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 2,
-            "column": 0
-        }
-    },
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "while",
             "range": [
                 0,
                 5
@@ -87,11 +85,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "while"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 6,
                 7
@@ -105,11 +103,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Boolean",
-            "value": "true",
             "range": [
                 7,
                 11
@@ -123,7 +121,9 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Boolean",
+            "value": "true"
         }
     ],
     "errors": [

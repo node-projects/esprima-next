@@ -847,7 +847,7 @@
                                                                 "column": 24
                                                             }
                                                         },
-                                                        "type": "Identifier",
+                                                        "type": "PrivateIdentifier",
                                                         "name": "#cc"
                                                     },
                                                     "optional": false
@@ -956,7 +956,7 @@
                                                                 "column": 24
                                                             }
                                                         },
-                                                        "type": "Identifier",
+                                                        "type": "PrivateIdentifier",
                                                         "name": "#ee"
                                                     },
                                                     "optional": false
@@ -1081,7 +1081,7 @@
                                                                     "column": 24
                                                                 }
                                                             },
-                                                            "type": "Identifier",
+                                                            "type": "PrivateIdentifier",
                                                             "name": "#gg"
                                                         },
                                                         "optional": false
@@ -1304,7 +1304,7 @@
                                                                 "column": 22
                                                             }
                                                         },
-                                                        "type": "Identifier",
+                                                        "type": "PrivateIdentifier",
                                                         "name": "#jj"
                                                     },
                                                     "optional": false
@@ -1524,7 +1524,7 @@
                                                                 "column": 22
                                                             }
                                                         },
-                                                        "type": "Identifier",
+                                                        "type": "PrivateIdentifier",
                                                         "name": "#ll"
                                                     },
                                                     "optional": false
