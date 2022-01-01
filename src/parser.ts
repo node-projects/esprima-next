@@ -3461,7 +3461,23 @@ export class Parser {
 
     // https://tc39.github.io/ecma262/#sec-class-definitions
 
-    parseClassElement(hasConstructor): Node.PropertyDefinition {
+    parseStaticBlock(): Node.StaticBlock {
+        const node = this.createNode();
+
+        this.expect('{');
+        const block: Node.Statement[] = [];
+        while (true) {
+            if (this.match('}')) {
+                break;
+            }
+            block.push(this.parseStatementListItem());
+        }
+        this.expect('}');
+
+        return this.finalize(node, new Node.StaticBlock(block));
+    }
+
+    parseClassElement(hasConstructor): Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock {
         let token = this.lookahead;
         const node = this.createNode();
         const previousInConstructor = this.context.inConstructor;
@@ -3508,6 +3524,11 @@ export class Parser {
                     key = this.parseObjectPropertyKey(isPrivate);
                 }
             }
+
+            if (id.name === 'static' && this.match('{')) {
+                return this.parseStaticBlock();
+            }
+
             if ((token.type === Token.Identifier) && !this.hasLineTerminator && (token.value === 'async')) {
                 const punctuator = this.lookahead.value;
                 if (punctuator !== ':' && punctuator !== '(') {
@@ -3627,8 +3648,8 @@ export class Parser {
             return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic));
     }
 
-    parseClassElementList(): Node.PropertyDefinition[] {
-        const body: Node.PropertyDefinition[] = [];
+    parseClassElementList(): (Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock)[] {
+        const body: (Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock)[] = [];
         const hasConstructor = { value: false };
 
         this.expect('{');

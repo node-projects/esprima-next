@@ -201,8 +201,8 @@ export class ChainExpression {
 
 export class ClassBody {
     readonly type: Syntax.ClassBody;
-    readonly body: (MethodDefinition | PropertyDefinition)[];
-    constructor(body: PropertyDefinition[]) {
+    readonly body: (MethodDefinition | PropertyDefinition | StaticBlock)[];
+    constructor(body: (MethodDefinition | PropertyDefinition | StaticBlock)[]) {
         this.type = Syntax.ClassBody;
         this.body = body;
     }
@@ -728,6 +728,15 @@ export class SpreadElement {
     constructor(argument: Expression) {
         this.type = Syntax.SpreadElement;
         this.argument = argument;
+    }
+}
+
+export class StaticBlock {
+    readonly type: Syntax.StaticBlock;
+    readonly body: Statement[];
+    constructor(body) {
+        this.type = Syntax.StaticBlock;
+        this.body = body;
     }
 }
 

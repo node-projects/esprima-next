@@ -52,6 +52,7 @@ export enum Syntax {
     ReturnStatement = 'ReturnStatement',
     SequenceExpression = 'SequenceExpression',
     SpreadElement = 'SpreadElement',
+    StaticBlock = 'StaticBlock',
     Super = 'Super',
     SwitchCase = 'SwitchCase',
     SwitchStatement = 'SwitchStatement',
