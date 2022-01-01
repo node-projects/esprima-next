@@ -24,6 +24,8 @@
 
 'use strict';
 
+var rebuildTestResults = false;
+
 (function (root, factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory(
@@ -96,9 +98,13 @@
         return false;
     }
 
-    function testParse(code, syntax) {
+    function testParse(testCase) {
+
         'use strict';
         var expected, tree, actual, options, i, len, nodes;
+
+        var code = testCase.case || testCase.source || "";
+        var syntax = testCase.tree;
 
         options = {
             jsx: true,
@@ -159,6 +165,11 @@
         } catch (e) {
             throw new NotMatchingError(expected, e.toString());
         }
+        if (rebuildTestResults) {
+            const fs = require('fs');
+            fs.writeFileSync('./test/fixtures/' + testCase.key + '.tree.json', actual);
+        }
+
         assertEquality(expected, actual);
 
         function filter(key, value) {
@@ -374,9 +385,8 @@
     }
 
     return function (testCase) {
-        var code = testCase.case || testCase.source || "";
         if (testCase.hasOwnProperty('tree')) {
-            testParse(code, testCase.tree);
+            testParse(testCase);
         } else if (testCase.hasOwnProperty('tokens')) {
             testTokenize(testCase.case, testCase.tokens);
         } else if (testCase.hasOwnProperty('failure')) {
