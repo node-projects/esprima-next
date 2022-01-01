@@ -1332,6 +1332,13 @@ export class Parser {
         this.expect("(");
 
         const source = this.parseAssignmentExpression();
+
+        let attributes: Node.Expression | null = null;
+        if (this.match(",")) {
+            this.nextToken();
+            attributes = this.parseObjectInitializer();
+        }
+
         if (!this.match(")") && this.config.tolerant) {
             this.tolerateUnexpectedToken(this.nextToken());
         } else {
@@ -1340,7 +1347,7 @@ export class Parser {
                 this.nextToken();
             }
         }
-        return this.finalize(node, new Node.ImportExpression(source));
+        return this.finalize(node, new Node.ImportExpression(source, attributes));
     }
 
     matchImportMeta(): boolean {
@@ -3738,6 +3745,41 @@ export class Parser {
 
     // https://tc39.github.io/ecma262/#sec-imports
 
+    parseImportAttributes(): Node.ImportAttribute[] | null {
+        if (this.lookahead.value === 'assert') {
+            this.nextToken();
+            this.expect('{');
+            const attributes: Node.ImportAttribute[] = [];
+            while (!this.match('}')) {
+                attributes.push(this.parseImportAttribute());
+                if (!this.match('}')) {
+                    this.expectCommaSeparator();
+                }
+            }
+            this.expect('}');
+            return attributes;
+        }
+        return null;
+    }
+
+    parseImportAttribute(): Node.ImportAttribute {
+        const node = this.createNode();
+
+        if (this.lookahead.type !== Token.Identifier) {
+            this.throwUnexpectedToken(this.nextToken());
+        }
+        const key = this.parseIdentifierName();
+        if (!this.match(':')) {
+            this.throwUnexpectedToken(this.nextToken());
+        }
+        this.nextToken();
+        const literalToken = this.nextToken();
+        const raw = this.getTokenRaw(literalToken);
+        const value = this.finalize(node, new Node.Literal(literalToken.value as string, raw));
+
+        return this.finalize(node, new Node.ImportAttribute(key, value));
+    }
+
     parseModuleSpecifier(): Node.Literal {
         const node = this.createNode();
 
@@ -3862,9 +3904,10 @@ export class Parser {
             this.nextToken();
             src = this.parseModuleSpecifier();
         }
+        const attributes = this.parseImportAttributes();
         this.consumeSemicolon();
 
-        return this.finalize(node, new Node.ImportDeclaration(specifiers, src));
+        return this.finalize(node, new Node.ImportDeclaration(specifiers, src, attributes));
     }
 
     // https://tc39.github.io/ecma262/#sec-exports
@@ -3945,8 +3988,9 @@ export class Parser {
             }
             this.nextToken();
             const src = this.parseModuleSpecifier();
+            const attributes = this.parseImportAttributes();
             this.consumeSemicolon();
-            exportDeclaration = this.finalize(node, new Node.ExportAllDeclaration(src, exported));
+            exportDeclaration = this.finalize(node, new Node.ExportAllDeclaration(src, exported, attributes));
 
         } else if (this.lookahead.type === Token.Keyword) {
             // export var f = 1;
@@ -3964,16 +4008,17 @@ export class Parser {
                 default:
                     this.throwUnexpectedToken(this.lookahead);
             }
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null, null));
 
         } else if (this.matchAsyncFunction()) {
             const declaration = this.parseFunctionDeclaration();
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null, null));
 
         } else {
             const specifiers: Node.ExportSpecifier[] = [];
             let source: Node.Literal | null = null;
             let isExportFromIdentifier = false;
+            let attributes: Node.ImportAttribute[] | null = null;
 
             this.expect('{');
             while (!this.match('}')) {
@@ -3993,6 +4038,7 @@ export class Parser {
                 }
                 this.nextToken();
                 source = this.parseModuleSpecifier();
+                attributes = this.parseImportAttributes();
                 this.consumeSemicolon();
             } else if (isExportFromIdentifier) {
                 // export {default}; // missing fromClause
@@ -4000,9 +4046,10 @@ export class Parser {
                 this.throwError(message, this.lookahead.value);
             } else {
                 // export {foo};
+                attributes = this.parseImportAttributes();
                 this.consumeSemicolon();
             }
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(null, specifiers, source));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(null, specifiers, source, attributes));
         }
 
         return exportDeclaration;

@@ -31,6 +31,7 @@ export enum Syntax {
     FunctionExpression = 'FunctionExpression',
     Identifier = 'Identifier',
     IfStatement = 'IfStatement',
+    ImportAttribute = 'ImportAttribute',
     ImportExpression = 'ImportExpression',
     ImportDeclaration = 'ImportDeclaration',
     ImportDefaultSpecifier = 'ImportDefaultSpecifier',
