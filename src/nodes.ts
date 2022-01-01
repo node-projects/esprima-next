@@ -138,9 +138,9 @@ export class BigIntLiteral {
 export class BinaryExpression {
     readonly type: Syntax.BinaryExpression;
     readonly operator: string;
-    readonly left: Expression;
+    readonly left: Expression | PrivateIdentifier;
     readonly right: Expression;
-    constructor(operator: string, left: Expression, right: Expression) {
+    constructor(operator: string, left: Expression | PrivateIdentifier, right: Expression) {
         this.type = Syntax.BinaryExpression;
         this.operator = operator;
         this.left = left;

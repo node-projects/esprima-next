@@ -693,6 +693,10 @@ export class Parser {
                         raw = this.getTokenRaw(token);
                         expr = this.finalize(node, new Node.RegexLiteral(token.regex as RegExp, raw, token.pattern, token.flags));
                         break;
+                    case '#':
+                        this.nextToken();
+                        expr = this.finalize(node, new Node.PrivateIdentifier(this.nextToken().value));
+                        break;
                     default:
                         expr = this.throwUnexpectedToken(this.nextToken());
                 }
