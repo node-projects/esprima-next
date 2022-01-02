@@ -693,6 +693,10 @@ export class Parser {
                         raw = this.getTokenRaw(token);
                         expr = this.finalize(node, new Node.RegexLiteral(token.regex as RegExp, raw, token.pattern, token.flags));
                         break;
+                    case '#':
+                        this.nextToken();
+                        expr = this.finalize(node, new Node.PrivateIdentifier(this.nextToken().value));
+                        break;
                     default:
                         expr = this.throwUnexpectedToken(this.nextToken());
                 }
@@ -1328,6 +1332,13 @@ export class Parser {
         this.expect("(");
 
         const source = this.parseAssignmentExpression();
+
+        let attributes: Node.Expression | null = null;
+        if (this.match(",")) {
+            this.nextToken();
+            attributes = this.parseObjectInitializer();
+        }
+
         if (!this.match(")") && this.config.tolerant) {
             this.tolerateUnexpectedToken(this.nextToken());
         } else {
@@ -1336,7 +1347,7 @@ export class Parser {
                 this.nextToken();
             }
         }
-        return this.finalize(node, new Node.ImportExpression(source));
+        return this.finalize(node, new Node.ImportExpression(source, attributes));
     }
 
     matchImportMeta(): boolean {
@@ -3457,7 +3468,23 @@ export class Parser {
 
     // https://tc39.github.io/ecma262/#sec-class-definitions
 
-    parseClassElement(hasConstructor): Node.PropertyDefinition {
+    parseStaticBlock(): Node.StaticBlock {
+        const node = this.createNode();
+
+        this.expect('{');
+        const block: Node.Statement[] = [];
+        while (true) {
+            if (this.match('}')) {
+                break;
+            }
+            block.push(this.parseStatementListItem());
+        }
+        this.expect('}');
+
+        return this.finalize(node, new Node.StaticBlock(block));
+    }
+
+    parseClassElement(hasConstructor): Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock {
         let token = this.lookahead;
         const node = this.createNode();
         const previousInConstructor = this.context.inConstructor;
@@ -3504,6 +3531,11 @@ export class Parser {
                     key = this.parseObjectPropertyKey(isPrivate);
                 }
             }
+
+            if (id.name === 'static' && this.match('{')) {
+                return this.parseStaticBlock();
+            }
+
             if ((token.type === Token.Identifier) && !this.hasLineTerminator && (token.value === 'async')) {
                 const punctuator = this.lookahead.value;
                 if (punctuator !== ':' && punctuator !== '(') {
@@ -3623,8 +3655,8 @@ export class Parser {
             return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic));
     }
 
-    parseClassElementList(): Node.PropertyDefinition[] {
-        const body: Node.PropertyDefinition[] = [];
+    parseClassElementList(): (Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock)[] {
+        const body: (Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock)[] = [];
         const hasConstructor = { value: false };
 
         this.expect('{');
@@ -3712,6 +3744,41 @@ export class Parser {
     }
 
     // https://tc39.github.io/ecma262/#sec-imports
+
+    parseImportAttributes(): Node.ImportAttribute[] | null {
+        if (this.lookahead.value === 'assert') {
+            this.nextToken();
+            this.expect('{');
+            const attributes: Node.ImportAttribute[] = [];
+            while (!this.match('}')) {
+                attributes.push(this.parseImportAttribute());
+                if (!this.match('}')) {
+                    this.expectCommaSeparator();
+                }
+            }
+            this.expect('}');
+            return attributes;
+        }
+        return null;
+    }
+
+    parseImportAttribute(): Node.ImportAttribute {
+        const node = this.createNode();
+
+        if (this.lookahead.type !== Token.Identifier) {
+            this.throwUnexpectedToken(this.nextToken());
+        }
+        const key = this.parseIdentifierName();
+        if (!this.match(':')) {
+            this.throwUnexpectedToken(this.nextToken());
+        }
+        this.nextToken();
+        const literalToken = this.nextToken();
+        const raw = this.getTokenRaw(literalToken);
+        const value = this.finalize(node, new Node.Literal(literalToken.value as string, raw));
+
+        return this.finalize(node, new Node.ImportAttribute(key, value));
+    }
 
     parseModuleSpecifier(): Node.Literal {
         const node = this.createNode();
@@ -3837,9 +3904,10 @@ export class Parser {
             this.nextToken();
             src = this.parseModuleSpecifier();
         }
+        const attributes = this.parseImportAttributes();
         this.consumeSemicolon();
 
-        return this.finalize(node, new Node.ImportDeclaration(specifiers, src));
+        return this.finalize(node, new Node.ImportDeclaration(specifiers, src, attributes));
     }
 
     // https://tc39.github.io/ecma262/#sec-exports
@@ -3920,8 +3988,9 @@ export class Parser {
             }
             this.nextToken();
             const src = this.parseModuleSpecifier();
+            const attributes = this.parseImportAttributes();
             this.consumeSemicolon();
-            exportDeclaration = this.finalize(node, new Node.ExportAllDeclaration(src, exported));
+            exportDeclaration = this.finalize(node, new Node.ExportAllDeclaration(src, exported, attributes));
 
         } else if (this.lookahead.type === Token.Keyword) {
             // export var f = 1;
@@ -3939,16 +4008,17 @@ export class Parser {
                 default:
                     this.throwUnexpectedToken(this.lookahead);
             }
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null, null));
 
         } else if (this.matchAsyncFunction()) {
             const declaration = this.parseFunctionDeclaration();
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(declaration, [], null, null));
 
         } else {
             const specifiers: Node.ExportSpecifier[] = [];
             let source: Node.Literal | null = null;
             let isExportFromIdentifier = false;
+            let attributes: Node.ImportAttribute[] | null = null;
 
             this.expect('{');
             while (!this.match('}')) {
@@ -3968,6 +4038,7 @@ export class Parser {
                 }
                 this.nextToken();
                 source = this.parseModuleSpecifier();
+                attributes = this.parseImportAttributes();
                 this.consumeSemicolon();
             } else if (isExportFromIdentifier) {
                 // export {default}; // missing fromClause
@@ -3975,9 +4046,10 @@ export class Parser {
                 this.throwError(message, this.lookahead.value);
             } else {
                 // export {foo};
+                attributes = this.parseImportAttributes();
                 this.consumeSemicolon();
             }
-            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(null, specifiers, source));
+            exportDeclaration = this.finalize(node, new Node.ExportNamedDeclaration(null, specifiers, source, attributes));
         }
 
         return exportDeclaration;

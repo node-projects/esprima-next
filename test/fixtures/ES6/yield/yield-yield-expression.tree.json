@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        29
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 29
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -117,8 +131,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "function",
             "range": [
                 0,
                 8
@@ -132,11 +144,11 @@
                     "line": 1,
                     "column": 8
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "function"
         },
         {
-            "type": "Punctuator",
-            "value": "*",
             "range": [
                 9,
                 10
@@ -150,11 +162,11 @@
                     "line": 1,
                     "column": 10
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "*"
         },
         {
-            "type": "Identifier",
-            "value": "g",
             "range": [
                 10,
                 11
@@ -168,11 +180,11 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "g"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 11,
                 12
@@ -186,11 +198,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 12,
                 13
@@ -204,11 +216,11 @@
                     "line": 1,
                     "column": 13
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 14,
                 15
@@ -222,11 +234,11 @@
                     "line": 1,
                     "column": 15
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Keyword",
-            "value": "yield",
             "range": [
                 16,
                 21
@@ -240,11 +252,11 @@
                     "line": 1,
                     "column": 21
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "yield"
         },
         {
-            "type": "Keyword",
-            "value": "yield",
             "range": [
                 22,
                 27
@@ -258,11 +270,11 @@
                     "line": 1,
                     "column": 27
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "yield"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 28,
                 29
@@ -276,21 +288,9 @@
                     "line": 1,
                     "column": 29
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         }
-    ],
-    "range": [
-        0,
-        29
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 29
-        }
-    }
+    ]
 }

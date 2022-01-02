@@ -1,119 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "ArrowFunctionExpression",
-                "id": null,
-                "params": [
-                    {
-                        "type": "Identifier",
-                        "name": "a",
-                        "range": [
-                            7,
-                            8
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 7
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 8
-                            }
-                        }
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "b",
-                        "range": [
-                            10,
-                            11
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 10
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 11
-                            }
-                        }
-                    }
-                ],
-                "body": {
-                    "type": "AwaitExpression",
-                    "argument": {
-                        "type": "Identifier",
-                        "name": "a",
-                        "range": [
-                            22,
-                            23
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 22
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 23
-                            }
-                        }
-                    },
-                    "range": [
-                        16,
-                        23
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 16
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 23
-                        }
-                    }
-                },
-                "generator": false,
-                "expression": true,
-                "async": true,
-                "range": [
-                    0,
-                    23
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 23
-                    }
-                }
-            },
-            "range": [
-                0,
-                23
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 23
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         23
@@ -128,10 +13,123 @@
             "column": 23
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                23
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 23
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    23
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 23
+                    }
+                },
+                "type": "ArrowFunctionExpression",
+                "id": null,
+                "params": [
+                    {
+                        "range": [
+                            7,
+                            8
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 7
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 8
+                            }
+                        },
+                        "type": "Identifier",
+                        "name": "a"
+                    },
+                    {
+                        "range": [
+                            10,
+                            11
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 10
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 11
+                            }
+                        },
+                        "type": "Identifier",
+                        "name": "b"
+                    }
+                ],
+                "body": {
+                    "range": [
+                        16,
+                        23
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 16
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 23
+                        }
+                    },
+                    "type": "AwaitExpression",
+                    "argument": {
+                        "range": [
+                            22,
+                            23
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 22
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 23
+                            }
+                        },
+                        "type": "Identifier",
+                        "name": "a"
+                    }
+                },
+                "generator": false,
+                "expression": true,
+                "async": true
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Identifier",
-            "value": "async",
             "range": [
                 0,
                 5
@@ -145,11 +143,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "async"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 6,
                 7
@@ -163,11 +161,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Identifier",
-            "value": "a",
             "range": [
                 7,
                 8
@@ -181,11 +179,11 @@
                     "line": 1,
                     "column": 8
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "a"
         },
         {
-            "type": "Punctuator",
-            "value": ",",
             "range": [
                 8,
                 9
@@ -199,11 +197,11 @@
                     "line": 1,
                     "column": 9
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ","
         },
         {
-            "type": "Identifier",
-            "value": "b",
             "range": [
                 10,
                 11
@@ -217,11 +215,11 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "b"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 11,
                 12
@@ -235,11 +233,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "=>",
             "range": [
                 13,
                 15
@@ -253,11 +251,11 @@
                     "line": 1,
                     "column": 15
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "=>"
         },
         {
-            "type": "Identifier",
-            "value": "await",
             "range": [
                 16,
                 21
@@ -271,11 +269,11 @@
                     "line": 1,
                     "column": 21
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "await"
         },
         {
-            "type": "Identifier",
-            "value": "a",
             "range": [
                 22,
                 23
@@ -289,7 +287,9 @@
                     "line": 1,
                     "column": 23
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "a"
         }
     ]
 }

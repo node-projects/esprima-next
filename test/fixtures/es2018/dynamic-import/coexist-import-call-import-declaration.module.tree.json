@@ -86,7 +86,8 @@
                 "type": "Literal",
                 "value": "a",
                 "raw": "\"a\""
-            }
+            },
+            "assertions": null
         },
         {
             "range": [
@@ -171,7 +172,8 @@
                             "type": "Literal",
                             "value": "b",
                             "raw": "\"b\""
-                        }
+                        },
+                        "attributes": null
                     },
                     "property": {
                         "range": [

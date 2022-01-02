@@ -1,465 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "JSXElement",
-                "openingElement": {
-                    "type": "JSXOpeningElement",
-                    "name": {
-                        "type": "JSXMemberExpression",
-                        "object": {
-                            "type": "JSXMemberExpression",
-                            "object": {
-                                "type": "JSXMemberExpression",
-                                "object": {
-                                    "type": "JSXMemberExpression",
-                                    "object": {
-                                        "type": "JSXMemberExpression",
-                                        "object": {
-                                            "type": "JSXIdentifier",
-                                            "name": "SolarSystem",
-                                            "range": [
-                                                1,
-                                                12
-                                            ],
-                                            "loc": {
-                                                "start": {
-                                                    "line": 1,
-                                                    "column": 1
-                                                },
-                                                "end": {
-                                                    "line": 1,
-                                                    "column": 12
-                                                }
-                                            }
-                                        },
-                                        "property": {
-                                            "type": "JSXIdentifier",
-                                            "name": "Earth",
-                                            "range": [
-                                                13,
-                                                18
-                                            ],
-                                            "loc": {
-                                                "start": {
-                                                    "line": 1,
-                                                    "column": 13
-                                                },
-                                                "end": {
-                                                    "line": 1,
-                                                    "column": 18
-                                                }
-                                            }
-                                        },
-                                        "range": [
-                                            1,
-                                            18
-                                        ],
-                                        "loc": {
-                                            "start": {
-                                                "line": 1,
-                                                "column": 1
-                                            },
-                                            "end": {
-                                                "line": 1,
-                                                "column": 18
-                                            }
-                                        }
-                                    },
-                                    "property": {
-                                        "type": "JSXIdentifier",
-                                        "name": "America",
-                                        "range": [
-                                            19,
-                                            26
-                                        ],
-                                        "loc": {
-                                            "start": {
-                                                "line": 1,
-                                                "column": 19
-                                            },
-                                            "end": {
-                                                "line": 1,
-                                                "column": 26
-                                            }
-                                        }
-                                    },
-                                    "range": [
-                                        1,
-                                        26
-                                    ],
-                                    "loc": {
-                                        "start": {
-                                            "line": 1,
-                                            "column": 1
-                                        },
-                                        "end": {
-                                            "line": 1,
-                                            "column": 26
-                                        }
-                                    }
-                                },
-                                "property": {
-                                    "type": "JSXIdentifier",
-                                    "name": "USA",
-                                    "range": [
-                                        27,
-                                        30
-                                    ],
-                                    "loc": {
-                                        "start": {
-                                            "line": 1,
-                                            "column": 27
-                                        },
-                                        "end": {
-                                            "line": 1,
-                                            "column": 30
-                                        }
-                                    }
-                                },
-                                "range": [
-                                    1,
-                                    30
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 1
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 30
-                                    }
-                                }
-                            },
-                            "property": {
-                                "type": "JSXIdentifier",
-                                "name": "California",
-                                "range": [
-                                    31,
-                                    41
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 31
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 41
-                                    }
-                                }
-                            },
-                            "range": [
-                                1,
-                                41
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 1
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 41
-                                }
-                            }
-                        },
-                        "property": {
-                            "type": "JSXIdentifier",
-                            "name": "mountain-view",
-                            "range": [
-                                42,
-                                55
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 42
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 55
-                                }
-                            }
-                        },
-                        "range": [
-                            1,
-                            55
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 1
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 55
-                            }
-                        }
-                    },
-                    "selfClosing": false,
-                    "attributes": [],
-                    "range": [
-                        0,
-                        56
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 56
-                        }
-                    }
-                },
-                "children": [],
-                "closingElement": {
-                    "type": "JSXClosingElement",
-                    "name": {
-                        "type": "JSXMemberExpression",
-                        "object": {
-                            "type": "JSXMemberExpression",
-                            "object": {
-                                "type": "JSXMemberExpression",
-                                "object": {
-                                    "type": "JSXMemberExpression",
-                                    "object": {
-                                        "type": "JSXMemberExpression",
-                                        "object": {
-                                            "type": "JSXIdentifier",
-                                            "name": "SolarSystem",
-                                            "range": [
-                                                58,
-                                                69
-                                            ],
-                                            "loc": {
-                                                "start": {
-                                                    "line": 1,
-                                                    "column": 58
-                                                },
-                                                "end": {
-                                                    "line": 1,
-                                                    "column": 69
-                                                }
-                                            }
-                                        },
-                                        "property": {
-                                            "type": "JSXIdentifier",
-                                            "name": "Earth",
-                                            "range": [
-                                                70,
-                                                75
-                                            ],
-                                            "loc": {
-                                                "start": {
-                                                    "line": 1,
-                                                    "column": 70
-                                                },
-                                                "end": {
-                                                    "line": 1,
-                                                    "column": 75
-                                                }
-                                            }
-                                        },
-                                        "range": [
-                                            58,
-                                            75
-                                        ],
-                                        "loc": {
-                                            "start": {
-                                                "line": 1,
-                                                "column": 58
-                                            },
-                                            "end": {
-                                                "line": 1,
-                                                "column": 75
-                                            }
-                                        }
-                                    },
-                                    "property": {
-                                        "type": "JSXIdentifier",
-                                        "name": "America",
-                                        "range": [
-                                            76,
-                                            83
-                                        ],
-                                        "loc": {
-                                            "start": {
-                                                "line": 1,
-                                                "column": 76
-                                            },
-                                            "end": {
-                                                "line": 1,
-                                                "column": 83
-                                            }
-                                        }
-                                    },
-                                    "range": [
-                                        58,
-                                        83
-                                    ],
-                                    "loc": {
-                                        "start": {
-                                            "line": 1,
-                                            "column": 58
-                                        },
-                                        "end": {
-                                            "line": 1,
-                                            "column": 83
-                                        }
-                                    }
-                                },
-                                "property": {
-                                    "type": "JSXIdentifier",
-                                    "name": "USA",
-                                    "range": [
-                                        84,
-                                        87
-                                    ],
-                                    "loc": {
-                                        "start": {
-                                            "line": 1,
-                                            "column": 84
-                                        },
-                                        "end": {
-                                            "line": 1,
-                                            "column": 87
-                                        }
-                                    }
-                                },
-                                "range": [
-                                    58,
-                                    87
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 58
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 87
-                                    }
-                                }
-                            },
-                            "property": {
-                                "type": "JSXIdentifier",
-                                "name": "California",
-                                "range": [
-                                    88,
-                                    98
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 88
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 98
-                                    }
-                                }
-                            },
-                            "range": [
-                                58,
-                                98
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 58
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 98
-                                }
-                            }
-                        },
-                        "property": {
-                            "type": "JSXIdentifier",
-                            "name": "mountain-view",
-                            "range": [
-                                99,
-                                112
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 99
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 112
-                                }
-                            }
-                        },
-                        "range": [
-                            58,
-                            112
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 58
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 112
-                            }
-                        }
-                    },
-                    "range": [
-                        56,
-                        113
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 56
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 113
-                        }
-                    }
-                },
-                "range": [
-                    0,
-                    113
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 113
-                    }
-                }
-            },
-            "range": [
-                0,
-                113
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 113
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         113
@@ -474,10 +13,469 @@
             "column": 113
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                113
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 113
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    113
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 113
+                    }
+                },
+                "type": "JSXElement",
+                "openingElement": {
+                    "range": [
+                        0,
+                        56
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 56
+                        }
+                    },
+                    "type": "JSXOpeningElement",
+                    "name": {
+                        "range": [
+                            1,
+                            55
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 1
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 55
+                            }
+                        },
+                        "type": "JSXMemberExpression",
+                        "object": {
+                            "range": [
+                                1,
+                                41
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 1
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 41
+                                }
+                            },
+                            "type": "JSXMemberExpression",
+                            "object": {
+                                "range": [
+                                    1,
+                                    30
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 30
+                                    }
+                                },
+                                "type": "JSXMemberExpression",
+                                "object": {
+                                    "range": [
+                                        1,
+                                        26
+                                    ],
+                                    "loc": {
+                                        "start": {
+                                            "line": 1,
+                                            "column": 1
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "column": 26
+                                        }
+                                    },
+                                    "type": "JSXMemberExpression",
+                                    "object": {
+                                        "range": [
+                                            1,
+                                            18
+                                        ],
+                                        "loc": {
+                                            "start": {
+                                                "line": 1,
+                                                "column": 1
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "column": 18
+                                            }
+                                        },
+                                        "type": "JSXMemberExpression",
+                                        "object": {
+                                            "range": [
+                                                1,
+                                                12
+                                            ],
+                                            "loc": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "column": 1
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "column": 12
+                                                }
+                                            },
+                                            "type": "JSXIdentifier",
+                                            "name": "SolarSystem"
+                                        },
+                                        "property": {
+                                            "range": [
+                                                13,
+                                                18
+                                            ],
+                                            "loc": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "column": 13
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "column": 18
+                                                }
+                                            },
+                                            "type": "JSXIdentifier",
+                                            "name": "Earth"
+                                        }
+                                    },
+                                    "property": {
+                                        "range": [
+                                            19,
+                                            26
+                                        ],
+                                        "loc": {
+                                            "start": {
+                                                "line": 1,
+                                                "column": 19
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "column": 26
+                                            }
+                                        },
+                                        "type": "JSXIdentifier",
+                                        "name": "America"
+                                    }
+                                },
+                                "property": {
+                                    "range": [
+                                        27,
+                                        30
+                                    ],
+                                    "loc": {
+                                        "start": {
+                                            "line": 1,
+                                            "column": 27
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "column": 30
+                                        }
+                                    },
+                                    "type": "JSXIdentifier",
+                                    "name": "USA"
+                                }
+                            },
+                            "property": {
+                                "range": [
+                                    31,
+                                    41
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 31
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 41
+                                    }
+                                },
+                                "type": "JSXIdentifier",
+                                "name": "California"
+                            }
+                        },
+                        "property": {
+                            "range": [
+                                42,
+                                55
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 42
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 55
+                                }
+                            },
+                            "type": "JSXIdentifier",
+                            "name": "mountain-view"
+                        }
+                    },
+                    "selfClosing": false,
+                    "attributes": []
+                },
+                "children": [],
+                "closingElement": {
+                    "range": [
+                        56,
+                        113
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 56
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 113
+                        }
+                    },
+                    "type": "JSXClosingElement",
+                    "name": {
+                        "range": [
+                            58,
+                            112
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 58
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 112
+                            }
+                        },
+                        "type": "JSXMemberExpression",
+                        "object": {
+                            "range": [
+                                58,
+                                98
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 58
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 98
+                                }
+                            },
+                            "type": "JSXMemberExpression",
+                            "object": {
+                                "range": [
+                                    58,
+                                    87
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 58
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 87
+                                    }
+                                },
+                                "type": "JSXMemberExpression",
+                                "object": {
+                                    "range": [
+                                        58,
+                                        83
+                                    ],
+                                    "loc": {
+                                        "start": {
+                                            "line": 1,
+                                            "column": 58
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "column": 83
+                                        }
+                                    },
+                                    "type": "JSXMemberExpression",
+                                    "object": {
+                                        "range": [
+                                            58,
+                                            75
+                                        ],
+                                        "loc": {
+                                            "start": {
+                                                "line": 1,
+                                                "column": 58
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "column": 75
+                                            }
+                                        },
+                                        "type": "JSXMemberExpression",
+                                        "object": {
+                                            "range": [
+                                                58,
+                                                69
+                                            ],
+                                            "loc": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "column": 58
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "column": 69
+                                                }
+                                            },
+                                            "type": "JSXIdentifier",
+                                            "name": "SolarSystem"
+                                        },
+                                        "property": {
+                                            "range": [
+                                                70,
+                                                75
+                                            ],
+                                            "loc": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "column": 70
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "column": 75
+                                                }
+                                            },
+                                            "type": "JSXIdentifier",
+                                            "name": "Earth"
+                                        }
+                                    },
+                                    "property": {
+                                        "range": [
+                                            76,
+                                            83
+                                        ],
+                                        "loc": {
+                                            "start": {
+                                                "line": 1,
+                                                "column": 76
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "column": 83
+                                            }
+                                        },
+                                        "type": "JSXIdentifier",
+                                        "name": "America"
+                                    }
+                                },
+                                "property": {
+                                    "range": [
+                                        84,
+                                        87
+                                    ],
+                                    "loc": {
+                                        "start": {
+                                            "line": 1,
+                                            "column": 84
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "column": 87
+                                        }
+                                    },
+                                    "type": "JSXIdentifier",
+                                    "name": "USA"
+                                }
+                            },
+                            "property": {
+                                "range": [
+                                    88,
+                                    98
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 88
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 98
+                                    }
+                                },
+                                "type": "JSXIdentifier",
+                                "name": "California"
+                            }
+                        },
+                        "property": {
+                            "range": [
+                                99,
+                                112
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 99
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 112
+                                }
+                            },
+                            "type": "JSXIdentifier",
+                            "name": "mountain-view"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 0,
                 1
@@ -491,11 +489,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "SolarSystem",
             "range": [
                 1,
                 12
@@ -509,11 +507,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "SolarSystem"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 12,
                 13
@@ -527,11 +525,11 @@
                     "line": 1,
                     "column": 13
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "Earth",
             "range": [
                 13,
                 18
@@ -545,11 +543,11 @@
                     "line": 1,
                     "column": 18
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "Earth"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 18,
                 19
@@ -563,11 +561,11 @@
                     "line": 1,
                     "column": 19
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "America",
             "range": [
                 19,
                 26
@@ -581,11 +579,11 @@
                     "line": 1,
                     "column": 26
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "America"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 26,
                 27
@@ -599,11 +597,11 @@
                     "line": 1,
                     "column": 27
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "USA",
             "range": [
                 27,
                 30
@@ -617,11 +615,11 @@
                     "line": 1,
                     "column": 30
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "USA"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 30,
                 31
@@ -635,11 +633,11 @@
                     "line": 1,
                     "column": 31
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "California",
             "range": [
                 31,
                 41
@@ -653,11 +651,11 @@
                     "line": 1,
                     "column": 41
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "California"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 41,
                 42
@@ -671,11 +669,11 @@
                     "line": 1,
                     "column": 42
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "mountain-view",
             "range": [
                 42,
                 55
@@ -689,11 +687,11 @@
                     "line": 1,
                     "column": 55
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "mountain-view"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 55,
                 56
@@ -707,11 +705,11 @@
                     "line": 1,
                     "column": 56
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         },
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 56,
                 57
@@ -725,11 +723,11 @@
                     "line": 1,
                     "column": 57
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "Punctuator",
-            "value": "/",
             "range": [
                 57,
                 58
@@ -743,11 +741,11 @@
                     "line": 1,
                     "column": 58
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "/"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "SolarSystem",
             "range": [
                 58,
                 69
@@ -761,11 +759,11 @@
                     "line": 1,
                     "column": 69
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "SolarSystem"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 69,
                 70
@@ -779,11 +777,11 @@
                     "line": 1,
                     "column": 70
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "Earth",
             "range": [
                 70,
                 75
@@ -797,11 +795,11 @@
                     "line": 1,
                     "column": 75
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "Earth"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 75,
                 76
@@ -815,11 +813,11 @@
                     "line": 1,
                     "column": 76
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "America",
             "range": [
                 76,
                 83
@@ -833,11 +831,11 @@
                     "line": 1,
                     "column": 83
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "America"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 83,
                 84
@@ -851,11 +849,11 @@
                     "line": 1,
                     "column": 84
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "USA",
             "range": [
                 84,
                 87
@@ -869,11 +867,11 @@
                     "line": 1,
                     "column": 87
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "USA"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 87,
                 88
@@ -887,11 +885,11 @@
                     "line": 1,
                     "column": 88
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "California",
             "range": [
                 88,
                 98
@@ -905,11 +903,11 @@
                     "line": 1,
                     "column": 98
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "California"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 98,
                 99
@@ -923,11 +921,11 @@
                     "line": 1,
                     "column": 99
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "JSXIdentifier",
-            "value": "mountain-view",
             "range": [
                 99,
                 112
@@ -941,11 +939,11 @@
                     "line": 1,
                     "column": 112
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "mountain-view"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 112,
                 113
@@ -959,7 +957,9 @@
                     "line": 1,
                     "column": 113
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         }
     ]
 }

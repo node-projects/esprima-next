@@ -1,52 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Literal",
-                "value": 5,
-                "raw": "5",
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 1
-                    }
-                }
-            },
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 1
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
-    "tokens": [
-        {
-            "type": "Numeric",
-            "value": "5",
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 1
-                }
-            }
-        }
-    ],
     "loc": {
         "start": {
             "line": 1,
@@ -56,5 +8,53 @@
             "line": 1,
             "column": 1
         }
-    }
+    },
+    "type": "Program",
+    "body": [
+        {
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 1
+                    }
+                },
+                "type": "Literal",
+                "value": 5,
+                "raw": "5"
+            }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            "type": "Numeric",
+            "value": "5"
+        }
+    ]
 }

@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        62
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 62
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -277,8 +291,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 0,
                 1
@@ -292,11 +304,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 1,
                 2
@@ -310,11 +322,11 @@
                     "line": 1,
                     "column": 2
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "String",
-            "value": "\"__proto__\"",
             "range": [
                 3,
                 14
@@ -328,11 +340,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "String",
+            "value": "\"__proto__\""
         },
         {
-            "type": "Punctuator",
-            "value": ":",
             "range": [
                 14,
                 15
@@ -346,11 +358,11 @@
                     "line": 1,
                     "column": 15
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ":"
         },
         {
-            "type": "Null",
-            "value": "null",
             "range": [
                 16,
                 20
@@ -364,11 +376,11 @@
                     "line": 1,
                     "column": 20
                 }
-            }
+            },
+            "type": "Null",
+            "value": "null"
         },
         {
-            "type": "Punctuator",
-            "value": ",",
             "range": [
                 20,
                 21
@@ -382,11 +394,11 @@
                     "line": 1,
                     "column": 21
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ","
         },
         {
-            "type": "Identifier",
-            "value": "get",
             "range": [
                 22,
                 25
@@ -400,11 +412,11 @@
                     "line": 1,
                     "column": 25
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "get"
         },
         {
-            "type": "Identifier",
-            "value": "__proto__",
             "range": [
                 26,
                 35
@@ -418,11 +430,11 @@
                     "line": 1,
                     "column": 35
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "__proto__"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 35,
                 36
@@ -436,11 +448,11 @@
                     "line": 1,
                     "column": 36
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 36,
                 37
@@ -454,11 +466,11 @@
                     "line": 1,
                     "column": 37
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 37,
                 38
@@ -472,11 +484,11 @@
                     "line": 1,
                     "column": 38
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 38,
                 39
@@ -490,11 +502,11 @@
                     "line": 1,
                     "column": 39
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": ",",
             "range": [
                 39,
                 40
@@ -508,11 +520,11 @@
                     "line": 1,
                     "column": 40
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ","
         },
         {
-            "type": "Identifier",
-            "value": "set",
             "range": [
                 41,
                 44
@@ -526,11 +538,11 @@
                     "line": 1,
                     "column": 44
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "set"
         },
         {
-            "type": "Identifier",
-            "value": "__proto__",
             "range": [
                 45,
                 54
@@ -544,11 +556,11 @@
                     "line": 1,
                     "column": 54
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "__proto__"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 54,
                 55
@@ -562,11 +574,11 @@
                     "line": 1,
                     "column": 55
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Identifier",
-            "value": "x",
             "range": [
                 55,
                 56
@@ -580,11 +592,11 @@
                     "line": 1,
                     "column": 56
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "x"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 56,
                 57
@@ -598,11 +610,11 @@
                     "line": 1,
                     "column": 57
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 57,
                 58
@@ -616,11 +628,11 @@
                     "line": 1,
                     "column": 58
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 58,
                 59
@@ -634,11 +646,11 @@
                     "line": 1,
                     "column": 59
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 60,
                 61
@@ -652,11 +664,11 @@
                     "line": 1,
                     "column": 61
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 61,
                 62
@@ -670,21 +682,9 @@
                     "line": 1,
                     "column": 62
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         }
-    ],
-    "range": [
-        0,
-        62
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 62
-        }
-    }
+    ]
 }

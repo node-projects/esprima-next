@@ -127,7 +127,7 @@ var projects = {
     'esmangle': 'https://github.com/estools/esmangle.git',
     'escomplex-js': 'https://github.com/philbooth/escomplex-js.git',
     'redeyed': 'https://github.com/thlorenz/redeyed.git',
-    'jsfmt': 'https://github.com/rdio/jsfmt.git',
+    //'jsfmt': 'https://github.com/rdio/jsfmt.git',
     'rocambole': 'https://github.com/millermedeiros/rocambole.git',
     'istanbul': 'https://github.com/gotwarlost/istanbul.git'
 };

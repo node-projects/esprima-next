@@ -138,9 +138,9 @@ export class BigIntLiteral {
 export class BinaryExpression {
     readonly type: Syntax.BinaryExpression;
     readonly operator: string;
-    readonly left: Expression;
+    readonly left: Expression | PrivateIdentifier;
     readonly right: Expression;
-    constructor(operator: string, left: Expression, right: Expression) {
+    constructor(operator: string, left: Expression | PrivateIdentifier, right: Expression) {
         this.type = Syntax.BinaryExpression;
         this.operator = operator;
         this.left = left;
@@ -201,8 +201,8 @@ export class ChainExpression {
 
 export class ClassBody {
     readonly type: Syntax.ClassBody;
-    readonly body: (MethodDefinition | PropertyDefinition)[];
-    constructor(body: PropertyDefinition[]) {
+    readonly body: (MethodDefinition | PropertyDefinition | StaticBlock)[];
+    constructor(body: (MethodDefinition | PropertyDefinition | StaticBlock)[]) {
         this.type = Syntax.ClassBody;
         this.body = body;
     }
@@ -296,10 +296,12 @@ export class ExportAllDeclaration {
     readonly type: Syntax.ExportAllDeclaration;
     readonly source: Literal;
     readonly exported: Identifier | null;
-    constructor(source: Literal, exported: Identifier | null) {
+    readonly assertions: ImportAttribute[] | null;
+    constructor(source: Literal, exported: Identifier | null, assertions: ImportAttribute[] | null) {
         this.type = Syntax.ExportAllDeclaration;
         this.source = source;
         this.exported = exported;
+        this.assertions = assertions;
     }
 }
 
@@ -317,11 +319,13 @@ export class ExportNamedDeclaration {
     readonly declaration: ExportableNamedDeclaration | null;
     readonly specifiers: ExportSpecifier[];
     readonly source: Literal | null;
-    constructor(declaration: ExportableNamedDeclaration | null, specifiers: ExportSpecifier[], source: Literal | null) {
+    readonly assertions: ImportAttribute[] | null;
+    constructor(declaration: ExportableNamedDeclaration | null, specifiers: ExportSpecifier[], source: Literal | null, assertions: ImportAttribute[] | null) {
         this.type = Syntax.ExportNamedDeclaration;
         this.declaration = declaration;
         this.specifiers = specifiers;
         this.source = source;
+        this.assertions = assertions;
     }
 }
 
@@ -450,12 +454,25 @@ export class IfStatement {
     }
 }
 
+export class ImportAttribute {
+    readonly type: Syntax.ImportAttribute;
+    readonly key: Identifier | Literal;
+    readonly value: Literal;
+    constructor(key: Identifier | Literal, value: Literal) {
+        this.type = Syntax.ImportAttribute;
+        this.key = key;
+        this.value = value;
+    }
+}
+
 export class ImportExpression {
     readonly type: Syntax.ImportExpression;
     readonly source: Expression;
-    constructor(source) {
+    readonly attributes: Expression | null;
+    constructor(source, attributes: Expression | null) {
         this.type = Syntax.ImportExpression;
         this.source = source;
+        this.attributes = attributes;
     }
 }
 
@@ -463,10 +480,12 @@ export class ImportDeclaration {
     readonly type: Syntax.ImportDeclaration;
     readonly specifiers: ImportDeclarationSpecifier[];
     readonly source: Literal;
-    constructor(specifiers, source) {
+    readonly assertions: ImportAttribute[] | null;
+    constructor(specifiers, source, assertions: ImportAttribute[] | null) {
         this.type = Syntax.ImportDeclaration;
         this.specifiers = specifiers;
         this.source = source;
+        this.assertions = assertions;
     }
 }
 
@@ -728,6 +747,15 @@ export class SpreadElement {
     constructor(argument: Expression) {
         this.type = Syntax.SpreadElement;
         this.argument = argument;
+    }
+}
+
+export class StaticBlock {
+    readonly type: Syntax.StaticBlock;
+    readonly body: Statement[];
+    constructor(body) {
+        this.type = Syntax.StaticBlock;
+        this.body = body;
     }
 }
 

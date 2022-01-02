@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        5
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 5
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -61,8 +75,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "let",
             "range": [
                 0,
                 3
@@ -76,11 +88,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "let"
         },
         {
-            "type": "Identifier",
-            "value": "℮",
             "range": [
                 4,
                 5
@@ -94,21 +106,9 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "℮"
         }
-    ],
-    "range": [
-        0,
-        5
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 5
-        }
-    }
+    ]
 }

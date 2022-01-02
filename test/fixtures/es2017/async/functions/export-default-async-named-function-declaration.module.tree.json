@@ -1,82 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExportDefaultDeclaration",
-            "declaration": {
-                "type": "FunctionDeclaration",
-                "id": {
-                    "type": "Identifier",
-                    "name": "f",
-                    "range": [
-                        30,
-                        31
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 30
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 31
-                        }
-                    }
-                },
-                "params": [],
-                "body": {
-                    "type": "BlockStatement",
-                    "body": [],
-                    "range": [
-                        34,
-                        36
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 34
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 36
-                        }
-                    }
-                },
-                "generator": false,
-                "expression": false,
-                "async": true,
-                "range": [
-                    15,
-                    36
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 15
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 36
-                    }
-                }
-            },
-            "range": [
-                0,
-                36
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 36
-                }
-            }
-        }
-    ],
-    "sourceType": "module",
     "range": [
         0,
         36
@@ -91,10 +13,86 @@
             "column": 36
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                36
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 36
+                }
+            },
+            "type": "ExportDefaultDeclaration",
+            "declaration": {
+                "range": [
+                    15,
+                    36
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 15
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 36
+                    }
+                },
+                "type": "FunctionDeclaration",
+                "id": {
+                    "range": [
+                        30,
+                        31
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 30
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 31
+                        }
+                    },
+                    "type": "Identifier",
+                    "name": "f"
+                },
+                "params": [],
+                "body": {
+                    "range": [
+                        34,
+                        36
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 34
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 36
+                        }
+                    },
+                    "type": "BlockStatement",
+                    "body": []
+                },
+                "generator": false,
+                "expression": false,
+                "async": true
+            }
+        }
+    ],
+    "sourceType": "module",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "export",
             "range": [
                 0,
                 6
@@ -108,11 +106,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "export"
         },
         {
-            "type": "Keyword",
-            "value": "default",
             "range": [
                 7,
                 14
@@ -126,11 +124,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "default"
         },
         {
-            "type": "Identifier",
-            "value": "async",
             "range": [
                 15,
                 20
@@ -144,11 +142,11 @@
                     "line": 1,
                     "column": 20
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "async"
         },
         {
-            "type": "Keyword",
-            "value": "function",
             "range": [
                 21,
                 29
@@ -162,11 +160,11 @@
                     "line": 1,
                     "column": 29
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "function"
         },
         {
-            "type": "Identifier",
-            "value": "f",
             "range": [
                 30,
                 31
@@ -180,11 +178,11 @@
                     "line": 1,
                     "column": 31
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "f"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 31,
                 32
@@ -198,11 +196,11 @@
                     "line": 1,
                     "column": 32
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 32,
                 33
@@ -216,11 +214,11 @@
                     "line": 1,
                     "column": 33
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 34,
                 35
@@ -234,11 +232,11 @@
                     "line": 1,
                     "column": 35
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 35,
                 36
@@ -252,7 +250,9 @@
                     "line": 1,
                     "column": 36
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         }
     ]
 }

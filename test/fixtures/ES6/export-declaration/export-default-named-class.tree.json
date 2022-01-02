@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        27
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 27
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -76,8 +90,6 @@
     "sourceType": "module",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "export",
             "range": [
                 0,
                 6
@@ -91,11 +103,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "export"
         },
         {
-            "type": "Keyword",
-            "value": "default",
             "range": [
                 7,
                 14
@@ -109,11 +121,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "default"
         },
         {
-            "type": "Keyword",
-            "value": "class",
             "range": [
                 15,
                 20
@@ -127,11 +139,11 @@
                     "line": 1,
                     "column": 20
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "class"
         },
         {
-            "type": "Identifier",
-            "value": "foo",
             "range": [
                 21,
                 24
@@ -145,11 +157,11 @@
                     "line": 1,
                     "column": 24
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "foo"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 25,
                 26
@@ -163,11 +175,11 @@
                     "line": 1,
                     "column": 26
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 26,
                 27
@@ -181,21 +193,9 @@
                     "line": 1,
                     "column": 27
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         }
-    ],
-    "range": [
-        0,
-        27
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 27
-        }
-    }
+    ]
 }

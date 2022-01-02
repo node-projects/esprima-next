@@ -1,4 +1,8 @@
 {
+    "range": [
+        0,
+        31
+    ],
     "type": "Program",
     "body": [
         {
@@ -45,12 +49,12 @@
                 ],
                 "leadingComments": [
                     {
-                        "type": "Block",
-                        "value": " comment ",
                         "range": [
                             1,
                             14
-                        ]
+                        ],
+                        "type": "Block",
+                        "value": " comment "
                     }
                 ]
             }
@@ -59,74 +63,70 @@
     "sourceType": "script",
     "comments": [
         {
-            "type": "Block",
-            "value": " comment ",
             "range": [
                 1,
                 14
-            ]
+            ],
+            "type": "Block",
+            "value": " comment "
         }
     ],
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 0,
                 1
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 14,
                 15
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Identifier",
-            "value": "p1",
             "range": [
                 20,
                 22
-            ]
+            ],
+            "type": "Identifier",
+            "value": "p1"
         },
         {
-            "type": "Punctuator",
-            "value": ":",
             "range": [
                 22,
                 23
-            ]
+            ],
+            "type": "Punctuator",
+            "value": ":"
         },
         {
-            "type": "Null",
-            "value": "null",
             "range": [
                 24,
                 28
-            ]
+            ],
+            "type": "Null",
+            "value": "null"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 29,
                 30
-            ]
+            ],
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 30,
                 31
-            ]
+            ],
+            "type": "Punctuator",
+            "value": ")"
         }
-    ],
-    "range": [
-        0,
-        31
     ]
 }

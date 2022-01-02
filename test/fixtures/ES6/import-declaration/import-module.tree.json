@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        13
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 13
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -36,14 +50,13 @@
                 "type": "Literal",
                 "value": "foo",
                 "raw": "\"foo\""
-            }
+            },
+            "assertions": null
         }
     ],
     "sourceType": "module",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "import",
             "range": [
                 0,
                 6
@@ -57,11 +70,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "import"
         },
         {
-            "type": "String",
-            "value": "\"foo\"",
             "range": [
                 7,
                 12
@@ -75,11 +88,11 @@
                     "line": 1,
                     "column": 12
                 }
-            }
+            },
+            "type": "String",
+            "value": "\"foo\""
         },
         {
-            "type": "Punctuator",
-            "value": ";",
             "range": [
                 12,
                 13
@@ -93,21 +106,9 @@
                     "line": 1,
                     "column": 13
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ";"
         }
-    ],
-    "range": [
-        0,
-        13
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 13
-        }
-    }
+    ]
 }

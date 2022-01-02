@@ -1,11 +1,37 @@
 {
+    "range": [
+        0,
+        15
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 3,
+            "column": 0
+        }
+    },
     "type": "Program",
     "body": [
         {
+            "range": [
+                0,
+                15
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 3,
+                    "column": 0
+                }
+            },
             "type": "ForInStatement",
             "left": {
-                "type": "Identifier",
-                "name": "x",
                 "range": [
                     5,
                     6
@@ -19,11 +45,11 @@
                         "line": 1,
                         "column": 6
                     }
-                }
+                },
+                "type": "Identifier",
+                "name": "x"
             },
             "right": {
-                "type": "Identifier",
-                "name": "y",
                 "range": [
                     10,
                     11
@@ -37,7 +63,9 @@
                         "line": 1,
                         "column": 11
                     }
-                }
+                },
+                "type": "Identifier",
+                "name": "y"
             },
             "body": {
                 "range": [
@@ -56,42 +84,12 @@
                 },
                 "type": "EmptyStatement"
             },
-            "each": false,
-            "range": [
-                0,
-                15
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 3,
-                    "column": 0
-                }
-            }
+            "each": false
         }
     ],
     "sourceType": "script",
-    "range": [
-        0,
-        15
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 3,
-            "column": 0
-        }
-    },
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "for",
             "range": [
                 0,
                 3
@@ -105,11 +103,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "for"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 4,
                 5
@@ -123,11 +121,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Identifier",
-            "value": "x",
             "range": [
                 5,
                 6
@@ -141,11 +139,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "x"
         },
         {
-            "type": "Keyword",
-            "value": "in",
             "range": [
                 7,
                 9
@@ -159,11 +157,11 @@
                     "line": 1,
                     "column": 9
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "in"
         },
         {
-            "type": "Identifier",
-            "value": "y",
             "range": [
                 10,
                 11
@@ -177,7 +175,9 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "y"
         }
     ],
     "errors": [

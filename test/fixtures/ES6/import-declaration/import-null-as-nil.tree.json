@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        33
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 33
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -90,14 +104,13 @@
                 "type": "Literal",
                 "value": "bar",
                 "raw": "\"bar\""
-            }
+            },
+            "assertions": null
         }
     ],
     "sourceType": "module",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "import",
             "range": [
                 0,
                 6
@@ -111,11 +124,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "import"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 7,
                 8
@@ -129,11 +142,11 @@
                     "line": 1,
                     "column": 8
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Null",
-            "value": "null",
             "range": [
                 9,
                 13
@@ -147,11 +160,11 @@
                     "line": 1,
                     "column": 13
                 }
-            }
+            },
+            "type": "Null",
+            "value": "null"
         },
         {
-            "type": "Identifier",
-            "value": "as",
             "range": [
                 14,
                 16
@@ -165,11 +178,11 @@
                     "line": 1,
                     "column": 16
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "as"
         },
         {
-            "type": "Identifier",
-            "value": "nil",
             "range": [
                 17,
                 20
@@ -183,11 +196,11 @@
                     "line": 1,
                     "column": 20
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "nil"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 21,
                 22
@@ -201,11 +214,11 @@
                     "line": 1,
                     "column": 22
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Identifier",
-            "value": "from",
             "range": [
                 23,
                 27
@@ -219,11 +232,11 @@
                     "line": 1,
                     "column": 27
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "from"
         },
         {
-            "type": "String",
-            "value": "\"bar\"",
             "range": [
                 28,
                 33
@@ -237,21 +250,9 @@
                     "line": 1,
                     "column": 33
                 }
-            }
+            },
+            "type": "String",
+            "value": "\"bar\""
         }
-    ],
-    "range": [
-        0,
-        33
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 33
-        }
-    }
+    ]
 }

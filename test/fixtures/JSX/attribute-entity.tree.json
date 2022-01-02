@@ -1,136 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "JSXElement",
-                "openingElement": {
-                    "type": "JSXOpeningElement",
-                    "name": {
-                        "type": "JSXIdentifier",
-                        "name": "img",
-                        "range": [
-                            1,
-                            4
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 1
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 4
-                            }
-                        }
-                    },
-                    "selfClosing": true,
-                    "attributes": [
-                        {
-                            "type": "JSXAttribute",
-                            "name": {
-                                "type": "JSXIdentifier",
-                                "name": "alt",
-                                "range": [
-                                    5,
-                                    8
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 5
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 8
-                                    }
-                                }
-                            },
-                            "value": {
-                                "type": "Literal",
-                                "value": "Tom & Jerry",
-                                "raw": "\"Tom &amp; Jerry\"",
-                                "range": [
-                                    9,
-                                    26
-                                ],
-                                "loc": {
-                                    "start": {
-                                        "line": 1,
-                                        "column": 9
-                                    },
-                                    "end": {
-                                        "line": 1,
-                                        "column": 26
-                                    }
-                                }
-                            },
-                            "range": [
-                                5,
-                                26
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 5
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 26
-                                }
-                            }
-                        }
-                    ],
-                    "range": [
-                        0,
-                        29
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 29
-                        }
-                    }
-                },
-                "children": [],
-                "closingElement": null,
-                "range": [
-                    0,
-                    29
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 29
-                    }
-                }
-            },
-            "range": [
-                0,
-                29
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 29
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         29
@@ -145,10 +13,140 @@
             "column": 29
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                29
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 29
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    29
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 29
+                    }
+                },
+                "type": "JSXElement",
+                "openingElement": {
+                    "range": [
+                        0,
+                        29
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 29
+                        }
+                    },
+                    "type": "JSXOpeningElement",
+                    "name": {
+                        "range": [
+                            1,
+                            4
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 1
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 4
+                            }
+                        },
+                        "type": "JSXIdentifier",
+                        "name": "img"
+                    },
+                    "selfClosing": true,
+                    "attributes": [
+                        {
+                            "range": [
+                                5,
+                                26
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 5
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 26
+                                }
+                            },
+                            "type": "JSXAttribute",
+                            "name": {
+                                "range": [
+                                    5,
+                                    8
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 5
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 8
+                                    }
+                                },
+                                "type": "JSXIdentifier",
+                                "name": "alt"
+                            },
+                            "value": {
+                                "range": [
+                                    9,
+                                    26
+                                ],
+                                "loc": {
+                                    "start": {
+                                        "line": 1,
+                                        "column": 9
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "column": 26
+                                    }
+                                },
+                                "type": "Literal",
+                                "value": "Tom & Jerry",
+                                "raw": "\"Tom &amp; Jerry\""
+                            }
+                        }
+                    ]
+                },
+                "children": [],
+                "closingElement": null
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 0,
                 1
@@ -162,11 +160,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "img",
             "range": [
                 1,
                 4
@@ -180,11 +178,11 @@
                     "line": 1,
                     "column": 4
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "img"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "alt",
             "range": [
                 5,
                 8
@@ -198,11 +196,11 @@
                     "line": 1,
                     "column": 8
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "alt"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 8,
                 9
@@ -216,11 +214,11 @@
                     "line": 1,
                     "column": 9
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "String",
-            "value": "\"Tom &amp; Jerry\"",
             "range": [
                 9,
                 26
@@ -234,11 +232,11 @@
                     "line": 1,
                     "column": 26
                 }
-            }
+            },
+            "type": "String",
+            "value": "\"Tom &amp; Jerry\""
         },
         {
-            "type": "Punctuator",
-            "value": "/",
             "range": [
                 27,
                 28
@@ -252,11 +250,11 @@
                     "line": 1,
                     "column": 28
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "/"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 28,
                 29
@@ -270,7 +268,9 @@
                     "line": 1,
                     "column": 29
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         }
     ]
 }

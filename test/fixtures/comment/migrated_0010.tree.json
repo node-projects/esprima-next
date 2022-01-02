@@ -1,64 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Literal",
-                "value": 42,
-                "raw": "42",
-                "range": [
-                    42,
-                    44
-                ],
-                "loc": {
-                    "start": {
-                        "line": 5,
-                        "column": 11
-                    },
-                    "end": {
-                        "line": 5,
-                        "column": 13
-                    }
-                }
-            },
-            "range": [
-                42,
-                44
-            ],
-            "loc": {
-                "start": {
-                    "line": 5,
-                    "column": 11
-                },
-                "end": {
-                    "line": 5,
-                    "column": 13
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
-    "tokens": [
-        {
-            "type": "Numeric",
-            "value": "42",
-            "range": [
-                42,
-                44
-            ],
-            "loc": {
-                "start": {
-                    "line": 5,
-                    "column": 11
-                },
-                "end": {
-                    "line": 5,
-                    "column": 13
-                }
-            }
-        }
-    ],
     "range": [
         42,
         44
@@ -72,5 +12,65 @@
             "line": 5,
             "column": 13
         }
-    }
+    },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                42,
+                44
+            ],
+            "loc": {
+                "start": {
+                    "line": 5,
+                    "column": 11
+                },
+                "end": {
+                    "line": 5,
+                    "column": 13
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    42,
+                    44
+                ],
+                "loc": {
+                    "start": {
+                        "line": 5,
+                        "column": 11
+                    },
+                    "end": {
+                        "line": 5,
+                        "column": 13
+                    }
+                },
+                "type": "Literal",
+                "value": 42,
+                "raw": "42"
+            }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                42,
+                44
+            ],
+            "loc": {
+                "start": {
+                    "line": 5,
+                    "column": 11
+                },
+                "end": {
+                    "line": 5,
+                    "column": 13
+                }
+            },
+            "type": "Numeric",
+            "value": "42"
+        }
+    ]
 }

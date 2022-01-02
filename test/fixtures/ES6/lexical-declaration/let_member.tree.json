@@ -127,8 +127,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "let",
             "range": [
                 0,
                 3
@@ -142,11 +140,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "let"
         },
         {
-            "type": "Punctuator",
-            "value": ".",
             "range": [
                 3,
                 4
@@ -160,11 +158,11 @@
                     "line": 1,
                     "column": 4
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "."
         },
         {
-            "type": "Keyword",
-            "value": "let",
             "range": [
                 4,
                 7
@@ -178,11 +176,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "let"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 8,
                 9
@@ -196,11 +194,11 @@
                     "line": 1,
                     "column": 9
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "Identifier",
-            "value": "foo",
             "range": [
                 10,
                 13
@@ -214,7 +212,9 @@
                     "line": 1,
                     "column": 13
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "foo"
         }
     ]
 }

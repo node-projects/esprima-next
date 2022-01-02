@@ -98,7 +98,8 @@
                             "type": "Literal",
                             "value": "lib.js",
                             "raw": "'lib.js'"
-                        }
+                        },
+                        "attributes": null
                     },
                     "property": {
                         "range": [

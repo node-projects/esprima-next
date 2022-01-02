@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        16
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 16
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -79,8 +93,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "var",
             "range": [
                 0,
                 3
@@ -94,11 +106,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "var"
         },
         {
-            "type": "Identifier",
-            "value": "x",
             "range": [
                 4,
                 5
@@ -112,11 +124,11 @@
                     "line": 1,
                     "column": 5
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "x"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 6,
                 7
@@ -130,11 +142,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "String",
-            "value": "'abc\\8'",
             "range": [
                 8,
                 15
@@ -148,11 +160,11 @@
                     "line": 1,
                     "column": 15
                 }
-            }
+            },
+            "type": "String",
+            "value": "'abc\\8'"
         },
         {
-            "type": "Punctuator",
-            "value": ";",
             "range": [
                 15,
                 16
@@ -166,7 +178,9 @@
                     "line": 1,
                     "column": 16
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ";"
         }
     ],
     "errors": [
@@ -176,19 +190,5 @@
             "column": 15,
             "message": "Error: Line 1: Unexpected token ILLEGAL"
         }
-    ],
-    "range": [
-        0,
-        16
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 16
-        }
-    }
+    ]
 }

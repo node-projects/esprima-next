@@ -1,48 +1,4 @@
 {
-    "type": "Program",
-    "body": [],
-    "sourceType": "script",
-    "leadingComments": [
-        {
-            "type": "Line",
-            "value": " one\\n",
-            "range": [
-                0,
-                8
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 8
-                }
-            }
-        }
-    ],
-    "comments": [
-        {
-            "type": "Line",
-            "value": " one\\n",
-            "range": [
-                0,
-                8
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 8
-                }
-            }
-        }
-    ],
-    "tokens": [],
     "range": [
         8,
         8
@@ -56,5 +12,49 @@
             "line": 1,
             "column": 8
         }
-    }
+    },
+    "type": "Program",
+    "body": [],
+    "sourceType": "script",
+    "leadingComments": [
+        {
+            "range": [
+                0,
+                8
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 8
+                }
+            },
+            "type": "Line",
+            "value": " one\\n"
+        }
+    ],
+    "comments": [
+        {
+            "range": [
+                0,
+                8
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 8
+                }
+            },
+            "type": "Line",
+            "value": " one\\n"
+        }
+    ],
+    "tokens": []
 }

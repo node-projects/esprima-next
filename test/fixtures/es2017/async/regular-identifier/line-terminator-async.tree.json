@@ -1,100 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Identifier",
-                "name": "async",
-                "range": [
-                    0,
-                    5
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 5
-                    }
-                }
-            },
-            "range": [
-                0,
-                5
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 5
-                }
-            }
-        },
-        {
-            "type": "FunctionDeclaration",
-            "id": {
-                "type": "Identifier",
-                "name": "f",
-                "range": [
-                    15,
-                    16
-                ],
-                "loc": {
-                    "start": {
-                        "line": 2,
-                        "column": 9
-                    },
-                    "end": {
-                        "line": 2,
-                        "column": 10
-                    }
-                }
-            },
-            "params": [],
-            "body": {
-                "type": "BlockStatement",
-                "body": [],
-                "range": [
-                    19,
-                    21
-                ],
-                "loc": {
-                    "start": {
-                        "line": 2,
-                        "column": 13
-                    },
-                    "end": {
-                        "line": 2,
-                        "column": 15
-                    }
-                }
-            },
-            "generator": false,
-            "expression": false,
-            "async": false,
-            "range": [
-                6,
-                21
-            ],
-            "loc": {
-                "start": {
-                    "line": 2,
-                    "column": 0
-                },
-                "end": {
-                    "line": 2,
-                    "column": 15
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         21
@@ -109,10 +13,9 @@
             "column": 15
         }
     },
-    "tokens": [
+    "type": "Program",
+    "body": [
         {
-            "type": "Identifier",
-            "value": "async",
             "range": [
                 0,
                 5
@@ -126,11 +29,106 @@
                     "line": 1,
                     "column": 5
                 }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    5
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 5
+                    }
+                },
+                "type": "Identifier",
+                "name": "async"
             }
         },
         {
-            "type": "Keyword",
-            "value": "function",
+            "range": [
+                6,
+                21
+            ],
+            "loc": {
+                "start": {
+                    "line": 2,
+                    "column": 0
+                },
+                "end": {
+                    "line": 2,
+                    "column": 15
+                }
+            },
+            "type": "FunctionDeclaration",
+            "id": {
+                "range": [
+                    15,
+                    16
+                ],
+                "loc": {
+                    "start": {
+                        "line": 2,
+                        "column": 9
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 10
+                    }
+                },
+                "type": "Identifier",
+                "name": "f"
+            },
+            "params": [],
+            "body": {
+                "range": [
+                    19,
+                    21
+                ],
+                "loc": {
+                    "start": {
+                        "line": 2,
+                        "column": 13
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 15
+                    }
+                },
+                "type": "BlockStatement",
+                "body": []
+            },
+            "generator": false,
+            "expression": false,
+            "async": false
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                0,
+                5
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 5
+                }
+            },
+            "type": "Identifier",
+            "value": "async"
+        },
+        {
             "range": [
                 6,
                 14
@@ -144,11 +142,11 @@
                     "line": 2,
                     "column": 8
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "function"
         },
         {
-            "type": "Identifier",
-            "value": "f",
             "range": [
                 15,
                 16
@@ -162,11 +160,11 @@
                     "line": 2,
                     "column": 10
                 }
-            }
+            },
+            "type": "Identifier",
+            "value": "f"
         },
         {
-            "type": "Punctuator",
-            "value": "(",
             "range": [
                 16,
                 17
@@ -180,11 +178,11 @@
                     "line": 2,
                     "column": 11
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "("
         },
         {
-            "type": "Punctuator",
-            "value": ")",
             "range": [
                 17,
                 18
@@ -198,11 +196,11 @@
                     "line": 2,
                     "column": 12
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ")"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 19,
                 20
@@ -216,11 +214,11 @@
                     "line": 2,
                     "column": 14
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 20,
                 21
@@ -234,7 +232,9 @@
                     "line": 2,
                     "column": 15
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         }
     ]
 }

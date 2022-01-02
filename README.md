@@ -14,7 +14,7 @@ with the help of [many contributors](https://github.com/node-projects/esprima-ne
 
 ### esprima-next
 
-A fork of esprima (https://github.com/jquery/esprima), cause esprima has no releases and many not merged pull req.
+A fork of esprima (https://github.com/jquery/esprima), cause esprima has no new releases and many not merged pull req.
 if development/maintenance at jquery will start again, we maybe remove this fork.
 
 ### Changes to original Esprima:
@@ -26,6 +26,7 @@ if development/maintenance at jquery will start again, we maybe remove this fork
 - we don't need to support node <= 12
 - ES2022 Class Properties & Privates
 - Support numeric seperator and BigInt
+- import assertions
 
 following Pull reqs are merged from @esprima github:
 

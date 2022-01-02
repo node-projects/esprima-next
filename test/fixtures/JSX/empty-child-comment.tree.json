@@ -1,150 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "JSXElement",
-                "openingElement": {
-                    "type": "JSXOpeningElement",
-                    "name": {
-                        "type": "JSXIdentifier",
-                        "name": "adele",
-                        "range": [
-                            1,
-                            6
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 1
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 6
-                            }
-                        }
-                    },
-                    "selfClosing": false,
-                    "attributes": [],
-                    "range": [
-                        0,
-                        7
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 0
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 7
-                        }
-                    }
-                },
-                "children": [
-                    {
-                        "type": "JSXExpressionContainer",
-                        "expression": {
-                            "type": "JSXEmptyExpression",
-                            "range": [
-                                8,
-                                34
-                            ],
-                            "loc": {
-                                "start": {
-                                    "line": 1,
-                                    "column": 8
-                                },
-                                "end": {
-                                    "line": 1,
-                                    "column": 34
-                                }
-                            }
-                        },
-                        "range": [
-                            7,
-                            35
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 7
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 35
-                            }
-                        }
-                    }
-                ],
-                "closingElement": {
-                    "type": "JSXClosingElement",
-                    "name": {
-                        "type": "JSXIdentifier",
-                        "name": "adele",
-                        "range": [
-                            37,
-                            42
-                        ],
-                        "loc": {
-                            "start": {
-                                "line": 1,
-                                "column": 37
-                            },
-                            "end": {
-                                "line": 1,
-                                "column": 42
-                            }
-                        }
-                    },
-                    "range": [
-                        35,
-                        43
-                    ],
-                    "loc": {
-                        "start": {
-                            "line": 1,
-                            "column": 35
-                        },
-                        "end": {
-                            "line": 1,
-                            "column": 43
-                        }
-                    }
-                },
-                "range": [
-                    0,
-                    43
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 43
-                    }
-                }
-            },
-            "range": [
-                0,
-                43
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 43
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         43
@@ -159,10 +13,154 @@
             "column": 43
         }
     },
+    "type": "Program",
+    "body": [
+        {
+            "range": [
+                0,
+                43
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 43
+                }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    43
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 43
+                    }
+                },
+                "type": "JSXElement",
+                "openingElement": {
+                    "range": [
+                        0,
+                        7
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 0
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 7
+                        }
+                    },
+                    "type": "JSXOpeningElement",
+                    "name": {
+                        "range": [
+                            1,
+                            6
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 1
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 6
+                            }
+                        },
+                        "type": "JSXIdentifier",
+                        "name": "adele"
+                    },
+                    "selfClosing": false,
+                    "attributes": []
+                },
+                "children": [
+                    {
+                        "range": [
+                            7,
+                            35
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 7
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 35
+                            }
+                        },
+                        "type": "JSXExpressionContainer",
+                        "expression": {
+                            "range": [
+                                8,
+                                34
+                            ],
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 8
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 34
+                                }
+                            },
+                            "type": "JSXEmptyExpression"
+                        }
+                    }
+                ],
+                "closingElement": {
+                    "range": [
+                        35,
+                        43
+                    ],
+                    "loc": {
+                        "start": {
+                            "line": 1,
+                            "column": 35
+                        },
+                        "end": {
+                            "line": 1,
+                            "column": 43
+                        }
+                    },
+                    "type": "JSXClosingElement",
+                    "name": {
+                        "range": [
+                            37,
+                            42
+                        ],
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 37
+                            },
+                            "end": {
+                                "line": 1,
+                                "column": 42
+                            }
+                        },
+                        "type": "JSXIdentifier",
+                        "name": "adele"
+                    }
+                }
+            }
+        }
+    ],
+    "sourceType": "script",
     "tokens": [
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 0,
                 1
@@ -176,11 +174,11 @@
                     "line": 1,
                     "column": 1
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "adele",
             "range": [
                 1,
                 6
@@ -194,11 +192,11 @@
                     "line": 1,
                     "column": 6
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "adele"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 6,
                 7
@@ -212,11 +210,11 @@
                     "line": 1,
                     "column": 7
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         },
         {
-            "type": "Punctuator",
-            "value": "{",
             "range": [
                 7,
                 8
@@ -230,11 +228,11 @@
                     "line": 1,
                     "column": 8
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "{"
         },
         {
-            "type": "Punctuator",
-            "value": "}",
             "range": [
                 34,
                 35
@@ -248,11 +246,11 @@
                     "line": 1,
                     "column": 35
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "}"
         },
         {
-            "type": "Punctuator",
-            "value": "<",
             "range": [
                 35,
                 36
@@ -266,11 +264,11 @@
                     "line": 1,
                     "column": 36
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "<"
         },
         {
-            "type": "Punctuator",
-            "value": "/",
             "range": [
                 36,
                 37
@@ -284,11 +282,11 @@
                     "line": 1,
                     "column": 37
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "/"
         },
         {
-            "type": "JSXIdentifier",
-            "value": "adele",
             "range": [
                 37,
                 42
@@ -302,11 +300,11 @@
                     "line": 1,
                     "column": 42
                 }
-            }
+            },
+            "type": "JSXIdentifier",
+            "value": "adele"
         },
         {
-            "type": "Punctuator",
-            "value": ">",
             "range": [
                 42,
                 43
@@ -320,7 +318,9 @@
                     "line": 1,
                     "column": 43
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ">"
         }
     ]
 }

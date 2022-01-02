@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        26
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 26
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -64,8 +78,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Template",
-            "value": "`\\u{000042}\\u0042\\x42\\A\\0`",
             "range": [
                 0,
                 26
@@ -79,21 +91,9 @@
                     "line": 1,
                     "column": 26
                 }
-            }
+            },
+            "type": "Template",
+            "value": "`\\u{000042}\\u0042\\x42\\A\\0`"
         }
-    ],
-    "range": [
-        0,
-        26
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 26
-        }
-    }
+    ]
 }

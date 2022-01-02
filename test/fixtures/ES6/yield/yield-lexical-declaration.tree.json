@@ -1,4 +1,18 @@
 {
+    "range": [
+        0,
+        15
+    ],
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 1,
+            "column": 15
+        }
+    },
     "type": "Program",
     "body": [
         {
@@ -79,8 +93,6 @@
     "sourceType": "script",
     "tokens": [
         {
-            "type": "Keyword",
-            "value": "let",
             "range": [
                 0,
                 3
@@ -94,11 +106,11 @@
                     "line": 1,
                     "column": 3
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "let"
         },
         {
-            "type": "Keyword",
-            "value": "yield",
             "range": [
                 4,
                 9
@@ -112,11 +124,11 @@
                     "line": 1,
                     "column": 9
                 }
-            }
+            },
+            "type": "Keyword",
+            "value": "yield"
         },
         {
-            "type": "Punctuator",
-            "value": "=",
             "range": [
                 10,
                 11
@@ -130,11 +142,11 @@
                     "line": 1,
                     "column": 11
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": "="
         },
         {
-            "type": "Numeric",
-            "value": "42",
             "range": [
                 12,
                 14
@@ -148,11 +160,11 @@
                     "line": 1,
                     "column": 14
                 }
-            }
+            },
+            "type": "Numeric",
+            "value": "42"
         },
         {
-            "type": "Punctuator",
-            "value": ";",
             "range": [
                 14,
                 15
@@ -166,21 +178,9 @@
                     "line": 1,
                     "column": 15
                 }
-            }
+            },
+            "type": "Punctuator",
+            "value": ";"
         }
-    ],
-    "range": [
-        0,
-        15
-    ],
-    "loc": {
-        "start": {
-            "line": 1,
-            "column": 0
-        },
-        "end": {
-            "line": 1,
-            "column": 15
-        }
-    }
+    ]
 }

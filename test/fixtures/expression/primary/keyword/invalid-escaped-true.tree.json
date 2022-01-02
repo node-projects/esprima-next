@@ -1,44 +1,4 @@
 {
-    "type": "Program",
-    "body": [
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "Literal",
-                "value": true,
-                "raw": "\\u0074rue",
-                "range": [
-                    0,
-                    9
-                ],
-                "loc": {
-                    "start": {
-                        "line": 1,
-                        "column": 0
-                    },
-                    "end": {
-                        "line": 1,
-                        "column": 9
-                    }
-                }
-            },
-            "range": [
-                0,
-                9
-            ],
-            "loc": {
-                "start": {
-                    "line": 1,
-                    "column": 0
-                },
-                "end": {
-                    "line": 1,
-                    "column": 9
-                }
-            }
-        }
-    ],
-    "sourceType": "script",
     "range": [
         0,
         9
@@ -53,10 +13,9 @@
             "column": 9
         }
     },
-    "tokens": [
+    "type": "Program",
+    "body": [
         {
-            "type": "Boolean",
-            "value": "\\u0074rue",
             "range": [
                 0,
                 9
@@ -70,7 +29,48 @@
                     "line": 1,
                     "column": 9
                 }
+            },
+            "type": "ExpressionStatement",
+            "expression": {
+                "range": [
+                    0,
+                    9
+                ],
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "column": 9
+                    }
+                },
+                "type": "Literal",
+                "value": true,
+                "raw": "\\u0074rue"
             }
+        }
+    ],
+    "sourceType": "script",
+    "tokens": [
+        {
+            "range": [
+                0,
+                9
+            ],
+            "loc": {
+                "start": {
+                    "line": 1,
+                    "column": 0
+                },
+                "end": {
+                    "line": 1,
+                    "column": 9
+                }
+            },
+            "type": "Boolean",
+            "value": "\\u0074rue"
         }
     ],
     "errors": [
