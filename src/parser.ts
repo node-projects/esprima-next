@@ -1,4 +1,5 @@
 import { assert } from './assert';
+import { Character } from './character';
 import { ErrorHandler, EsprimaError } from './error-handler';
 import { Messages } from './messages';
 import * as Node from './nodes';
@@ -3789,6 +3790,10 @@ export class Parser {
 
         const token = this.nextToken();
         const raw = this.getTokenRaw(token);
+        if (!Character.isStringWellFormedUnicode((<string>token.value))) {
+            this.throwError(Messages.InvalidModuleSpecifier);
+        }
+
         return this.finalize(node, new Node.Literal(token.value as string, raw));
     }
 

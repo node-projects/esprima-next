@@ -16,6 +16,25 @@ export const Character = {
             String.fromCharCode(0xDC00 + ((cp - 0x10000) & 1023));
     },
 
+    isStringWellFormedUnicode(text: string): boolean {
+        for (let i = 0; i < text.length; i++) {
+            let c = text.charCodeAt(i);
+            if (c >= 0xD800 && c <= 0xDBFF) {
+                if (i === text.length - 1) {
+                    return false;
+                }
+                i++;
+                c = text.charCodeAt(i);
+                if (c < 0xDC00 && c > 0xDFFF) {
+                    return false;
+                }
+            } else if (c >= 0xDC00 && c <= 0xDFFF) {
+                return false;
+            }
+        }
+        return true;
+    },
+
     // https://tc39.github.io/ecma262/#sec-white-space
 
     isWhiteSpace(cp: number): boolean {
