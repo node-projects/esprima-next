@@ -702,6 +702,18 @@ export class Scanner {
             this.throwUnexpectedToken();
         }
 
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0x' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
+        }
+
         if (Character.isIdentifierStart(this.source.charCodeAt(this.index))) {
             this.throwUnexpectedToken();
         }
@@ -724,6 +736,18 @@ export class Scanner {
         if (num.length === 0) {
             // only 0b or 0B
             this.throwUnexpectedToken();
+        }
+
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0b' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
         }
 
         if (!this.eof()) {
@@ -762,6 +786,18 @@ export class Scanner {
             this.throwUnexpectedToken();
         }
 
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0o' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
+        }
+
         if (Character.isIdentifierStart(this.source.charCodeAt(this.index)) || Character.isDecimalDigit(this.source.charCodeAt(this.index))) {
             this.throwUnexpectedToken();
         }
@@ -782,7 +818,7 @@ export class Scanner {
         // (Annex B.1.1 on Numeric Literals)
         for (let i = this.index + 1; i < this.length; ++i) {
             const ch = this.source[i];
-            if (ch === '8' || ch === '9') {
+            if (ch === '8' || ch === '9' || ch === 'n') {
                 return false;
             }
             if (!Character.isOctalDigit(ch.charCodeAt(0))) {
@@ -872,6 +908,9 @@ export class Scanner {
                 this.throwUnexpectedToken();
             }
         } else if (ch === 'n') {
+            if (num.length > 1 && num[0] === '0') {
+                this.throwUnexpectedToken();
+            }
             this.index++;
             return {
                 type: Token.NumericLiteral,

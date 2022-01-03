@@ -295,9 +295,9 @@ export class EmptyStatement {
 export class ExportAllDeclaration {
     readonly type: Syntax.ExportAllDeclaration;
     readonly source: Literal;
-    readonly exported: Identifier | null;
+    readonly exported: Identifier | Literal | null;
     readonly assertions: ImportAttribute[] | null;
-    constructor(source: Literal, exported: Identifier | null, assertions: ImportAttribute[] | null) {
+    constructor(source: Literal, exported: Identifier | Literal | null, assertions: ImportAttribute[] | null) {
         this.type = Syntax.ExportAllDeclaration;
         this.source = source;
         this.exported = exported;
@@ -331,9 +331,9 @@ export class ExportNamedDeclaration {
 
 export class ExportSpecifier {
     readonly type: Syntax.ExportSpecifier;
-    readonly exported: Identifier;
-    readonly local: Identifier;
-    constructor(local: Identifier, exported: Identifier) {
+    readonly exported: Identifier | Literal;
+    readonly local: Identifier | Literal;
+    constructor(local: Identifier | Literal, exported: Identifier | Literal) {
         this.type = Syntax.ExportSpecifier;
         this.exported = exported;
         this.local = local;
@@ -510,8 +510,8 @@ export class ImportNamespaceSpecifier {
 export class ImportSpecifier {
     readonly type: Syntax.ImportSpecifier;
     readonly local: Identifier;
-    readonly imported: Identifier;
-    constructor(local: Identifier, imported: Identifier) {
+    readonly imported: Identifier | Literal;
+    constructor(local: Identifier, imported: Identifier | Literal) {
         this.type = Syntax.ImportSpecifier;
         this.local = local;
         this.imported = imported;

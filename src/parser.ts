@@ -1,4 +1,5 @@
 import { assert } from './assert';
+import { Character } from './character';
 import { ErrorHandler, EsprimaError } from './error-handler';
 import { Messages } from './messages';
 import * as Node from './nodes';
@@ -3789,6 +3790,10 @@ export class Parser {
 
         const token = this.nextToken();
         const raw = this.getTokenRaw(token);
+        if (!Character.isStringWellFormedUnicode((<string>token.value))) {
+            this.throwError(Messages.InvalidModuleSpecifier);
+        }
+
         return this.finalize(node, new Node.Literal(token.value as string, raw));
     }
 
@@ -3796,8 +3801,8 @@ export class Parser {
     parseImportSpecifier(): Node.ImportSpecifier {
         const node = this.createNode();
 
-        let imported: Node.Identifier;
-        let local: Node.Identifier;
+        let imported: Node.Identifier | Node.Literal;
+        let local: Node.Identifier | Node.Literal;
         if (this.lookahead.type === Token.Identifier) {
             imported = this.parseVariableIdentifier();
             local = imported;
@@ -3806,7 +3811,7 @@ export class Parser {
                 local = this.parseVariableIdentifier();
             }
         } else {
-            imported = this.parseIdentifierName();
+            imported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
             local = imported;
             if (this.matchContextualKeyword('as')) {
                 this.nextToken();
@@ -3915,14 +3920,14 @@ export class Parser {
     parseExportSpecifier(): Node.ExportSpecifier {
         const node = this.createNode();
 
-        const local = this.parseIdentifierName();
+        const local = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
         let exported = local;
         if (this.matchContextualKeyword('as')) {
             if (this.lookahead.escaped) {
                 this.throwError(Messages.NoAsAndFromEscapeSequences);
             }
             this.nextToken();
-            exported = this.parseIdentifierName();
+            exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
         }
 
         return this.finalize(node, new Node.ExportSpecifier(local, exported));
@@ -3971,13 +3976,13 @@ export class Parser {
         } else if (this.match('*')) {
             // export * from 'foo';
             this.nextToken();
-            let exported: Node.Identifier | null = null;
+            let exported: Node.Identifier | Node.Literal | null = null;
             if (this.matchContextualKeyword('as')) {
                 if (this.lookahead.escaped) {
                     this.throwError(Messages.NoAsAndFromEscapeSequences);
                 }
                 this.nextToken();
-                exported = this.parseIdentifierName();
+                exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
             }
             if (!this.matchContextualKeyword('from')) {
                 const message = this.lookahead.value ? Messages.UnexpectedToken : Messages.MissingFromClause;
