@@ -11,11 +11,15 @@ test('bigint simple test', () => {
 
 test('bigint variants', () => {
     let valids = [
+        '0n',
         '1_2n'];
 
     let invalids = [
         '1_n',
-        '1.1n'];
+        '1.1n',
+        '00n',
+        '01n',
+        '07n'];
 
     for (let p of valids) {
         console.info("bigint should parse", p);
