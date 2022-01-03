@@ -702,6 +702,18 @@ export class Scanner {
             this.throwUnexpectedToken();
         }
 
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0x' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
+        }
+
         if (Character.isIdentifierStart(this.source.charCodeAt(this.index))) {
             this.throwUnexpectedToken();
         }
@@ -724,6 +736,18 @@ export class Scanner {
         if (num.length === 0) {
             // only 0b or 0B
             this.throwUnexpectedToken();
+        }
+
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0b' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
         }
 
         if (!this.eof()) {
@@ -760,6 +784,18 @@ export class Scanner {
         if (!octal && num.length === 0) {
             // only 0o or 0O
             this.throwUnexpectedToken();
+        }
+
+        if (this.source[this.index] === 'n') {
+            this.index++;
+            return {
+                type: Token.NumericLiteral,
+                value: BigInt('0o' + num),
+                lineNumber: this.lineNumber,
+                lineStart: this.lineStart,
+                start: start,
+                end: this.index
+            };
         }
 
         if (Character.isIdentifierStart(this.source.charCodeAt(this.index)) || Character.isDecimalDigit(this.source.charCodeAt(this.index))) {
