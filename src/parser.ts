@@ -3612,6 +3612,14 @@ export class Parser {
             key = this.parseObjectPropertyKey(isPrivate);
             value = this.parseGeneratorMethod(isAsync);
             method = true;
+        } else if (token.type === Token.Punctuator && token.value === '[') {
+            kind = 'property';
+            computed = true;
+
+            if (this.match('=')) {
+                this.nextToken();
+                value = this.isolateCoverGrammar(this.parseAssignmentExpression);
+            }
         }
 
         if (!kind && key && this.match('(')) {

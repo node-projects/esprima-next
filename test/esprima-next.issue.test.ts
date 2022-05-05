@@ -55,3 +55,52 @@ test('esprima-next - #29 - assignment of class declaration fails on super keywor
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #28 - simple ; ', () => {
+    let code = `
+    class ComputedRefImpl {
+        ['a'+'b']=4;
+    }`;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
+
+test('esprima-next - #28 - Unexpected token ; ', () => {
+    let code = `
+    class ComputedRefImpl {
+        _setter;
+        _value;
+        _dirty = true;
+        effect;
+        __v_isRef = true;
+        ["__v_isReadonly" /* IS_READONLY */];
+        constructor(getter, _setter, isReadonly) {
+            this._setter = _setter;
+            this.effect = effect(getter, {
+                lazy: true,
+                scheduler: () => {
+                    if (!this._dirty) {
+                        this._dirty = true;
+                        trigger(toRaw(this), "set" /* SET */, 'value');
+                    }
+                }
+            });
+            this["__v_isReadonly" /* IS_READONLY */] = isReadonly;
+        }
+        get value() {
+            // the computed ref may get wrapped by other proxies e.g. readonly() #3376
+            const self = toRaw(this);
+            if (self._dirty) {
+                self._value = this.effect();
+                self._dirty = false;
+            }
+            track(self, "get" /* GET */, 'value');
+            return self._value;
+        }
+        set value(newValue) {
+            this._setter(newValue);
+        }
+    }`;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
