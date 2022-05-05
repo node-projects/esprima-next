@@ -49,3 +49,9 @@ class aa {
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #29 - assignment of class declaration fails on super keyword', () => {
+    let code = `e = class D extends Date { constructor() { super() } }`;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});

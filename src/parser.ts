@@ -3713,6 +3713,7 @@ export class Parser {
         if (this.matchKeyword('extends')) {
             this.nextToken();
             superClass = this.isolateCoverGrammar(this.parseLeftHandSideExpressionAllowCall);
+            this.context.allowSuper = true;
         }
         const classBody = this.parseClassBody();
         this.context.strict = previousStrict;
