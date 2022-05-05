@@ -3612,7 +3612,7 @@ export class Parser {
             key = this.parseObjectPropertyKey(isPrivate);
             value = this.parseGeneratorMethod(isAsync);
             method = true;
-        } else if (token.type === Token.Punctuator && token.value === '[') {
+        } else if (token.type === Token.Punctuator && token.value === '[' && !this.match('(')) {
             kind = 'property';
             computed = true;
 

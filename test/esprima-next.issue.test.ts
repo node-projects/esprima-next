@@ -65,6 +65,13 @@ test('esprima-next - #28 - simple ; ', () => {
     expect(ast).not.toBeNull();
 });
 
+test('esprima-next - #28 - simple 2; ', () => {
+    let code = `
+    class A {static ["prototype"](){}}`;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
+
 test('esprima-next - #28 - Unexpected token ; ', () => {
     let code = `
     class ComputedRefImpl {
