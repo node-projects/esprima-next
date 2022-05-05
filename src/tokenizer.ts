@@ -4,6 +4,18 @@ import { Token, TokenName } from './token';
 
 type ReaderEntry = string | null;
 
+const beforeFunctionExpressionTokens = [
+  '(', '{', '[', 'in', 'typeof', 'instanceof', 'new',
+  'return', 'case', 'delete', 'throw', 'void',
+  // assignment operators
+  '=', '+=', '-=', '*=', '**=', '/=', '%=', '<<=', '>>=', '>>>=',
+  '&=', '|=', '^=', ',',
+  // binary/unary operators
+  '+', '-', '*', '**', '/', '%', '++', '--', '<<', '>>', '>>>', '&',
+  '|', '^', '!', '~', '&&', '||', '??', '?', ':', '===', '==', '>=',
+  '<=', '<', '>', '!=', '!=='
+];
+
 interface BufferEntry {
     type: string;
     value: string;
@@ -27,15 +39,7 @@ class Reader {
 
     // A function following one of those tokens is an expression.
     beforeFunctionExpression(t: string): boolean {
-        return ['(', '{', '[', 'in', 'typeof', 'instanceof', 'new',
-            'return', 'case', 'delete', 'throw', 'void',
-            // assignment operators
-            '=', '+=', '-=', '*=', '**=', '/=', '%=', '<<=', '>>=', '>>>=',
-            '&=', '|=', '^=', ',',
-            // binary/unary operators
-            '+', '-', '*', '**', '/', '%', '++', '--', '<<', '>>', '>>>', '&',
-            '|', '^', '!', '~', '&&', '||', '??', '?', ':', '===', '==', '>=',
-            '<=', '<', '>', '!=', '!=='].indexOf(t) >= 0;
+        return beforeFunctionExpressionTokens.includes(t);
     }
 
     // Determine if forward slash (/) is an operator or part of a regular expression
