@@ -638,6 +638,7 @@ export class Scanner {
             case ']':
             case ':':
             case '~':
+            case '@':
                 ++this.index;
                 break;
 

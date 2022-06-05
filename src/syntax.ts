@@ -16,6 +16,7 @@ export enum Syntax {
     ClassExpression = 'ClassExpression',
     ConditionalExpression = 'ConditionalExpression',
     ContinueStatement = 'ContinueStatement',
+    Decorator = 'Decorator',
     DoWhileStatement = 'DoWhileStatement',
     DebuggerStatement = 'DebuggerStatement',
     EmptyStatement = 'EmptyStatement',

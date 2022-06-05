@@ -111,3 +111,36 @@ test('esprima-next - #28 - Unexpected token ; ', () => {
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #30 - Spread fails', () => {
+    let code = `
+    function a(args = {}) {
+        let { callbackOK, callbackERROR, ...argsWS } = args;
+
+    }`;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
+
+test('esprima-next - #32 - Decorators', () => {
+    let code = `
+@ClassDec
+class Test {
+    @MthDec
+    Mth1() {
+
+    }
+
+    @PropDec
+    Prop = 'Test'
+
+    @AccDec
+	get Prop2() {
+    	return 'a';
+    }
+}
+    `;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
+

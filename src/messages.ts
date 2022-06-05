@@ -40,6 +40,7 @@ export const Messages = {
     NoAsAfterImportNamespace: 'Unexpected token',
     NoAsAndFromEscapeSequences: 'The `as` and `from` contextual keywords must not contain Unicode escape sequences.',
     NoCatchOrFinally: 'Missing catch or finally after try',
+    NoSemicolonAfterDecorator: "Decorators must not be followed by a semicolon.",
     NumericSeperatorOneUnderscore: 'Numeric separator must be exactly one underscore',
     NumericSeperatorNotAllowedHere: 'Numeric separator is not allowed here',
     ParameterAfterRestParameter: 'Rest parameter must be last formal parameter',
