@@ -3935,7 +3935,6 @@ export class Parser {
         let specifiers: Node.ImportDeclarationSpecifier[] = [];
         if (this.lookahead.type === Token.StringLiteral) {
             // import 'foo';
-            import { MethodDefinition } from './nodes';
             src = this.parseModuleSpecifier();
         } else {
             if (this.match('{')) {
