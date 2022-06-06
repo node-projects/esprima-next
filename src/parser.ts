@@ -1,6 +1,7 @@
 import { assert } from './assert';
 import { Character } from './character';
 import { ErrorHandler, EsprimaError } from './error-handler';
+import { Nodes } from './esprima.js';
 import { Messages } from './messages';
 import * as Node from './nodes';
 import { Comment, RawToken, Scanner, SourceLocation } from './scanner';
@@ -36,6 +37,7 @@ interface Context {
     inClassConstructor: boolean;
     labelSet: any;
     strict: boolean;
+    decorators: Node.Decorator[] | null;
 }
 
 export interface Marker {
@@ -164,7 +166,8 @@ export class Parser {
             inSwitch: false,
             inClassConstructor: false,
             labelSet: {},
-            strict: false
+            strict: false,
+            decorators: null
         };
         this.tokens = [];
 
@@ -698,6 +701,13 @@ export class Parser {
                         this.nextToken();
                         expr = this.finalize(node, new Node.PrivateIdentifier(this.nextToken().value));
                         break;
+                    case "@":
+                        let decorators = this.parseDecorators();
+                        this.context.decorators = decorators;
+                        let expression = this.parsePrimaryExpression();
+                        this.context.decorators = null;
+                        expr = this.finalize(node, new Node.PrivateIdentifier(this.nextToken().value));
+                        break;
                     default:
                         expr = this.throwUnexpectedToken(this.nextToken());
                 }
@@ -975,8 +985,9 @@ export class Parser {
         const properties: Node.ObjectExpressionProperty[] = [];
         const hasProto = { value: false };
         while (!this.match('}')) {
-            properties.push(this.match('...') ? this.parseSpreadElement() : this.parseObjectProperty(hasProto));
-            if (!this.match('}')) {
+            const property = this.match('...') ? this.parseSpreadElement() : this.parseObjectProperty(hasProto);
+            properties.push(property);
+            if (!this.match('}') && (!(<Nodes.Property>property).method || this.match(','))) {
                 this.expectCommaSeparator();
             }
         }
@@ -3485,6 +3496,41 @@ export class Parser {
         return this.finalize(node, new Node.StaticBlock(block));
     }
 
+    parseDecorator(): Nodes.Decorator {
+        const node = this.createNode();
+
+        this.expect("@");
+        const previousStrict = this.context.strict;
+        const previousAllowYield = this.context.allowYield;
+        const previousIsAsync = this.context.isAsync;
+        this.context.strict = false;
+        this.context.allowYield = true;
+        this.context.isAsync = false;
+
+        const expression = this.isolateCoverGrammar(this.parseLeftHandSideExpressionAllowCall);
+        this.context.strict = previousStrict;
+        this.context.allowYield = previousAllowYield;
+        this.context.isAsync = previousIsAsync;
+
+        if (this.match(";")) {
+            this.throwError(Messages.NoSemicolonAfterDecorator);
+        }
+
+        return this.finalize(node, new Node.Decorator(expression));
+    }
+
+    parseDecorators(): Node.Decorator[] | null {
+        let decorators: Node.Decorator[] | null = null;
+
+        while (this.match("@")) {
+            if (decorators == null)
+                decorators = [];
+            decorators.push(this.parseDecorator());
+        }
+
+        return decorators;
+    }
+
     parseClassElement(hasConstructor): Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock {
         let token = this.lookahead;
         const node = this.createNode();
@@ -3499,6 +3545,11 @@ export class Parser {
         let isAsync = false;
         let isGenerator = false;
         let isPrivate = false;
+
+        const decorators = this.parseDecorators();
+        if (decorators) {
+            token = this.lookahead;
+        }
 
         if (this.match('*')) {
             this.nextToken();
@@ -3659,9 +3710,9 @@ export class Parser {
 
         if (kind === 'property') {
             this.consumeSemicolon();
-            return this.finalize(node, new Node.PropertyDefinition(<Node.PropertyKey>key, computed, value, isStatic));
+            return this.finalize(node, new Node.PropertyDefinition(<Node.PropertyKey>key, computed, value, isStatic, decorators));
         } else
-            return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic));
+            return this.finalize(node, new Node.MethodDefinition(key, computed, value, kind, isStatic, decorators));
     }
 
     parseClassElementList(): (Node.PropertyDefinition | Node.MethodDefinition | Node.StaticBlock)[] {
@@ -3707,7 +3758,7 @@ export class Parser {
         this.context.allowSuper = previousAllowSuper;
         this.context.strict = previousStrict;
 
-        return this.finalize(node, new Node.ClassDeclaration(id, superClass, classBody));
+        return this.finalize(node, new Node.ClassDeclaration(id, superClass, classBody, this.context.decorators));
     }
 
     parseClassExpression(): Node.ClassExpression {
@@ -3726,7 +3777,7 @@ export class Parser {
         const classBody = this.parseClassBody();
         this.context.strict = previousStrict;
 
-        return this.finalize(node, new Node.ClassExpression(id, superClass, classBody));
+        return this.finalize(node, new Node.ClassExpression(id, superClass, classBody, this.context.decorators));
     }
 
     // https://tc39.github.io/ecma262/#sec-scripts
@@ -3820,7 +3871,7 @@ export class Parser {
                 local = this.parseVariableIdentifier();
             }
         } else {
-            imported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
+            imported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier() : this.parseIdentifierName();
             local = imported;
             if (this.matchContextualKeyword('as')) {
                 this.nextToken();
@@ -3929,14 +3980,14 @@ export class Parser {
     parseExportSpecifier(): Node.ExportSpecifier {
         const node = this.createNode();
 
-        const local = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
+        const local = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier() : this.parseIdentifierName();
         let exported = local;
         if (this.matchContextualKeyword('as')) {
             if (this.lookahead.escaped) {
                 this.throwError(Messages.NoAsAndFromEscapeSequences);
             }
             this.nextToken();
-            exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
+            exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier() : this.parseIdentifierName();
         }
 
         return this.finalize(node, new Node.ExportSpecifier(local, exported));
@@ -3991,7 +4042,7 @@ export class Parser {
                     this.throwError(Messages.NoAsAndFromEscapeSequences);
                 }
                 this.nextToken();
-                exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier(): this.parseIdentifierName();
+                exported = this.lookahead.type == Token.StringLiteral ? this.parseModuleSpecifier() : this.parseIdentifierName();
             }
             if (!this.matchContextualKeyword('from')) {
                 const message = this.lookahead.value ? Messages.UnexpectedToken : Messages.MissingFromClause;

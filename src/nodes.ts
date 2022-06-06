@@ -213,11 +213,13 @@ export class ClassDeclaration {
     readonly id: Identifier | null;
     readonly superClass: Identifier | null;
     readonly body: ClassBody;
-    constructor(id: Identifier | null, superClass: Identifier | null, body: ClassBody) {
+    readonly decorators: Decorator[] | null;
+    constructor(id: Identifier | null, superClass: Identifier | null, body: ClassBody, decorators: Decorator[] | null) {
         this.type = Syntax.ClassDeclaration;
         this.id = id;
         this.superClass = superClass;
         this.body = body;
+        this.decorators = decorators;
     }
 }
 
@@ -226,11 +228,13 @@ export class ClassExpression {
     readonly id: Identifier | null;
     readonly superClass: Identifier | null;
     readonly body: ClassBody;
-    constructor(id: Identifier | null, superClass: Identifier | null, body: ClassBody) {
+    readonly decorators: Decorator[] | null;
+    constructor(id: Identifier | null, superClass: Identifier | null, body: ClassBody, decorators: Decorator[] | null) {
         this.type = Syntax.ClassExpression;
         this.id = id;
         this.superClass = superClass;
         this.body = body;
+        this.decorators = decorators;
     }
 }
 
@@ -260,6 +264,15 @@ export class DebuggerStatement {
     readonly type: Syntax.DebuggerStatement;
     constructor() {
         this.type = Syntax.DebuggerStatement;
+    }
+}
+
+export class Decorator {
+    readonly type: Syntax.Decorator;
+    readonly expression: Expression;
+    constructor(expression: Expression) {
+        this.type = Syntax.Decorator;
+        this.expression = expression;
     }
 }
 
@@ -586,13 +599,15 @@ export class MethodDefinition {
     readonly value: FunctionExpression | null;
     readonly kind: string;
     readonly static: boolean;
-    constructor(key: Expression | PrivateIdentifier | null, computed: boolean, value: FunctionExpression | null, kind: string, isStatic: boolean) {
+    readonly decorators: Decorator[] | null;
+    constructor(key: Expression | PrivateIdentifier | null, computed: boolean, value: FunctionExpression | null, kind: string, isStatic: boolean, decorators: Decorator[] | null) {
         this.type = Syntax.MethodDefinition;
         this.key = key;
         this.computed = computed;
         this.value = value;
         this.kind = kind;
         this.static = isStatic;
+        this.decorators = decorators;
     }
 }
 
@@ -681,12 +696,14 @@ export class PropertyDefinition {
     readonly computed: boolean;
     readonly value: PropertyValue | null;
     readonly static: boolean;
-    constructor(key: PropertyKey, computed: boolean, value: PropertyValue | null, isStatic: boolean) {
+    readonly decorators: Decorator[] | null
+    constructor(key: PropertyKey, computed: boolean, value: PropertyValue | null, isStatic: boolean, decorators: Decorator[] | null) {
         this.type = Syntax.Property;
         this.key = key;
         this.computed = computed;
         this.value = value;
         this.static = isStatic;
+        this.decorators = decorators;
     }
 }
 
