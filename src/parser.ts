@@ -985,8 +985,9 @@ export class Parser {
         const properties: Node.ObjectExpressionProperty[] = [];
         const hasProto = { value: false };
         while (!this.match('}')) {
-            properties.push(this.match('...') ? this.parseSpreadElement() : this.parseObjectProperty(hasProto));
-            if (!this.match('}')) {
+            const property = this.match('...') ? this.parseSpreadElement() : this.parseObjectProperty(hasProto);
+            properties.push(property);
+            if (!this.match('}') && (!(<Nodes.Property>property).method || this.match(','))) {
                 this.expectCommaSeparator();
             }
         }
@@ -3547,7 +3548,7 @@ export class Parser {
 
         const decorators = this.parseDecorators();
         if (decorators) {
-                token = this.lookahead;
+            token = this.lookahead;
         }
 
         if (this.match('*')) {
@@ -3934,6 +3935,7 @@ export class Parser {
         let specifiers: Node.ImportDeclarationSpecifier[] = [];
         if (this.lookahead.type === Token.StringLiteral) {
             // import 'foo';
+            import { MethodDefinition } from './nodes';
             src = this.parseModuleSpecifier();
         } else {
             if (this.match('{')) {
