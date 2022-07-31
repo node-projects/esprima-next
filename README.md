@@ -54,7 +54,7 @@ Esprima can be used to perform [lexical analysis](https://en.wikipedia.org/wiki/
 A simple example on Node.js REPL:
 
 ```javascript
-> var esprima = require('esprima');
+> var esprima = require('esprima-next');
 > var program = 'const answer = 42';
 
 > esprima.tokenize(program);
