@@ -1260,7 +1260,6 @@ export class Parser {
         let token = this.nextToken();
         if (token.value === '#' && allowPrivateField) {
             token = this.nextToken();
-            token.value = '#' + token.value;
             isPrivateField = true;
         }
         if (!this.isIdentifierName(token)) {
