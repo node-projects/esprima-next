@@ -197,3 +197,22 @@ test('esprima-next - #35 - top level await', () => {
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #36 - fixes after changes', () => {
+    let code = `
+    class aa {
+        static a(){} 
+        static 'b'(){} 
+        static 0(){} 
+        static [0](){}
+        static *c(){ yield; } 
+        static *"d"() { yield; } 
+        static *1(){ yield; } 
+        static *[1](){ yield; }
+        static var(){} 
+        static *in(){}
+    }
+    `;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});

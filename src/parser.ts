@@ -3625,7 +3625,7 @@ export class Parser {
         }
 
         const lookaheadPropertyKey = this.qualifiedPropertyName(this.lookahead);
-        if (token.type === Token.Identifier) {
+        if (token.type === Token.Identifier || token.type === Token.StringLiteral) {
             if (token.value === 'get' && lookaheadPropertyKey) {
                 kind = 'get';
                 if (this.match('#')) {
@@ -3665,14 +3665,6 @@ export class Parser {
         } else if (token.type === Token.Punctuator && token.value === '[' && !this.match('(')) {
             kind = 'property';
             computed = true;
-
-            if (this.match('=')) {
-                this.nextToken();
-                value = this.isolateCoverGrammar(this.parseAssignmentExpression);
-            }
-        } else if (token.type === Token.StringLiteral) {
-            kind = 'property';
-            computed = false;
 
             if (this.match('=')) {
                 this.nextToken();
