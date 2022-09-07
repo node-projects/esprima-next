@@ -1621,7 +1621,7 @@ export class Parser {
             }
             this.context.isAssignmentTarget = false;
             this.context.isBindingElement = false;
-        } else if (this.context.isAsync && this.matchContextualKeyword('await')) {
+        } else if (((this.context.isModule && !this.context.inFunctionBody) || this.context.isAsync) && this.matchContextualKeyword('await')) {
             expr = this.parseAwaitExpression();
         } else {
             expr = this.parseUpdateExpression();

@@ -162,3 +162,38 @@ test('esprima-next - #35 - Class Fields', () => {
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #35 - Private Fields', () => {
+    let code = `
+    class C1 {
+        #p_field = 0;
+        get #p_getter() {}
+        set #p_getter(v) {}
+        #p_method() {}
+
+        static #p_field1 = 0;
+        static get #p_getter1() {}
+        static set #p_getter1(v) {}
+        static #p_method1() {}
+
+        aa() {
+            let b = #p_field in this;
+        }
+        
+      }
+    `;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
+
+
+test('esprima-next - #35 - top level await', () => {
+    let code = `
+    await fetch('aa');
+    async function a() {
+        await fetch('aa')
+    }
+    `;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});
