@@ -147,10 +147,12 @@ class Test {
 
 test('esprima-next - #35 - Class Fields', () => {
     let code = `
+    var aa = 'hallo'
     class StaticPublicFieldClass {
         identifierFieldKey = 1;
         'quoted field key' = 2;
         ['aa' + 'bb'] = 3;
+        [aa] = 4;
 
         static identifierFieldKey = 1;
         static 'quoted field key' = 2;
