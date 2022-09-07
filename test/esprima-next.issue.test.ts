@@ -144,3 +144,19 @@ class Test {
     expect(ast).not.toBeNull();
 });
 
+
+test('esprima-next - #35 - Class Fields', () => {
+    let code = `
+    class StaticPublicFieldClass {
+        identifierFieldKey = 1;
+        'quoted field key' = 2;
+        ['aa' + 'bb'] = 3;
+
+        static identifierFieldKey = 1;
+        static 'quoted field key' = 2;
+        static ['aa' + 'bb'] = 3;
+      }
+    `;
+    let ast = parseModule(code);
+    expect(ast).not.toBeNull();
+});

@@ -3670,6 +3670,14 @@ export class Parser {
                 this.nextToken();
                 value = this.isolateCoverGrammar(this.parseAssignmentExpression);
             }
+        } else if (token.type === Token.StringLiteral) {
+            kind = 'property';
+            computed = false;
+
+            if (this.match('=')) {
+                this.nextToken();
+                value = this.isolateCoverGrammar(this.parseAssignmentExpression);
+            }
         }
 
         if (!kind && key && this.match('(')) {
