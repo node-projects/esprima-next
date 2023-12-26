@@ -128,7 +128,7 @@ export { Nodes };
 export { Syntax } from './syntax';
 
 // Sync with *.json manifests.
-export const version = '5.7.1';
+export const version = '5.9.0';
 
 export default {
     parse, parseModule, parseScript, tokenize, Syntax, version
