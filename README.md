@@ -41,7 +41,7 @@ following Pull reqs are merged from @esprima github:
 
 ### Features
 
-- Full support for ECMAScript 2019 ([ECMA-262 10th Edition](http://www.ecma-international.org/publications/standards/Ecma-262.htm))
+- Full support for ECMAScript 2022 ([ECMA-262 13th Edition](http://www.ecma-international.org/publications/standards/Ecma-262.htm))
 - Sensible [syntax tree format](https://github.com/estree/estree/blob/master/es5.md) as standardized by [ESTree project](https://github.com/estree/estree)
 - Experimental support for [JSX](https://facebook.github.io/jsx/), a syntax extension for [React](https://facebook.github.io/react/)
 - Optional tracking of syntax node location (index-based and line-column)
@@ -54,7 +54,7 @@ Esprima can be used to perform [lexical analysis](https://en.wikipedia.org/wiki/
 A simple example on Node.js REPL:
 
 ```javascript
-> var esprima = require('esprima-next');
+> import { esprima } from 'esprima-next';
 > var program = 'const answer = 42';
 
 > esprima.tokenize(program);
