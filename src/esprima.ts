@@ -127,8 +127,10 @@ export function tokenize(code: string, options?: Config, delegate?) {
 export { Nodes };
 export { Syntax } from './syntax';
 
+export { Visitor } from './visitor'
+
 // Sync with *.json manifests.
-export const version = '5.9.0';
+export const version = '6.0.0';
 
 export default {
     parse, parseModule, parseScript, tokenize, Syntax, version

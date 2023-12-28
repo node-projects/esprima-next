@@ -31,7 +31,8 @@ export type PropertyValue = AssignmentPattern | BindingIdentifier | BindingPatte
 
 export type Node = Program | Function | Statement | VariableDeclarator | Expression | Property | PropertyKey | Pattern | SwitchCase | CatchClause | MethodDefinition |
     Class | ClassBody | ImportDeclaration | ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier | ExportNamedDeclaration | ExportSpecifier |
-    ExportDefaultDeclaration | ExportAllDeclaration | TemplateElement | Super | ArgumentListElement;
+    ExportDefaultDeclaration | ExportAllDeclaration | TemplateElement | Super | ArgumentListElement | PropertyDefinition | StaticBlock | Decorator | ImportAttribute |
+    null;
 
 export class ArrayExpression {
     readonly type: Syntax.ArrayExpression;
