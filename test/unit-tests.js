@@ -23,105 +23,106 @@
 */
 
 'use strict';
+(async () => {
+    var esprima = import('../'),
+        evaluateTestCase = require('./utils/evaluate-testcase'),
+        createTestCases = require('./utils/create-testcases'),
+        errorToObject = require('./utils/error-to-object'),
+        fs = require('fs'),
+        path = require('path'),
+        diff = require('json-diff').diffString,
+        total = 0,
+        result,
+        failures = [],
+        cases = {},
+        context = { source: '', result: null },
+        tick = new Date(),
+        testCase,
+        header;
 
-var esprima = require('../'),
-    evaluateTestCase = require('./utils/evaluate-testcase'),
-    createTestCases = require('./utils/create-testcases'),
-    errorToObject = require('./utils/error-to-object'),
-    fs = require('fs'),
-    path = require('path'),
-    diff = require('json-diff').diffString,
-    total = 0,
-    result,
-    failures = [],
-    cases = {},
-    context = { source: '', result: null },
-    tick = new Date(),
-    testCase,
-    header;
+    function generateTestCase(testCase) {
+        var options, tree, filePath, fileName;
 
-function generateTestCase(testCase) {
-    var options, tree, filePath, fileName;
-
-    fileName = testCase.key + ".tree.json";
-    try {
-        options = {
-            jsx: true,
-            loc: true,
-            range: true,
-            tokens: true,
-            sourceType: testCase.key.match(/\.module$/) ? 'module' : 'script'
-        };
-        tree = esprima.parse(testCase.case, options);
-        tree = JSON.stringify(tree, null, 4);
-    } catch (e) {
-        if (typeof e.index === 'undefined') {
-            console.error("Failed to generate test result.");
-            throw e;
-        }
-        tree = errorToObject(e);
-        tree.description = e.description;
-        tree = JSON.stringify(tree);
-        fileName = testCase.key + ".failure.json";
-    }
-
-    filePath = path.join(__dirname, 'fixtures', fileName);
-    fs.writeFileSync(filePath, tree);
-    console.error("Done.");
-}
-
-cases = createTestCases();
-total = Object.keys(cases).length;
-
-Object.keys(cases).forEach(function (key) {
-    testCase = cases[key];
-
-    if (testCase.hasOwnProperty('tree')
-        || testCase.hasOwnProperty('tokens')
-        || testCase.hasOwnProperty('failure')
-        || testCase.hasOwnProperty('result')) {
-
+        fileName = testCase.key + ".tree.json";
         try {
-            evaluateTestCase(testCase);
+            options = {
+                jsx: true,
+                loc: true,
+                range: true,
+                tokens: true,
+                sourceType: testCase.key.match(/\.module$/) ? 'module' : 'script'
+            };
+            tree = esprima.parse(testCase.case, options);
+            tree = JSON.stringify(tree, null, 4);
         } catch (e) {
-            if (!e.expected) {
+            if (typeof e.index === 'undefined') {
+                console.error("Failed to generate test result.");
                 throw e;
             }
-
-            e.source = testCase.case || testCase.key;
-            failures.push(e);
+            tree = errorToObject(e);
+            tree.description = e.description;
+            tree = JSON.stringify(tree);
+            fileName = testCase.key + ".failure.json";
         }
 
-    } else {
-        console.error('Incomplete test case:' + testCase.key + '. Generating test result...');
-        generateTestCase(testCase);
+        filePath = path.join(__dirname, 'fixtures', fileName);
+        fs.writeFileSync(filePath, tree);
+        console.error("Done.");
     }
-});
 
-tick = (new Date()) - tick;
+    cases = createTestCases();
+    total = Object.keys(cases).length;
 
-header = total + ' tests. ' + failures.length + ' failures. ' + tick + ' ms';
+    Object.keys(cases).forEach(function (key) {
+        testCase = cases[key];
 
-if (failures.length) {
-    console.error(header);
-    failures.forEach(function (failure) {
-        var expectedObject, actualObject;
-        try {
-            expectedObject = JSON.parse(failure.expected);
-            actualObject = JSON.parse(failure.actual);
+        if (testCase.hasOwnProperty('tree')
+            || testCase.hasOwnProperty('tokens')
+            || testCase.hasOwnProperty('failure')
+            || testCase.hasOwnProperty('result')) {
 
-            console.error(failure.source + ': Expected\n    ' +
-                failure.expected.split('\n').join('\n    ') +
-                '\nto match\n    ' + failure.actual + '\nDiff:\n' +
-                diff(expectedObject, actualObject));
-        } catch (ex) {
-            console.error(failure.source + ': Expected\n    ' +
-                failure.expected.split('\n').join('\n    ') +
-                '\nto match\n    ' + failure.actual);
+            try {
+                evaluateTestCase(testCase);
+            } catch (e) {
+                if (!e.expected) {
+                    throw e;
+                }
+
+                e.source = testCase.case || testCase.key;
+                failures.push(e);
+            }
+
+        } else {
+            console.error('Incomplete test case:' + testCase.key + '. Generating test result...');
+            generateTestCase(testCase);
         }
     });
-} else {
-    console.log(header);
-}
 
-process.exit(failures.length === 0 ? 0 : 1);
+    tick = (new Date()) - tick;
+
+    header = total + ' tests. ' + failures.length + ' failures. ' + tick + ' ms';
+
+    if (failures.length) {
+        console.error(header);
+        failures.forEach(function (failure) {
+            var expectedObject, actualObject;
+            try {
+                expectedObject = JSON.parse(failure.expected);
+                actualObject = JSON.parse(failure.actual);
+
+                console.error(failure.source + ': Expected\n    ' +
+                    failure.expected.split('\n').join('\n    ') +
+                    '\nto match\n    ' + failure.actual + '\nDiff:\n' +
+                    diff(expectedObject, actualObject));
+            } catch (ex) {
+                console.error(failure.source + ': Expected\n    ' +
+                    failure.expected.split('\n').join('\n    ') +
+                    '\nto match\n    ' + failure.actual);
+            }
+        });
+    } else {
+        console.log(header);
+    }
+
+    process.exit(failures.length === 0 ? 0 : 1);
+})();

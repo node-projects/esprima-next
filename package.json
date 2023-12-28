@@ -3,13 +3,13 @@
   "description": "ECMAScript parsing infrastructure for multipurpose analysis",
   "homepage": "https://github.com/node-projects/esprima-next/",
   "main": "./dist/esprima.cjs",
-  "module": "./dist/esm/esprima.js",
-  "types": "./dist/esm/esprima.d.ts",
+  "module": "./dist/esprima.js",
+  "types": "./dist/esprima.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/esprima.js",
-      "import": "./dist/esm/esprima.js",
+      "require": "./dist/esprima.cjs",
+      "import": "./dist/esprima.js",
       "default": "./dist/esprima.js"
     }
   },
@@ -17,12 +17,11 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "5.9.0",
+  "version": "6.0.0",
   "files": [
     "bin",
-    "dist/esprima.cjs",
-    "dist/esm/esprima.js",
-    "dist/esm/esprima.d.ts"
+    "dist/esprima.js",
+    "dist/esprima.d.ts"
   ],
   "engines": {
     "node": ">=12"
@@ -65,17 +64,14 @@
     "regenerate": "~1.4.2",
     "replace-in-files-cli": "^2.2.0",
     "results-interpreter": "~1.0.0",
-    "rollup": "^4.9.1",
-    "rollup-plugin-dts": "^6.1.0",
     "temp": "~0.9.4",
     "test262-stream": "~1.4.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
     "typescript": "~5.3.3",
     "typescript-formatter": "~7.2.2",
-    "unicode-12.1.0": "^0.8.0",
-    "webpack": "~5.89.0",
-    "webpack-cli": "^5.1.4"
+    "unicode-12.1.0": "^0.8.0"
   },
   "keywords": [
     "ast",
@@ -86,6 +82,7 @@
     "syntax"
   ],
   "scripts": {
+    "tsup": "tsup src/esprima.ts --format cjs,esm --dts --clean",
     "prepare": "test -f esprima/dist/esprima.js || npm run test",
     "check-version": "node test/check-version.js",
     "lint-code": "eslint src/*.ts",
@@ -106,7 +103,7 @@
     "check-coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100",
     "dynamic-analysis": "npm run analyze-coverage && npm run check-coverage",
     "watch": "tsc --project src/es.tsconfig.json --watch",
-    "compile": "tsc --build src/es.tsconfig.json && rollup -c && tsc --build src/cjs.tsconfig.json && webpack && node tools/fixupbundle.cjs",
+    "compile": "npm run tsup",
     "test": "npm run compile && npm run all-tests && npm run jest",
     "jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "testOld": "npm run compile && npm run all-tests && npm run static-analysis && npm run dynamic-analysis",
