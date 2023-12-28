@@ -1,5 +1,5 @@
-import * as nodes from './nodes.js'
-import { Syntax } from './syntax.js';
+import * as nodes from './nodes'
+import { Syntax } from './syntax';
 
 export class Visitor {
     visit(node: nodes.Node) {
