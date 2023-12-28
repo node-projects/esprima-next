@@ -23,7 +23,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x]
 
     steps:
     - run: git config --global core.autocrlf false
