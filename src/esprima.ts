@@ -130,7 +130,7 @@ export { Syntax } from './syntax';
 export { Visitor } from './visitor'
 
 // Sync with *.json manifests.
-export const version = '6.0.0';
+export const version = '6.0.1';
 
 export default {
     parse, parseModule, parseScript, tokenize, Syntax, version

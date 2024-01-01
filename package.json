@@ -17,11 +17,13 @@
     "esparse": "./bin/esparse.js",
     "esvalidate": "./bin/esvalidate.js"
   },
-  "version": "6.0.0",
+  "version": "6.0.1",
   "files": [
     "bin",
     "dist/esprima.js",
-    "dist/esprima.d.ts"
+    "dist/esprima.d.ts",
+    "dist/esprima.cjs",
+    "dist/esprima.d.cts"
   ],
   "engines": {
     "node": ">=12"
