@@ -1342,21 +1342,27 @@ export class Parser {
         this.expectKeyword('import');
         this.expect("(");
 
+        var previousIsAssignmentTarget = this.context.isAssignmentTarget;
+        this.context.isAssignmentTarget = true;
+
         const source = this.parseAssignmentExpression();
 
         let attributes: Node.Expression | null = null;
         if (this.match(",")) {
             this.nextToken();
-            attributes = this.parseObjectInitializer();
+            if (!this.match(")"))
+                attributes = this.parseAssignmentExpression();
         }
 
-        if (!this.match(")") && this.config.tolerant) {
-            this.tolerateUnexpectedToken(this.nextToken());
-        } else {
-            this.expect(")");
-            if (this.match(";")) {
+        this.context.isAssignmentTarget = previousIsAssignmentTarget;
+
+        if (!this.match(")")) {
+            if (this.match(",")) {
                 this.nextToken();
             }
+            this.expect(")");
+        } else {
+            this.nextToken();
         }
         return this.finalize(node, new Node.ImportExpression(source, attributes));
     }

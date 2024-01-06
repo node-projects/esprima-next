@@ -216,3 +216,11 @@ test('esprima-next - #36 - fixes after changes', () => {
     let ast = parseModule(code);
     expect(ast).not.toBeNull();
 });
+
+test('esprima-next - #38 - Error with await import and the following statement on the same line', () => {
+    let code = `async function load (i) {
+        let c = await import(i,);  console.log(c);
+      }`;
+    let ast = parseModule(code, { loc: true, range:true, tokens:true });
+    expect(ast).not.toBeNull();
+});
