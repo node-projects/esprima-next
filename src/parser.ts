@@ -1487,7 +1487,7 @@ export class Parser {
         }
         this.context.allowIn = previousAllowIn;
         if (hasOptional) {
-            return new Node.ChainExpression(expr);
+            expr = this.finalize(this.startNode(startToken), new Node.ChainExpression(expr));
         }
 
         return expr;
@@ -1556,7 +1556,7 @@ export class Parser {
             }
         }
         if (hasOptional) {
-            return new Node.ChainExpression(expr);
+            expr = this.finalize(node, new Node.ChainExpression(expr));
         }
 
         return expr;
